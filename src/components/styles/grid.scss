@@ -1,0 +1,22 @@
+.row {
+    width: 100%;    
+    margin: 0;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+$breakpoints: ('sm': $breakpoint-small, 'md': $breakpoint-medium, 'lg': $breakpoint-large, 'xl': $breakpoint-extra);
+
+@each $classPrefix,$breakpoint in $breakpoints {
+    @media #{$breakpoint} {
+        .row {            
+            max-width: $grid-max-width;
+        }
+        @for $i from 1 through $grid-columns {
+            .col-#{$classPrefix}-#{$i} {
+                flex-basis: 100% / $grid-columns * $i;
+                box-sizing: border-box;
+            }
+        }
+    }
+}
