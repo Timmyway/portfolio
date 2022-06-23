@@ -1,0 +1,311 @@
+%abstract-wrapper {
+	box-shadow: $shadowPrimary;
+	max-width: 1100px;
+	margin: 0 auto;
+	padding: 1.5rem 1rem;
+	border-radius: 8px 0 8px 0;
+}
+%abstract-flex-center {
+	display: flex; align-items: center; justify-content: center;
+}
+// Section
+.wrapper-grid {
+	box-sizing: inherit;		
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: repeat(5, auto);
+	grid-template-areas: "header-form"
+						 "header-heading"
+						 "textbloc"
+						 "arg-1"
+						 "arg-2"
+						 "arg-3";
+	// grid-gap: 1rem;
+	.grid-item-nav {
+		grid-area: nav;		
+		display: none;
+	}
+
+	.grid-item-heading {
+		// background: rgba(49,63,198,0.7);
+		grid-area: header-heading;		
+		box-sizing: inherit;		
+		padding: 1rem;
+		text-align: center;		
+		.heading-textbloc {			
+			margin: 3rem;
+			padding: 1.5rem;			
+			border-radius: 48px 48px 0 0;
+		}
+		&::after {
+			content: "";
+			clip-path: polygon(0px 35%, 100% 15%, 100% 100%, 0% 100%);
+			background-color: rgb(4, 177, 241);
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			z-index: -1;
+		}
+	}
+	.grid-item-form {
+		grid-area: header-form;
+		background-image: url($assets + '/images/bg.png');
+  		background-repeat: no-repeat;
+		background-size: cover;
+		// clip-path: polygon(0 0, 100% 0%, 100% 90%, 0% 100%);
+		.form-wrapper {
+			background: rgba(207, 221, 230,0.9);
+			padding: 1rem 1rem;
+			box-shadow: $shadowPrimary;
+		}		
+	}
+	.grid-item-textbloc {
+		position: relative;
+		grid-area: textbloc;
+		background: $variantSecondaryColor;
+		// &:before {
+		// 	content: '';
+		// 	background-image: url('../images/logo-rge.svg');
+		// 	background-size: 240px 240px;
+		// 	position: absolute;
+		// 	display: none;
+		// 	width: 240px; 
+		// 	height: 240px;
+		// 	top: -10%;
+		// 	left: 5%;
+		// 	border-radius: 50%;
+		// 	@include mq('xxl') {
+		// 		display: inline-block;
+		// 	}
+		// }
+		p {
+			color: #333;
+		}
+	}
+	.grid-item-arg-1 {
+		grid-area: arg-1;
+		.wrapper {
+			@extend %abstract-wrapper;
+		}
+	}
+	.grid-item-arg-2 {
+		grid-area: arg-2;
+		.wrapper {
+			@extend %abstract-wrapper;
+		}
+	}
+	.grid-item-arg-3 {
+		grid-area: arg-3;
+		background: $variantSecondaryColor;
+	}
+
+	@include mq('xl') {
+		/* Tablet and up */		
+		grid-template-columns: 40% 16rem;
+		justify-content: center;
+		grid-template-rows: 60px repeat(4, auto);
+		grid-template-areas: "nav nav"
+							 "header-heading header-form"
+							 "textbloc textbloc"
+							 "arg-1 arg-1"
+							 "arg-2 arg-2"
+							 "arg-3 arg-3";		
+		.grid-item-nav {
+			display: flex;
+		}
+		.grid-item-heading {
+			text-align: left;
+			padding: 1.5rem;
+		}
+	}
+}		
+
+.lp-header {	
+	box-sizing: border-box;	
+	padding: 0;
+	background-image: url($assets + '/images/header.jpg');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;	
+	// border-top: 0.5rem solid $secondaryColor;
+	border-bottom: 0.5rem solid $secondaryColor;	
+	p {		
+		font-size: 1.2rem;
+		color: darken($themeColor, 5%);		
+	}		
+
+	@include mq('lg') {					
+		p {			
+			font-size: 1.3rem;
+			max-width: $contentMaxSize / 1.5
+		}
+	}
+	@include mq('xl') {		
+		p {
+			font-size: 1.5rem; 
+			max-width: $contentMaxSize
+		}
+	}
+}
+
+// Section B
+.section-b {		
+	.inner {
+		color: $themeColor;
+		// height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: flex-start;
+		text-align: center;
+		margin: auto;
+		max-width: $contentMaxSize;
+		padding: 5rem 0;
+		h3 {
+			font-size: 1.2rem;
+		}
+		h2 {
+			font-size: 2rem;
+		}
+		p {
+			font-size: 1rem;			
+		}
+	}
+	@include mq('xl') {		
+		.inner {
+			h3 {
+				font-size: 2.5rem; 				
+			}
+			h2 {
+				font-size: 4rem; 
+			}
+			p {
+				font-size: 1.5rem;
+				line-height: 2;
+			}
+		}		
+	}
+}
+
+/* LP section: text-image-cta */
+.text-image-cta {
+	display: grid;
+	grid-template-areas: "tic-image"
+						 "tic-text"
+						 "tic-btn";
+	gap: 5rem;	
+	text-align: center;
+	.text-image-cta__area-image {
+		grid-area: tic-image;
+	}
+	.text-image-cta__area-btn {
+		grid-area: tic-btn;
+	}
+	.text-image-cta__area-text {
+		grid-area: tic-text;
+		text-align: center;
+	}
+	@include mq('lg') {
+		text-align: left;
+		grid-template-areas: "tic-image tic-text"
+		"tic-btn tic-text" ;
+	}
+}
+
+/* End LP section */
+
+.bg-filter {
+	background:rgba(0,0,0,0.4);
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: -1;		
+}
+
+.birthdate-module {
+	@extend .container;
+}
+
+.ticket {
+	box-shadow: $shadowSecondary;
+	max-width: pixToRem(280);
+	border-radius: 4px;
+	font-size: 2rem;
+	padding: 1rem 0.5rem;
+	margin: 0 auto;	
+	display: block;
+}
+
+.pannel {
+	box-sizing: border-box;	
+	box-shadow: $shadowPrimary;
+	padding: 10px 15px;
+	&--x {
+		margin: 15px 0;
+	}
+}
+
+/* Footer */
+footer {
+	.bloctel {		
+		font-size: 1.5rem;
+		text-align: center;
+	}
+}
+
+h4.stylish-heading {
+	// background: $primaryColor;
+	border-bottom: 4px solid $variantPrimaryColor;
+	color: $variantPrimaryColor;
+	border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;		
+	padding: 0.5rem 1rem;
+	max-width: 480px; 
+	text-align: center; 
+	margin-left: auto; margin-right: auto;
+	margin-bottom: 1.5rem;
+}
+
+.go-top {
+	width: 50px; height: 50px;
+	@extend %abstract-flex-center;
+	background: $secondaryColor;	
+	padding: 0.5rem;
+	border-radius: 50%;
+	position: fixed;
+	bottom: 1%;
+	right: 1%;
+	i {color: $reverseThemeColor;}
+}
+
+.adv-container {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.adv-thumbnail {
+	max-width: 20rem;
+	display: flex; flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	&__img {
+		width: 20rem;
+	}
+	img {
+		width: 100%;
+		box-shadow: $shadowPrimary;
+		border-radius: 8px 8px 0 0;
+		opacity: .8;
+		&:hover {
+			opacity: 1;
+		}
+	}
+	&__action {
+		display: block;
+		background: $primaryColor;
+		a {
+			display: block;
+			@extend .btn;
+		}
+	}
+}

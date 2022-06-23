@@ -1,0 +1,47 @@
+.header {
+    &__logo {        
+        width: 24rem;
+        position: absolute;
+        top: 1%; left: 1%;
+        .logo {            
+            width: 100%;
+        }
+    }
+    .wrapper {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-areas: "form"
+                              "text-bloc";
+        margin-left: 0;
+        position: relative;        
+        @include mq('lg') {
+            grid-template-columns: 58% 40%;
+            grid-template-areas: "text-bloc form";
+            max-width: 100%;
+        }
+    }
+    &__textblock {
+        max-width: 80%;
+        @include mq('lg') {
+            padding-left: 8rem;
+        }
+    }
+    &__form {
+        grid-area: form;        
+    }
+    &__text {
+        grid-area: text-bloc;
+        display: flex;
+        padding: 0;        
+        background: rgba(246, 251, 191, 0.7);        
+        @include mq('md') {
+            text-align: left;
+            max-width: 72rem;
+            max-height: 45rem;
+        }
+        @include mq('lg') {
+            margin-top: 10rem;
+            max-width: 80rem;
+        }
+    }    
+} 

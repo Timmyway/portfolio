@@ -1,0 +1,127 @@
+// Sass variables:
+$theme: 'dark';
+// Colors ---------------------------------------
+$primaryColor: #23022E!default;
+$secondaryColor: #E4572E!default;
+$jokerColor: #67E09F!default;
+$variantPrimaryColor: #fc3a67!default;
+$variantSecondaryColor: #f1f1f1!default;
+$variantJokerColor: #e0f2ff!default;
+// Notification colors
+$successColor: #2FBF71!default;
+$infoColor: #FED159!default;
+$warningColor: #ffab3cea!default;
+$dangerColor: #F24236!default;
+$disabledColor: rgba(225, 225, 225, 0.7);
+// Overlay
+$overlayLightColor: rgba(255, 255, 255, 0.7);
+$overlayDarkColor: rgba(0, 0, 0, 0.7);
+
+// Theme color
+$darkColor: #122112;
+$lightColor: #FFFFFF;
+$themeColor: if($theme == 'dark', $lightColor, $darkColor);
+$reverseThemeColor: if($theme == 'dark', $darkColor, $lightColor);
+$leadTextColor: if($theme == 'dark', darken(white, 60%), lighten(black, 60%));
+
+$linkColor: ('normal': $reverseThemeColor, 
+	'visited': if($theme == 'dark', #eee, #333), 
+	'hover': if($theme == 'dark', lighten($lightColor, 15%), darken($darkColor, 15%)), 
+	'active': lighten(black, 10%)
+);
+
+$neutralColor: #6B7280!default;
+$checkedColor: #EF4444!default;
+
+$marginSuccess: 15px;
+$marginError: 25px;
+// Notification colors
+$primaryColorAccent: lighten($primaryColor, 60%);
+
+// TYPOGRAPHY
+$textSizes: ('xs': 16, 'md': 32, 'lg': 48, 'xl': 60, '2xl': 72, '3xl': 84, '4xl': 96, '5xl': 108, '6xl': 120, '7xl': 132, '8xl': 144, '9xl': 156, '10xl': 168);
+$textMaxSize: 4rem;
+$textIncrementRatio: 0.2;
+$shadowPrimary: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px!default;
+$shadowSecondary: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px!default;
+$lighterText: rbg(111,111,111)!default;
+$lightText: #FFFFFF!default;
+$darkText: rgb(30,30,30)!default;
+$darkTextAccent: rgb(71,78,93)!default;
+
+$colors: ('primary': $primaryColor,
+	'secondary': $secondaryColor,
+	'joker': $jokerColor,
+	'primary--variant': $variantPrimaryColor,
+	'secondary--variant': $variantSecondaryColor,
+	'joker--variant': $variantJokerColor,
+	// usual colors
+	'white': #FFFFFF,
+	'black': #000000,
+	// Notification colors	
+	'success': $successColor,
+	'info': $infoColor,	
+	'warning': $warningColor,
+	'danger': $dangerColor,
+	// Theme colors
+	'theme': $themeColor,
+	'theme-contrast': $reverseThemeColor,
+	'dark': $darkColor,
+	'light': $lightColor,	
+	'transparent': transparent,
+	'disabled': $disabledColor
+);
+
+$baseBtnSize: 1rem;
+$formHeight: 48px;
+$formIconPadding: 48px;
+
+// Fonts:
+$primaryFont: 'Noto Serif', sans-serif;
+$secondaryFont: 'Noto Serif', sans-serif;
+
+// Padding & margin
+$padRatio: 0.6rem;
+$blockPadding: 15px;
+
+// Block sizing
+$contentMaxSize: 860px;
+
+// Position
+$positions: 'left', 'right', 'center', 'justify';
+
+// CONTAINER / BLOC / LAYOUT
+$screenMinWidth: 360;
+$containerPadding: 1rem 1.5rem;
+
+$deviceBreakpoints: (
+	'xs':  361px,
+	'sm':  576px,
+	'md':   768px,
+	'lg':  992px,
+	'xl':   1200px,
+	'xxl':   1400px ) !default;
+$breakpointsMax: (
+	'xs':  'max-width: 361px',
+	'sm':  'max-width: 576px',
+	'md':   'max-width: 768px',
+	'lg':  'max-width:  992px',
+	'xl':   'max-width: 1200px',
+	'xxl':   'max-width: 1400px' ) !default;
+$breakpointsMin: (
+	'xs':  'min-width: 361px',
+	'sm':  'min-width: 576px',
+	'md':   'min-width:  768px',
+	'lg':  'min-width:  992px',
+	'xl':   'min-width: 1200px',
+	'xxl':   'min-width: 1400px' ) !default;
+
+$bodyMinWidth: 360px;
+$flexCommons: normal, flex-start, flex-end, center, start, end, safe, unsafe;
+$flexDirection: row, row-reverse, column, column-reverse;
+$flexJustify: (normal, flex-start, flex-end, center, start, end, safe, unsafe, left, right, space-between, space-around, space-evenly, stretch);
+$flexAlignItems: (normal, flex-start, flex-end, center, start, end, safe, unsafe, self-start, self-end, baseline);
+$alignements: (left, right, center);
+
+// Images
+$iconSizes: ('xxs': 16, 'xs': 22, 'sm': 32, 'md': 48, 'lg': 64, 'xl': 128, 'xxl': 256);

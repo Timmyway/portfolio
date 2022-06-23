@@ -1,0 +1,39 @@
+.ry-card {
+    background-color: $primaryColor;
+    padding: 4rem;
+    border: 2px solid yellow;
+    color: $themeColor;
+    @include mq('md') {
+        border: 2px solid green;
+    };
+    @include mq('xxl') {
+        border: 2px solid purple;
+    };    
+    &__image {
+        border: 2px solid red;
+        padding: 2rem 20rem;
+        img {
+            width: 100%;
+        }
+        
+    }
+    &__title {
+        font-size: 4rem;    
+    }
+
+    &__text {
+        font-size: 2rem;    
+    }
+}
+
+// .ry-card__image {
+//     width: 100%;
+// }
+
+// .ry-card__title {
+//     font-size: 4rem;    
+// }
+
+// .ry-card__text {
+//     font-size: 2rem;    
+// }
