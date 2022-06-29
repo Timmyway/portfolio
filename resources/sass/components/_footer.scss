@@ -3,6 +3,7 @@
 	width: 100%;
 	line-height: 1.7; /* Vertically center the text there */
 	padding: 5px;
+	background-color: $primaryColor; color: $themeColor;
 	&__container {
 		width: 100%;
 		max-width: 1200px;
@@ -12,6 +13,7 @@
 		padding: 15px 0;		
 	}
 	&__column {
+		display: flex; flex-direction: column;
 		padding: 0.5rem;
 		margin: 0 1rem;
 		

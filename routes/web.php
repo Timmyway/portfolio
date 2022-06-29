@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+Route::get('/contact', function() {
+    return Redirect::to('/');
 });
+Route::get('/about', function() {
+    return Redirect::to('/');
+});
+
+// Route::get('/{url}', function($url) {
+//     return Redirect::to('/');
+// });
+
+require __DIR__.'/auth.php';

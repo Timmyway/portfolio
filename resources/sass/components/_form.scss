@@ -1,13 +1,13 @@
 %abstract-form-control {	
 	border: 1px solid #dddfe2;
-    border-radius: 8px;
+    border-radius: 6px;
     width: 95%;
 	box-sizing: border-box;
 	width: 100%;
 	// border-radius: 40px;
 	// height: 48px;
 	// margin-bottom: 5px;
-	font-size: 1.5rem !important;
+	font-size: 1.2rem !important;
 	padding: 14px 6px;
 	// box-shadow: $shadowPrimary; 
 	border: 1px solid rgb(181, 191, 194);
@@ -47,14 +47,13 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="password
 	box-shadow: none!important;	
 	z-index: 1;
 	background-color: transparent;
-	position: relative;	
+	position: relative;		
 	& + label {
 		position: absolute;
-		top: 3.1rem; left: 4%;
+		top: 2.5rem; left: 4%;
 		transform: translate(0, -50%);
 		font-size: 1.4rem;
-		font-weight: normal;
-		color: $reverseThemeColor;		
+		font-weight: normal;		
 		transition: .2s ease-out;
 	}
 	&:focus {
@@ -69,8 +68,7 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="password
 		left: 1%;
 		font-weight: bold;
 		font-size: 1.2rem;
-		margin-bottom: 1rem;
-		color: rgb(17, 112, 156);
+		margin-bottom: 1rem;		
 	}
 
 	&:focus, &.has-value {
@@ -84,10 +82,14 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="password
 	transform: none; 
 }
 
-.lp-form {		
+.ti-form {
 	position: relative;
+	padding: 1rem;
+	box-shadow: $shadowSecondary;
+	max-width: 640px;
+	margin: 0 auto;
 	.error-msg {
-		background: rgba(239, 45, 86, 0.9);
+		background: rgb(250, 114, 76);
 		// z-index: 999999;
 		color: white;
 		width: 100%;
@@ -124,11 +126,11 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="password
 	}	
 
 	.is-valid input, .is-valid select {
-	    background: rgb(128,255, 186) !important;
+	    background: rgb(222, 255, 237) !important;
 	}
 
 	.is-not-valid input, .is-not-valid select {
-	    background: $dangerColor !important;
+	    background: rgb(255, 229, 222) !important;
 	}
 
 	.is-clean {

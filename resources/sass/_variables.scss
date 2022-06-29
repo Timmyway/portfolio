@@ -1,9 +1,9 @@
 // Sass variables:
 $theme: 'dark';
 // Colors ---------------------------------------
-$primaryColor: #23022E!default;
-$secondaryColor: #E4572E!default;
-$jokerColor: #67E09F!default;
+$primaryColor: #2E294E!default;
+$secondaryColor: #FCE762!default;
+$jokerColor: #BCD979!default;
 $variantPrimaryColor: #fc3a67!default;
 $variantSecondaryColor: #f1f1f1!default;
 $variantJokerColor: #e0f2ff!default;
@@ -24,7 +24,7 @@ $themeColor: if($theme == 'dark', $lightColor, $darkColor);
 $reverseThemeColor: if($theme == 'dark', $darkColor, $lightColor);
 $leadTextColor: if($theme == 'dark', darken(white, 60%), lighten(black, 60%));
 
-$linkColor: ('normal': $reverseThemeColor, 
+$linkColor: ('normal': $themeColor, 
 	'visited': if($theme == 'dark', #eee, #333), 
 	'hover': if($theme == 'dark', lighten($lightColor, 15%), darken($darkColor, 15%)), 
 	'active': lighten(black, 10%)

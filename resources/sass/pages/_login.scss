@@ -1,0 +1,17 @@
+.login-form {
+    max-width: 640px;
+    width: 100%;
+    background-color: $primaryColor;    
+    color: $themeColor;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 40%; left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1rem;
+    box-shadow: $shadowPrimary;
+    border-radius: 12px 4px 12px 4px;
+    img.t-logo {
+        width: 120px;                
+    }
+}

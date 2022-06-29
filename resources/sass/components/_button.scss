@@ -19,6 +19,9 @@
 		box-shadow: none;		
 		padding: 0;
 	}
+	&-sm {
+		padding: 0.3rem 0.6rem!important;
+	}
 	&:hover {
 		opacity: .9;
 	}
@@ -28,10 +31,10 @@
 }
 
 $btnFontSizeBase: 0.9;
-$btnPaddingBase: 0.8;
+$btnPaddingBase: 0.6;
 $sizeRatios: (
 	'xs': 1, 
-	'sm': 1.59, // +159% 
+	'sm': 1.2, // +159% 
 	'md': 2.1, // +213%
 	'lg': 2.75, // +275%
 	'xl': 3.32, // +332%

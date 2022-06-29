@@ -41,6 +41,10 @@ label, span, p {
 	font-size: 1.2rem;
 }
 
+.ti-link {
+	
+}
+
 // General rules for H1 to H6 heading tags
 $textIncrementSize: $textMaxSize;
 @for $i from 1 through 6 {	

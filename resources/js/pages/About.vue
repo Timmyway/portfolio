@@ -1,0 +1,100 @@
+<template>
+<div class="container-fluid">
+    <section>
+        <Hero 
+            title="Bienvenue sur mon portefolio" 
+            subtitle="Ici, je partage avec vous ma passion pour le WEB. Mais je vous montre également les technologies que j'utilise au quotidien." 
+            src="https://images.unsplash.com/photo-1623946724822-ba48a838f3da?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+        ></Hero>
+        <h4 class="text-lg text-center">A propos de moi</h4>
+        <div class="container-xxl">
+            <p>
+                Je suis Tim, développeur fullstack autodidacte et passionné du WEB. J'ai commencé mon aventure en 2016, en apprennant le langage de programmation Python, et depuis je ne peux plus m'arrêter de coder.
+                J'adore créer des sites et applications permettant de résoudre des problématiques.<br>
+                Quand je ne suis pas en train de coder, j'essaye au maximum de profiter de mes proches. Enfin, mon équipe de foot préférée est le ... Ah désolé, je suis trop bavard. Je ne t'ennuie pas plus longtemps. 😊
+            </p>
+            <div class="spacer"></div>
+            <article>
+                <Cards 
+                    :cards="languages" 
+                    identifier="languages" 
+                    title="Languages"
+                    card-width="200px"
+                    h-align="center"
+                ></Cards>
+                <Cards 
+                    :cards="frameworks" 
+                    identifier="frameworks" 
+                    title="Frameworks"
+                    card-width="200px"
+                    h-align="center"
+                ></Cards>
+                <Cards 
+                    :cards="tools" 
+                    identifier="tools" 
+                    title="Tools"
+                    card-width="200px"
+                    h-align="center"
+                ></Cards>
+                <Cards 
+                    :cards="databases" 
+                    identifier="databases" 
+                    title="Databases"
+                    card-width="200px"
+                    h-align="center"
+                ></Cards>
+            </article>
+            <div class="spacer"></div>
+        </div>
+    </section>
+</div>
+</template>
+
+<script>
+import Hero from '../components/Hero.vue';
+import Cards from '../components/Cards.vue';
+// import useVuelidate from '@vuelidate/core';
+import MdTextfield from '../components/MdTextfield.vue';
+import useValidation from '../composables/useValidation';
+
+export default {
+    inject: ['$siteURL'],
+    components: {
+        Hero,
+        Cards,
+        MdTextfield
+    }, 
+    setup() {        
+        const { v$, form, validationData } = useValidation();
+        return { v$, form, validationData };
+    },
+    data() {
+        return {
+            languages: [
+                {"id": 1, "label": "PHP", "src": "images/icons/php-icon.png"},
+                {"id": 2, "label": "Python", "src": "images/icons/py-icon.png"},
+                {"id": 3, "label": "Javascript", "src": "images/icons/js-icon.png"},
+                
+            ],
+            frameworks: [
+                {"id": 1, "label": "Laravel", "src": "images/icons/laravel-icon.png"},                
+                {"id": 3, "label": "Flask", "src": "images/icons/flask-icon.png"},
+                {"id": 4, "label": "VueJS", "src": "images/icons/vue-icon.png"}
+            ],
+            tools: [
+                {"id": 1, "label": "Sass", "src": "images/icons/sass-icon.png"},
+                {"id": 2, "label": "Webpack", "src": "images/icons/webpack-icon.png"},
+                {"id": 3, "label": "Adobe XD", "src": "images/icons/adobexd-icon.png"},
+            ],
+            databases: [
+                {"id": 1, "label": "SQL", "src": "images/icons/sql-icon.png"},
+                {"id": 2, "label": "MongoDB", "src": "images/icons/mongodb-icon.png"},
+            ]
+        }
+    }    
+}
+</script>
+
+<style>
+
+</style>

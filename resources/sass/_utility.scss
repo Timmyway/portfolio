@@ -93,8 +93,8 @@ $padSize: 0;
     .pr-#{$i} {padding-right: $padSize;}
     .pt-#{$i} {padding-top: $padSize;}
     .pb-#{$i} {padding-bottom: $padSize;}
-    .px-#{$i} {padding: 0 ($padSize / 2);}
-    .py-#{$i} {padding: ($padSize / 2) 0;}
+    .px-#{$i} {padding: 0 $padSize;}
+    .py-#{$i} {padding: $padSize 0;}
 
     .ma-#{$i} {margin: $padSize;}
     .ml-#{$i} {margin-left: $padSize;}
@@ -102,7 +102,7 @@ $padSize: 0;
     .mt-#{$i} {margin-top: $padSize;}
     .mb-#{$i} {margin-bottom: $padSize;}
     .mx-#{$i} {margin: 0 ($padSize / 2);}
-    .my-#{$i} {margin: ($padSize / 2) 0;}
+    .my-#{$i} {margin: $padSize 0;}
     $padSize: $padSize + $padRatio;
 }
 
@@ -118,10 +118,10 @@ $padSize: 0;
 }
 
 .spacer {
-	margin-top: 40px; /* define margin as you see fit */
-	height: 100px;
-    &-sm {
-        height: 50px;
+    height: 1px;    
+    padding: 20px 0;    
+    @include mq('lg') {        
+        padding: 30px 0;             
     }
 }
 

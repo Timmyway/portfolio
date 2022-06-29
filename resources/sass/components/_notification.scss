@@ -10,3 +10,14 @@
     &--br {bottom: 0; right: 0}
     &--bl {bottom: 0; left: 0}
 }
+
+.badge {
+    padding: .4rem 1rem;
+    display: block;
+    border-radius: 4px;
+    font-size: .9rem;
+    display: flex; align-items: center;
+    &__icon {
+        margin-right: 1rem;
+    }
+}
