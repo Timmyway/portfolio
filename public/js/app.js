@@ -25081,7 +25081,7 @@ if (true) {
   app.provide('$siteURL', "http://laravel-timmyway-portfolio.herokuapp.com/");
 } else {}
 
-app.provide('$googleCaptchaClientKey', "6Lc86bMgAAAAAIisiJ8arrE1dMhGLK7ziHlLJ9S0");
+app.provide('$googleCaptchaClientKey', "6Lf1A7QgAAAAAEq-sqtzrGaW8JbCCuzhNhfZlrDd");
 app.use(router);
 app.mount('#app');
 
