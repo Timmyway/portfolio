@@ -76,8 +76,7 @@
             <p v-if="isSent" class="text-md thanks__msg">
                 Merci pour votre message.
             </p>
-        </div>
-        Captcha key : {{captchaKey}}
+        </div>    
     </section>
 </div>
 </template>
@@ -119,7 +118,7 @@ export default {
             }, timeout);
         }        
         
-        return { v$, form, validationData, errors, siteURL, flashMsg, isSent };
+        return { v$, form, validationData, errors, siteURL, flashMsg, isSent, captchaKey };
     },
     computed: {
         isOkForSending() {            
