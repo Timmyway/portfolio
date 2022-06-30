@@ -94,6 +94,7 @@ export default {
     },  
     setup() {
         const siteURL = inject('$siteURL');
+        const captchaKey = inject('$googleCaptchaClientKey');
         const { v$, form, validationData } = useValidation();
 
         const errors = reactive({msg: '', data: {}});
@@ -103,7 +104,7 @@ export default {
         onMounted(() => {
             grecaptcha.ready(function() {
                 grecaptcha.render("recaptcha-container", {
-                    "sitekey": "6LdToqwgAAAAADVrh7JOmD8qjh-B4SmA856ZW-dm"
+                    "sitekey": captchaKey
                 });
             });
         })

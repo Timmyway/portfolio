@@ -24171,6 +24171,7 @@ var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
   },
   setup: function setup() {
     var siteURL = (0,vue__WEBPACK_IMPORTED_MODULE_2__.inject)('$siteURL');
+    var captchaKey = (0,vue__WEBPACK_IMPORTED_MODULE_2__.inject)('$googleCaptchaClientKey');
 
     var _useValidation = (0,_composables_useValidation__WEBPACK_IMPORTED_MODULE_1__["default"])(),
         v$ = _useValidation.v$,
@@ -24185,7 +24186,7 @@ var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
     (0,vue__WEBPACK_IMPORTED_MODULE_2__.onMounted)(function () {
       grecaptcha.ready(function () {
         grecaptcha.render("recaptcha-container", {
-          "sitekey": "6LdToqwgAAAAADVrh7JOmD8qjh-B4SmA856ZW-dm"
+          "sitekey": captchaKey
         });
       });
     });
@@ -25016,6 +25017,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_Contact__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/Contact */ "./resources/js/pages/Contact.vue");
 /* harmony import */ var _pages_About__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/About */ "./resources/js/pages/About.vue");
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm-bundler.js");
+/* provided dependency */ var process = __webpack_require__(/*! process/browser.js */ "./node_modules/process/browser.js");
 
  // import useVuelidate from '@vuelidate/core'
 // import { required } from '@vuelidate/validators'
@@ -25079,6 +25081,7 @@ if (true) {
   app.provide('$siteURL', "http://laravel-timmyway-portfolio.herokuapp.com/");
 } else {}
 
+app.provide('$googleCaptchaClientKey', process.env.MIX_GOOGLE_CAPTCHA_CLIENT_KEY);
 app.use(router);
 app.mount('#app');
 

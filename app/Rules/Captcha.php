@@ -25,7 +25,7 @@ class Captcha implements Rule
      */
     public function passes($attribute, $value)
     {
-        $secretKey = '6LdToqwgAAAAABs7sXo64YQ-6mbu7bv5UDs7nBvL';
+        $secretKey = env('GOOGLE_CAPTCHA_KEY');
         $response = $value;
         $userIP = $_SERVER['REMOTE_ADDR'];
         $url = "https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$response&remoteip=$userIP";

@@ -59,6 +59,7 @@ if (process.env.MIX_APP_ENV === 'prod') {
 } else {
     app.provide('$siteURL', 'http://127.0.0.1:8000/');
 }
+app.provide('$googleCaptchaClientKey', process.env.MIX_GOOGLE_CAPTCHA_CLIENT_KEY);
 
 app.use(router);
 
