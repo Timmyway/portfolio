@@ -39,7 +39,7 @@
                 </div>
 
                 <!-- Google recaptcha -->
-                <div class="g-recaptcha" data-sitekey="6LdToqwgAAAAADVrh7JOmD8qjh-B4SmA856ZW-dm"></div>
+                <div id="recaptcha-container"></div>
 
                 <br>
                 <button 
@@ -86,7 +86,7 @@
 import MdTextfield from '../components/MdTextfield.vue';
 import useValidation from '../composables/useValidation';
 const axios = require('axios');
-import { inject, reactive, ref } from 'vue';
+import { inject, onMounted, reactive, ref } from 'vue';
 
 export default {    
     components: {
@@ -99,6 +99,14 @@ export default {
         const errors = reactive({msg: '', data: {}});
 
         let isSent = ref(localStorage.getItem('isSent') ? localStorage.getItem('isSent') : false);
+
+        onMounted(() => {
+            grecaptcha.ready(function() {
+                grecaptcha.render("recaptcha-container", {
+                    "sitekey": "6LdToqwgAAAAADVrh7JOmD8qjh-B4SmA856ZW-dm"
+                });
+            });
+        })
 
         function flashMsg(notif, msg='', timeout=8000) {
             console.log(notif.data);

@@ -24182,6 +24182,13 @@ var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
       data: {}
     });
     var isSent = (0,vue__WEBPACK_IMPORTED_MODULE_2__.ref)(localStorage.getItem('isSent') ? localStorage.getItem('isSent') : false);
+    (0,vue__WEBPACK_IMPORTED_MODULE_2__.onMounted)(function () {
+      grecaptcha.ready(function () {
+        grecaptcha.render("recaptcha-container", {
+          "sitekey": "6LdToqwgAAAAADVrh7JOmD8qjh-B4SmA856ZW-dm"
+        });
+      });
+    });
 
     function flashMsg(notif) {
       var msg = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
@@ -24745,8 +24752,7 @@ var _hoisted_6 = {
 };
 
 var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "g-recaptcha",
-  "data-sitekey": "6LdToqwgAAAAADVrh7JOmD8qjh-B4SmA856ZW-dm"
+  id: "recaptcha-container"
 }, null, -1
 /* HOISTED */
 );
