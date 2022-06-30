@@ -25074,7 +25074,11 @@ function capitalize(str) {
 app.provide('templateDatas', window.templateDatas);
 app.provide('$axios', (axios__WEBPACK_IMPORTED_MODULE_1___default()));
 app.provide('$capitalize', capitalize);
-app.provide('$siteURL', 'http://127.0.0.1:8000/');
+
+if (false) {} else {
+  app.provide('$siteURL', 'http://127.0.0.1:8000/');
+}
+
 app.use(router);
 app.mount('#app');
 

@@ -54,7 +54,11 @@ function capitalize(str) {
 app.provide('templateDatas', window.templateDatas);
 app.provide('$axios', axios);
 app.provide('$capitalize', capitalize);
-app.provide('$siteURL', 'http://127.0.0.1:8000/');
+if (process.env.MIX_APP_ENV === 'prod') {
+    app.provide('$siteURL', process.env.MIX_APP_URL);
+} else {
+    app.provide('$siteURL', 'http://127.0.0.1:8000/');
+}
 
 app.use(router);
 
