@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use App\Rules\Captcha;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Request;
 
@@ -19,40 +20,27 @@ class ContactController extends Controller
             'zipcode' => '',
             'city' => '',
             'msg' => ['max:1000', 'string'],
-            'g-recaptcha-response' => function ($attribute, $value, $fail) {
-                $secretKey = '6LdToqwgAAAAABs7sXo64YQ-6mbu7bv5UDs7nBvL';
-                $response = $value;
-                $userIP = $_SERVER['REMOTE_ADDR'];
-                $url = "URL: https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$response&remoteip=$userIP";
-                $response = \file_get_contents($url);
-                $response = json_decode($response);
-                
-                if (!$response->success) {
-                    $fail($attribute.'google reCaptcha failed');                    
-                }                
-            }            
+            'g-recaptcha-response' => [new Captcha]
         ];
     }
 
     public function sendMessage(Request $request)
     {
-        $postDatas = $this->validate($request, $this->validations);
+        $validatedData = $this->validate($request, $this->validations);
         // Create a new contact
 
         $contact = new Contact;
         
-        $contact->firstname = $postDatas['firstname'];
-        $contact->lastname = $postDatas['lastname'];
-        $contact->email = $postDatas['email'];
-        $contact->phone = $postDatas['phone'];
-        $contact->msg = $postDatas['msg'];
-        $contact->zipcode = $postDatas['zipcode'];
-        $contact->city = $postDatas['city'];
+        $contact->firstname = $validatedData['firstname'];
+        $contact->lastname = $validatedData['lastname'];
+        $contact->email = $validatedData['email'];
+        $contact->phone = $validatedData['phone'];
+        $contact->msg = $validatedData['msg'];
+        $contact->zipcode = Null;
+        $contact->city = Null;
         $contact->ip_address = $request->ip();
 
-        // $contact->save();
-
-        return ($postDatas);
+        $contact->save();        
         
         return response()->json(['response' => 'Message saved']);
     }

@@ -2,27 +2,31 @@
 <div class="container-fluid">
     <section class="mt-4 container-xxl">
         <h4 class="text-lg text-center">Contact me</h4>
-        <div class="ti-form">            
+        <div class="ti-form" v-if="!isSent">            
             <form>
                 <MdTextfield
                     label="Lastname *" field="lastname" type="text"
                     v-model:value="form.lastname"
                     :validator="v$"
+                    name="lastname"
                 ></MdTextfield>
                 <MdTextfield
                     label="Firstname *" field="firstname"
                     v-model:value="form.firstname"
-                    :validator="v$"                    
+                    :validator="v$"
+                    name="firstname"
                 ></MdTextfield>
                 <MdTextfield
                     label="Email *" field="email" type="email"
                     v-model:value="form.email"
-                    :validator="v$"                    
+                    :validator="v$"
+                    name="email"
                 ></MdTextfield>
                 <MdTextfield
                     label="Phone" field="phone" type="tel"
                     v-model:value="form.phone"
-                    :validator="v$"                    
+                    :validator="v$"
+                    name="phone"
                 ></MdTextfield>
                 <div class="workspace">
                     <div class="workspace__counter">{{ form.msg.length }}</div>
@@ -30,11 +34,20 @@
                         class="form-control mb-2" 
                         cols="30" rows="10" v-model="form.msg"
                         placeholder="Tu peux me laisser un message, je serai ravis de le lire. (5 caractères minimum)"
+                        name="msg"
                     ></textarea>
                 </div>
+
+                <!-- Google recaptcha -->
                 <div class="g-recaptcha" data-sitekey="6LdToqwgAAAAADVrh7JOmD8qjh-B4SmA856ZW-dm"></div>
+
                 <br>
-                <button class="btn" :class="[isOkForSending ? 'btn-success' : 'btn-disabled']" @click.prevent="submit">Contacter</button>
+                <button 
+                    v-if="!isSent"
+                    class="btn" type="submit" 
+                    :class="[isOkForSending ? 'btn-success' : 'btn-disabled']"
+                    @click.prevent="submit"
+                >Contacter</button>                
                 <br>
 
                 <!-- Error messages from backend -->
@@ -59,6 +72,11 @@
                 </div>
             </form>
         </div>
+        <div v-else class="thanks">
+            <p v-if="isSent" class="text-md thanks__msg">
+                Merci pour votre message.
+            </p>
+        </div>
     </section>
 </div>
 </template>
@@ -68,7 +86,7 @@
 import MdTextfield from '../components/MdTextfield.vue';
 import useValidation from '../composables/useValidation';
 const axios = require('axios');
-import { inject, reactive } from 'vue';
+import { inject, reactive, ref } from 'vue';
 
 export default {    
     components: {
@@ -80,6 +98,8 @@ export default {
 
         const errors = reactive({msg: '', data: {}});
 
+        let isSent = ref(localStorage.getItem('isSent') ? localStorage.getItem('isSent') : false);
+
         function flashMsg(notif, msg='', timeout=8000) {
             console.log(notif.data);
             notif.data = [];
@@ -87,9 +107,9 @@ export default {
             setTimeout(() => {
                 notif.data = [];
             }, timeout);
-        }
+        }        
         
-        return { v$, form, validationData, errors, siteURL, flashMsg };
+        return { v$, form, validationData, errors, siteURL, flashMsg, isSent };
     },
     computed: {
         isOkForSending() {            
@@ -108,6 +128,7 @@ export default {
                 this.flashMsg(this.errors, {'client error': ['Les champs : nom, prénom et email sont requis. Vérifier que votre message comporte au moins 10 caractères. Merci']});
                 return;
             }
+            this.isSent = false;
             const payload = {
                 firstname: this.form.firstname,
                 lastname: this.form.lastname,
@@ -115,18 +136,24 @@ export default {
                 phone: this.form.phone,
                 msg: this.form.msg,
                 city: null,
-                zipcode: null
-
+                zipcode: null,
+                "g-recaptcha-response": grecaptcha.getResponse()
             }
             axios.post(this.siteURL + 'api/message', payload)
             .then((response) => {
                 console.log(response.data);
+                if (response.data.response === 'Message saved') {
+                    this.isSent = true;
+                    localStorage.setItem('isSent', true);
+                    // window.location.href = `${this.siteURL}`;
+                }
             })
             .catch((err) => {
                 if(err.response) {                    
                     if (err.response.status == 422) {
+                        this.isSent = false;                        
                         this.errors.data = err.response.data;
-                        this.errors.msg = err.response.data.message;                        
+                        this.errors.msg = err.response.data.message;
                     }
                 }                
             })        

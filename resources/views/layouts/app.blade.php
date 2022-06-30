@@ -12,27 +12,24 @@
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     </head>
-    <body>
-        <div>
-            @include('layouts.navigation')
+    <body>       
+        @include('layouts.navigation')
 
-            <!-- Page Content -->
-            <main id="app">
-                @yield('content')
-            </main>
-            <footer class="footer">
-                <div class="footer__container">
-                    <div class="footer__column">
-                        <span>&copy; Timmyway {{ date("Y") }}</span>
-                        <a class="ti-link text-theme" href="https://github.com/Timmyway" target="_blank">
-                            <span>Retrouvez moi sur Github<span>                                
-                        </a>
-                    </div>
+        <!-- Page Content -->
+        <main id="app">
+            @yield('content')
+        </main>
+        <footer class="footer">
+            <div class="footer__container">
+                <div class="footer__column">
+                    <span>&copy; Timmyway {{ date("Y") }}</span>
+                    <a class="ti-link text-theme" href="https://github.com/Timmyway" target="_blank">
+                        <span>Retrouvez moi sur Github<span>                                
+                    </a>
                 </div>
-            </footer>
-        </div>
-
-        <script src="https://www.google.com/recaptcha/api.js"></script>
+            </div>
+        </footer>        
     </body>
 </html>

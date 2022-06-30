@@ -6,6 +6,7 @@
         <input
             type="text" 
             class="m-form-control"
+            :name="name"
             :class="[value ? 'has-value' : '']"
             v-model="value"
             @keyup="$emit('update:value', value)"
@@ -32,6 +33,9 @@ export default {
     name: 'MdTextfield',
     inject: ['$capitalize'],    
     props: {
+        name: {
+            type: String
+        },
         field: {
             type: String
         },
@@ -46,9 +50,9 @@ export default {
             type: Object
         }
     },
-    setup() {
+    setup(props) {
         const { validationData } = useValidation();
-        const value = ref('');
+        let value = ref('');                
 
         return { validationData, value }
     }

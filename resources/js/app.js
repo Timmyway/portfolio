@@ -8,7 +8,7 @@ import About from './pages/About';
 import { createRouter, createWebHistory } from 'vue-router';
 
 const routes = [
-    { path: '/', component: Contact },
+    { path: '/', component: Home },
     { path: '/about', component: About },
     { path: '/contact', component: Contact }
 ]

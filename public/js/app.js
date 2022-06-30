@@ -24018,6 +24018,9 @@ __webpack_require__.r(__webpack_exports__);
   name: 'MdTextfield',
   inject: ['$capitalize'],
   props: {
+    name: {
+      type: String
+    },
     field: {
       type: String
     },
@@ -24032,7 +24035,7 @@ __webpack_require__.r(__webpack_exports__);
       type: Object
     }
   },
-  setup: function setup() {
+  setup: function setup(props) {
     var _useValidation = (0,_composables_useValidation__WEBPACK_IMPORTED_MODULE_0__["default"])(),
         validationData = _useValidation.validationData;
 
@@ -24178,6 +24181,7 @@ var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
       msg: '',
       data: {}
     });
+    var isSent = (0,vue__WEBPACK_IMPORTED_MODULE_2__.ref)(localStorage.getItem('isSent') ? localStorage.getItem('isSent') : false);
 
     function flashMsg(notif) {
       var msg = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
@@ -24196,7 +24200,8 @@ var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
       validationData: validationData,
       errors: errors,
       siteURL: siteURL,
-      flashMsg: flashMsg
+      flashMsg: flashMsg,
+      isSent: isSent
     };
   },
   computed: {
@@ -24220,6 +24225,7 @@ var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
         return;
       }
 
+      this.isSent = false;
       var payload = {
         firstname: this.form.firstname,
         lastname: this.form.lastname,
@@ -24227,13 +24233,20 @@ var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
         phone: this.form.phone,
         msg: this.form.msg,
         city: null,
-        zipcode: null
+        zipcode: null,
+        "g-recaptcha-response": grecaptcha.getResponse()
       };
       axios.post(this.siteURL + 'api/message', payload).then(function (response) {
         console.log(response.data);
+
+        if (response.data.response === 'Message saved') {
+          _this.isSent = true;
+          localStorage.setItem('isSent', true); // window.location.href = `${this.siteURL}`;
+        }
       })["catch"](function (err) {
         if (err.response) {
           if (err.response.status == 422) {
+            _this.isSent = false;
             _this.errors.data = err.response.data;
             _this.errors.msg = err.response.data.message;
           }
@@ -24554,11 +24567,12 @@ __webpack_require__.r(__webpack_exports__);
 var _hoisted_1 = {
   "class": "m-form-group"
 };
-var _hoisted_2 = {
+var _hoisted_2 = ["name"];
+var _hoisted_3 = {
   key: 0,
   "class": "error-msg"
 };
-var _hoisted_3 = {
+var _hoisted_4 = {
   "class": "error-msg__text"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -24567,6 +24581,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     type: "text",
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["m-form-control", [$setup.value ? 'has-value' : '']]),
+    name: $props.name,
     "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
       return $setup.value = $event;
     }),
@@ -24578,16 +24593,16 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
       return $props.validator[$props.field].$touch && (_$props$validator$$pr = $props.validator[$props.field]).$touch.apply(_$props$validator$$pr, arguments);
     })
-  }, null, 34
-  /* CLASS, HYDRATE_EVENTS */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.value]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.label), 1
+  }, null, 42
+  /* CLASS, PROPS, HYDRATE_EVENTS */
+  , _hoisted_2), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.value]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.label), 1
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(vue__WEBPACK_IMPORTED_MODULE_0__.Transition, {
     "enter-active-class": "animate__animated animate__flipInX",
     "leave-active-class": "animate__animated animate__flipOutX"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [$props.validator[$props.field]['valid' + $options.$capitalize($props.field)].$invalid && $props.validator[$props.field].$dirty ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.validationData[$props.field].msg), 1
+      return [$props.validator[$props.field]['valid' + $options.$capitalize($props.field)].$invalid && $props.validator[$props.field].$dirty ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.validationData[$props.field].msg), 1
       /* TEXT */
       )])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
     }),
@@ -24719,6 +24734,7 @@ var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 );
 
 var _hoisted_4 = {
+  key: 0,
   "class": "ti-form"
 };
 var _hoisted_5 = {
@@ -24758,10 +24774,18 @@ var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 var _hoisted_12 = {
   "class": "badge__text"
 };
+var _hoisted_13 = {
+  key: 1,
+  "class": "thanks"
+};
+var _hoisted_14 = {
+  key: 0,
+  "class": "text-md thanks__msg"
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_MdTextfield = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("MdTextfield");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_MdTextfield, {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_2, [_hoisted_3, !$setup.isSent ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_MdTextfield, {
     label: "Lastname *",
     field: "lastname",
     type: "text",
@@ -24769,7 +24793,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "onUpdate:value": _cache[0] || (_cache[0] = function ($event) {
       return $setup.form.lastname = $event;
     }),
-    validator: $setup.v$
+    validator: $setup.v$,
+    name: "lastname"
   }, null, 8
   /* PROPS */
   , ["value", "validator"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_MdTextfield, {
@@ -24779,7 +24804,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "onUpdate:value": _cache[1] || (_cache[1] = function ($event) {
       return $setup.form.firstname = $event;
     }),
-    validator: $setup.v$
+    validator: $setup.v$,
+    name: "firstname"
   }, null, 8
   /* PROPS */
   , ["value", "validator"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_MdTextfield, {
@@ -24790,7 +24816,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "onUpdate:value": _cache[2] || (_cache[2] = function ($event) {
       return $setup.form.email = $event;
     }),
-    validator: $setup.v$
+    validator: $setup.v$,
+    name: "email"
   }, null, 8
   /* PROPS */
   , ["value", "validator"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_MdTextfield, {
@@ -24801,7 +24828,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "onUpdate:value": _cache[3] || (_cache[3] = function ($event) {
       return $setup.form.phone = $event;
     }),
-    validator: $setup.v$
+    validator: $setup.v$,
+    name: "phone"
   }, null, 8
   /* PROPS */
   , ["value", "validator"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.form.msg.length), 1
@@ -24813,17 +24841,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
       return $setup.form.msg = $event;
     }),
-    placeholder: "Tu peux me laisser un message, je serai ravis de le lire. (5 caractères minimum)"
+    placeholder: "Tu peux me laisser un message, je serai ravis de le lire. (5 caractères minimum)",
+    name: "msg"
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.form.msg]])]), _hoisted_7, _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.form.msg]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Google recaptcha "), _hoisted_7, _hoisted_8, !$setup.isSent ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("button", {
+    key: 0,
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["btn", [$options.isOkForSending ? 'btn-success' : 'btn-disabled']]),
+    type: "submit",
     onClick: _cache[5] || (_cache[5] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
       return $options.submit && $options.submit.apply($options, arguments);
     }, ["prevent"]))
   }, "Contacter", 2
   /* CLASS */
-  ), _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Error messages from backend "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.errors.data, function (error, index) {
+  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Error messages from backend "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.errors.data, function (error, index) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
       key: "error-".concat(index, "-").concat(error)
     }, [_typeof(error) === 'object' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
@@ -24840,7 +24871,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
   }), 128
   /* KEYED_FRAGMENT */
-  ))])])])])]);
+  ))])])])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_13, [$setup.isSent ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_14, " Merci pour votre message. ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]))])]);
 }
 
 /***/ }),
@@ -24989,7 +25020,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var routes = [{
   path: '/',
-  component: _pages_Contact__WEBPACK_IMPORTED_MODULE_3__["default"]
+  component: _pages_Home_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
 }, {
   path: '/about',
   component: _pages_About__WEBPACK_IMPORTED_MODULE_4__["default"]
