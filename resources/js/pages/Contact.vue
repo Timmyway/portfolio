@@ -77,6 +77,7 @@
                 Merci pour votre message.
             </p>
         </div>
+        Captcha key : {{captchaKey}}
     </section>
 </div>
 </template>
