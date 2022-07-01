@@ -139,7 +139,8 @@ h6 {
 }
 
 .text-underline-primary {
-  text-decoration: underline #2E294E;
+  -webkit-text-decoration: underline #2E294E;
+          text-decoration: underline #2E294E;
 }
 
 .bg-secondary {
@@ -158,7 +159,8 @@ h6 {
 }
 
 .text-underline-secondary {
-  text-decoration: underline #FCE762;
+  -webkit-text-decoration: underline #FCE762;
+          text-decoration: underline #FCE762;
 }
 
 .bg-joker {
@@ -177,7 +179,8 @@ h6 {
 }
 
 .text-underline-joker {
-  text-decoration: underline #BCD979;
+  -webkit-text-decoration: underline #BCD979;
+          text-decoration: underline #BCD979;
 }
 
 .bg-primary--variant {
@@ -196,7 +199,8 @@ h6 {
 }
 
 .text-underline-primary--variant {
-  text-decoration: underline #fc3a67;
+  -webkit-text-decoration: underline #fc3a67;
+          text-decoration: underline #fc3a67;
 }
 
 .bg-secondary--variant {
@@ -215,7 +219,8 @@ h6 {
 }
 
 .text-underline-secondary--variant {
-  text-decoration: underline #f1f1f1;
+  -webkit-text-decoration: underline #f1f1f1;
+          text-decoration: underline #f1f1f1;
 }
 
 .bg-joker--variant {
@@ -234,7 +239,8 @@ h6 {
 }
 
 .text-underline-joker--variant {
-  text-decoration: underline #e0f2ff;
+  -webkit-text-decoration: underline #e0f2ff;
+          text-decoration: underline #e0f2ff;
 }
 
 .bg-white {
@@ -253,7 +259,8 @@ h6 {
 }
 
 .text-underline-white {
-  text-decoration: underline #FFFFFF;
+  -webkit-text-decoration: underline #FFFFFF;
+          text-decoration: underline #FFFFFF;
 }
 
 .bg-black {
@@ -272,7 +279,8 @@ h6 {
 }
 
 .text-underline-black {
-  text-decoration: underline #000000;
+  -webkit-text-decoration: underline #000000;
+          text-decoration: underline #000000;
 }
 
 .bg-success {
@@ -291,7 +299,8 @@ h6 {
 }
 
 .text-underline-success {
-  text-decoration: underline #2FBF71;
+  -webkit-text-decoration: underline #2FBF71;
+          text-decoration: underline #2FBF71;
 }
 
 .bg-info {
@@ -310,7 +319,8 @@ h6 {
 }
 
 .text-underline-info {
-  text-decoration: underline #FED159;
+  -webkit-text-decoration: underline #FED159;
+          text-decoration: underline #FED159;
 }
 
 .bg-warning {
@@ -329,7 +339,8 @@ h6 {
 }
 
 .text-underline-warning {
-  text-decoration: underline rgba(255, 171, 60, 0.9176470588);
+  -webkit-text-decoration: underline rgba(255, 171, 60, 0.9176470588);
+          text-decoration: underline rgba(255, 171, 60, 0.9176470588);
 }
 
 .bg-danger {
@@ -348,7 +359,8 @@ h6 {
 }
 
 .text-underline-danger {
-  text-decoration: underline #F24236;
+  -webkit-text-decoration: underline #F24236;
+          text-decoration: underline #F24236;
 }
 
 .bg-theme {
@@ -367,7 +379,8 @@ h6 {
 }
 
 .text-underline-theme {
-  text-decoration: underline #FFFFFF;
+  -webkit-text-decoration: underline #FFFFFF;
+          text-decoration: underline #FFFFFF;
 }
 
 .bg-theme-contrast {
@@ -386,7 +399,8 @@ h6 {
 }
 
 .text-underline-theme-contrast {
-  text-decoration: underline #122112;
+  -webkit-text-decoration: underline #122112;
+          text-decoration: underline #122112;
 }
 
 .bg-dark {
@@ -405,7 +419,8 @@ h6 {
 }
 
 .text-underline-dark {
-  text-decoration: underline #122112;
+  -webkit-text-decoration: underline #122112;
+          text-decoration: underline #122112;
 }
 
 .bg-light {
@@ -424,7 +439,8 @@ h6 {
 }
 
 .text-underline-light {
-  text-decoration: underline #FFFFFF;
+  -webkit-text-decoration: underline #FFFFFF;
+          text-decoration: underline #FFFFFF;
 }
 
 .bg-transparent {
@@ -443,7 +459,8 @@ h6 {
 }
 
 .text-underline-transparent {
-  text-decoration: underline transparent;
+  -webkit-text-decoration: underline transparent;
+          text-decoration: underline transparent;
 }
 
 .bg-disabled {
@@ -462,7 +479,8 @@ h6 {
 }
 
 .text-underline-disabled {
-  text-decoration: underline rgba(225, 225, 225, 0.7);
+  -webkit-text-decoration: underline rgba(225, 225, 225, 0.7);
+          text-decoration: underline rgba(225, 225, 225, 0.7);
 }
 
 .logo--x {
@@ -525,11 +543,21 @@ h6 {
 }
 
 .observed-circle {
-  animation: pulse 1s ease-out alternate;
+  -webkit-animation: pulse 1s ease-out alternate;
+          animation: pulse 1s ease-out alternate;
 }
 
 .observed-circle.not-visible {
   opacity: 0;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes pulse {
@@ -1602,6 +1630,7 @@ h6 {
 }
 
 .sticky-top {
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
 }
@@ -2531,7 +2560,9 @@ h6 {
   font-size: 2.5rem !important;
 }
 .range-slider__input {
-  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
   margin-top: 29px;
   width: 100%;
   max-width: 600px;
@@ -3107,6 +3138,7 @@ h1, h2, h3 {
 .tooltips__header {
   display: flex;
   align-items: center;
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
   cursor: pointer;

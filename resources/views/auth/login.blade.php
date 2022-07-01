@@ -15,22 +15,26 @@
                     <div class="pa-5">
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
-                            <div class="m-form-group mb-2">
+                            <div class="form-group mb-2">
+                                <label class="mb-1" for="field-email">Email *</label>
                                 <input 
+                                    id="field-email"
                                     type="email" 
-                                    class="m-form-control"                     
+                                    class="form-control"
                                     name="email"
-                                >
-                                <label>Email *</label>
+                                    placeholder="Entrez votre adresse email"
+                                >                                
                             </div>
 
-                            <div class="m-form-group mb-2">
+                            <div class="form-group mb-2">
+                                <label class="mb-1" for="field-password">Password *</label>
                                 <input 
+                                    id="field-password"
                                     type="password" 
-                                    class="m-form-control"
+                                    class="form-control"
                                     name="password"
-                                >
-                                <label>Password *</label>
+                                    placeholder="Entrez votre mot de passe"
+                                >                                
                             </div>
 
                             <input type="submit" class="btn btn-info text-theme-contrast" value="Login">
