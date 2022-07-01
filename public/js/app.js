@@ -25018,7 +25018,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_Contact__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/Contact */ "./resources/js/pages/Contact.vue");
 /* harmony import */ var _pages_About__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/About */ "./resources/js/pages/About.vue");
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm-bundler.js");
-/* provided dependency */ var process = __webpack_require__(/*! process/browser.js */ "./node_modules/process/browser.js");
 
  // import useVuelidate from '@vuelidate/core'
 // import { required } from '@vuelidate/validators'
@@ -25078,11 +25077,9 @@ app.provide('templateDatas', window.templateDatas);
 app.provide('$axios', (axios__WEBPACK_IMPORTED_MODULE_1___default()));
 app.provide('$capitalize', capitalize);
 
-if (process.env.MIX_APP_ENV === 'prod') {
-  app.provide('$siteURL', process.env.MIX_APP_URL);
-} else {
-  app.provide('$siteURL', 'http://127.0.0.1:8000/');
-}
+if (true) {
+  app.provide('$siteURL', "http://laravel-timmyway-portfolio.herokuapp.com/");
+} else {}
 
 app.provide('$googleCaptchaClientKey', "6LdToqwgAAAAADVrh7JOmD8qjh-B4SmA856ZW-dm");
 app.use(router);
