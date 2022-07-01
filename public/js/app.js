@@ -24538,7 +24538,7 @@ var _hoisted_1 = {
   "class": "hero__heading text-theme"
 };
 var _hoisted_2 = {
-  "class": "text-lg"
+  "class": "text-xl"
 };
 var _hoisted_3 = {
   "class": "text-md"
@@ -24898,63 +24898,67 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "container-fluid"
+  "class": "container-fluid pa-2"
 };
 
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
-  "class": "text-lg mt-2 d-flex align-items-center"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "text-white"
-}, "Outil de conversion")], -1
+  "class": "text-xl mt-2 d-flex align-items-center"
+}, "Outil de conversion", -1
 /* HOISTED */
 );
 
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<option value=\"b64-to-utf8\">Conversion Base64 vers UTF-8</option><option value=\"utf8-to-b64\">Conversion UTF-8 vers Base64</option><option value=\"url-encode\">Encodage d&#39;URI souple (A-Z a-z 0-9 ; , / ? : @ &amp; = + $ - _ . ! ~ * &#39; ( ) #)</option><option value=\"url-decode\">Décodage d&#39;URI souple (A-Z a-z 0-9 ; , / ? : @ &amp; = + $ - _ . ! ~ * &#39; ( ) #)</option><option value=\"url-encode-full\">Encodage d&#39;URI complète (encode tout)</option><option value=\"url-decode-full\">Décodage d&#39;URI complète (décode tout)</option><option value=\"html-entities\">Encoder/décoder caractères HTML</option><option value=\"iso-latin-1\">Encoder/décoder caractères ISO-8859-1</option>", 8);
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("u", null, "Description"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(": outil permettant d'effectuer des traitements basiques comme encoder un texte en "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("strong", null, "Base64"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(", une "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("strong", null, "URL"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" ou des "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("strong", null, "caractères spéciaux"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(". ")], -1
+/* HOISTED */
+);
 
-var _hoisted_11 = [_hoisted_3];
-var _hoisted_12 = {
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", null, "Mode disponibles :", -1
+/* HOISTED */
+);
+
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<option value=\"b64-to-utf8\">Conversion Base64 vers UTF-8</option><option value=\"utf8-to-b64\">Conversion UTF-8 vers Base64</option><option value=\"url-encode\">Encodage d&#39;URI souple (A-Z a-z 0-9 ; , / ? : @ &amp; = + $ - _ . ! ~ * &#39; ( ) #)</option><option value=\"url-decode\">Décodage d&#39;URI souple (A-Z a-z 0-9 ; , / ? : @ &amp; = + $ - _ . ! ~ * &#39; ( ) #)</option><option value=\"url-encode-full\">Encodage d&#39;URI complète (encode tout)</option><option value=\"url-decode-full\">Décodage d&#39;URI complète (décode tout)</option><option value=\"html-entities\">Encoder/décoder caractères HTML</option><option value=\"iso-latin-1\">Encoder/décoder caractères ISO-8859-1</option>", 8);
+
+var _hoisted_13 = [_hoisted_5];
+var _hoisted_14 = {
   "class": "command-bar bg-joker command-bar--detached"
 };
-var _hoisted_13 = {
-  "class": "group"
-};
-var _hoisted_14 = {
-  "class": "group"
-};
 var _hoisted_15 = {
-  "class": "row"
+  "class": "group"
 };
 var _hoisted_16 = {
+  "class": "group"
+};
+var _hoisted_17 = {
+  "class": "row"
+};
+var _hoisted_18 = {
   "class": "col-md-6 col-12 mb-2 workspace"
 };
-var _hoisted_17 = ["placeholder"];
-var _hoisted_18 = {
+var _hoisted_19 = ["placeholder"];
+var _hoisted_20 = {
   "class": "workspace__counter"
 };
-var _hoisted_19 = {
+var _hoisted_21 = {
   "class": "col-md-6 col-12 mb-2 workspace"
 };
 
-var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "fas fa-copy"
 }, null, -1
 /* HOISTED */
 );
 
-var _hoisted_21 = [_hoisted_20];
+var _hoisted_23 = [_hoisted_22];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("section", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", null, "Mode disponibles : (" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.mode) + ")", 1
-  /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("section", _hoisted_1, [_hoisted_2, _hoisted_3, _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
     name: "",
     id: "",
     "class": "form-control",
     "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
       return $data.mode = $event;
     })
-  }, _hoisted_11, 512
+  }, _hoisted_13, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.mode]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.mode]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     "class": "group__item btn btn-sm bg-white text-theme-contrast",
     onClick: _cache[1] || (_cache[1] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
       return $options.setHTMLEntities('encode');
@@ -24966,14 +24970,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }, ["prevent"]))
   }, "Décoder caractères HTML")], 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.mode === 'html-entities']]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.mode === 'html-entities']]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     "class": "group__item btn btn-sm text-theme-contrast",
     onClick: _cache[3] || (_cache[3] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
       return $options.setIsolatin && $options.setIsolatin.apply($options, arguments);
     }, ["prevent"]))
   }, "Convertir Iso latin 1 en UTF-8")], 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.mode === 'iso-latin-1']])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Input your string here "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("textarea", {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.mode === 'iso-latin-1']])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Input your string here "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("textarea", {
     "class": "form-control workspace-txt",
     "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
       return $data.msg = $event;
@@ -24982,9 +24986,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     maxlength: "50000"
   }, null, 8
   /* PROPS */
-  , _hoisted_17), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.msg]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.msgLength), 1
+  , _hoisted_19), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.msg]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.msgLength), 1
   /* TEXT */
-  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Get result here "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("textarea", {
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Get result here "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("textarea", {
     "class": "form-control workspace-txt",
     "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
       return $options.result = $event;
@@ -24998,7 +25002,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     onClick: _cache[6] || (_cache[6] = function ($event) {
       return $options.copy('area-result');
     })
-  }, _hoisted_21)])])]);
+  }, _hoisted_23)])])]);
 }
 
 /***/ }),

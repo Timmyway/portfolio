@@ -1,7 +1,7 @@
 %abstract-heading {		
 	font-weight: bold;
 	margin: 1rem 0;
-	line-height: 1.2;
+	line-height: 1.2;	
 }
 
 [v-cloak] {display: none}
@@ -16,7 +16,7 @@ html {
 }
 
 body {
-	font-family: $secondaryFont;
+	font-family: $primaryFont;
 	box-sizing: border-box;		
 	margin: 0; padding: 0;		
 	font-size: 10px;		
@@ -55,23 +55,25 @@ $textIncrementSize: $textMaxSize;
 	@if $i < 3 {
 		h#{$i} {
 			@extend %abstract-heading;
-			font-family: $primaryFont;
+			font-family: $secondaryFont;
 			font-size: #{$textIncrementSize * 0.5};
 		}
 		@include mq('md') {
 			h#{$i} {
 				font-size: #{$textIncrementSize * 0.7};
+				font-family: $secondaryFont;
 			}			
 		}
 	} @else {
 		h#{$i} {
 			@extend %abstract-heading;
-			font-family: $secondaryFont;			
+			font-family: $primaryFont;		
 			font-size: #{$textIncrementSize * 0.5};
 		}
 		@include mq('md') {
 			h#{$i} {
 				font-size: #{$textIncrementSize * 0.7};
+				font-family: $primaryFont;
 			}			
 		}
 	}

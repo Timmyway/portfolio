@@ -1,9 +1,10 @@
 <template>
-<section class="container-fluid">
-    <h1 class="text-lg mt-2 d-flex align-items-center">
-        <span class="text-white">Outil de conversion</span>
-    </h1>    
-    <h4>Mode disponibles : ({{ mode }})</h4>
+<section class="container-fluid pa-2">
+    <h1 class="text-xl mt-2 d-flex align-items-center">Outil de conversion</h1>
+    <p>
+        <u>Description</u>: outil permettant d'effectuer des traitements basiques comme encoder un texte en <strong>Base64</strong>, une <strong>URL</strong> ou des <strong>caractères spéciaux</strong>.
+    </p>
+    <h4>Mode disponibles :</h4>
     <select name="" id="" class="form-control" v-model="mode">
         <option value="b64-to-utf8">Conversion Base64 vers UTF-8</option>
         <option value="utf8-to-b64">Conversion UTF-8 vers Base64</option>

@@ -1,7 +1,7 @@
 <template>
 <section class="hero" :style="{backgroundImage: `url('${src}')`}">
     <div class="hero__heading text-theme">
-        <h2 class="text-lg">{{ title }}</h2>
+        <h2 class="text-xl">{{ title }}</h2>
         <p class="text-md">
             {{ subtitle }}
         </p>
