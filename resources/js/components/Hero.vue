@@ -17,13 +17,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.hero {    
+.hero {
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center center;    
+    background-position: center center;
     height: 360px;
-    transition: filter .4s;    
+    transition: filter .4s;
     &__heading {
         display: flex;
         flex-direction: column;

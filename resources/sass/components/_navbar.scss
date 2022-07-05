@@ -12,10 +12,14 @@
 		font-size: 2rem;
 		margin: 0.5rem 1rem;
 	}
+	&__menu {
+
+	}
 	&__items {		
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		flex-wrap: wrap;
 		&__item {
 			list-style-type: none;
 			border-radius: 0 11px 0 11px;
@@ -34,6 +38,49 @@
 	&--light {
 		background-color: white;		
 	}
+}
+
+.navbar--mobile {
+	font-size: 1.2rem;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;	
+	box-shadow: $shadowPrimary;
+	position: relative;
+	.navbar__container {
+		display: flex; align-items: center;
+		justify-content: flex-end;
+		padding: .7rem .3rem;				
+	}
+	.navbar__menu {
+		position: absolute;
+		right: 1%; top: 1%; z-index: 999999;
+	}
+	.navbar__items {		
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		background-color: $primaryColor;		
+		box-shadow: $shadowPrimary;
+		position: absolute; z-index: 999998;
+		top: -20px; left: 0;
+		width: 100%;
+		padding: .7rem;
+		&__item {
+			list-style-type: none;
+			border-radius: 0 11px 0 11px;
+			padding: 0.3rem;
+			cursor: pointer;			
+			a {				
+				text-decoration: none;
+				padding: 0.5rem 1rem;
+				color: $themeColor;
+				&:hover {
+					color: darken($reverseThemeColor, 15%);
+				}
+			}
+		}
+	}	
 }
 
 .nav-item--active {

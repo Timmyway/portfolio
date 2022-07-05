@@ -1,16 +1,19 @@
-import { createApp } from 'vue/dist/vue.esm-bundler';
+import { computed, createApp, reactive } from 'vue/dist/vue.esm-bundler';
 import axios from 'axios';
 // import useVuelidate from '@vuelidate/core'
 // import { required } from '@vuelidate/validators'
 import Home from './pages/Home.vue';
 import Contact from './pages/Contact';
 import About from './pages/About';
+import TimerPage from './pages/TimerPage';
 import { createRouter, createWebHistory } from 'vue-router';
+import useResponsive from './composables/useResponsive';
 
 const routes = [
-    { path: '/', component: Home },
+    { path: '/', component: TimerPage },
     { path: '/about', component: About },
-    { path: '/contact', component: Contact }
+    { path: '/contact', component: Contact },
+    { path: '/timer', component: TimerPage }
 ]
 
 const router = createRouter({
@@ -19,17 +22,13 @@ const router = createRouter({
 })
 
 // Work with Vue3
-const app = createApp({    
-    data() {
-        return {
-            msg: 'tim'
-        }
-    },
-    created() {
-        console.log(this.campaignsData)
-    },
-    computed: {        
+const app = createApp({ 
+    setup() {
+        let { screenWidth, isMobile } = useResponsive(); 
         
+        let view = reactive({mobileMenu: false});        
+
+        return { screenWidth, isMobile, view }
     },
     methods: {
         isActiveRoute(routes) {

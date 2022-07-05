@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 
@@ -24,6 +25,13 @@ Route::get('/contact', function() {
 Route::get('/about', function() {
     return Redirect::to('/');
 });
+Route::get('/timer', function() {
+    return Redirect::to('/');
+});
+
+// Route::get('/pwd-generator/{password}', function($password) {
+//     return Hash::make($password);
+// });
 
 // Route::get('/{url}', function($url) {
 //     return Redirect::to('/');

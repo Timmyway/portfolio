@@ -20,6 +20,9 @@
 input[type="text"], input[type="email"], input[type="tel"], input[type="password"], select {
 	@extend %abstract-form-control;
 }
+.checkbox--lg {
+	width: 40px; height: 40px;	
+}
 
 .form-control {
 	@extend %abstract-form-control;
@@ -32,8 +35,15 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="password
 
 .form-group {	
 	display: flex;
-	flex-direction: column;	
-	position: relative;		
+	flex-direction: column;
+	position: relative;
+	&--x {
+		flex-direction: row;
+	}
+	&--center {
+		justify-content: center;
+		align-items: center;
+	}
 }
 
 .m-form-group {		
@@ -590,9 +600,4 @@ border-color: $jokerColor;*/
 		}	
 		
 	}
-}
-
-.credits-box {
-	max-height: 72rem;
-	overflow-y: auto;
 }
