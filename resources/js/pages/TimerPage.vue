@@ -3,7 +3,7 @@
     <div class="control">
         <div class="control__division">
             <div class="form-group">
-                <label class="mr-2">Notif time in seconds</label>
+                <label class="mr-2">Sonnez après (seconds)</label>
                 <input
                     type="number"
                     class="form-control"
@@ -60,7 +60,7 @@ export default {
     },
     setup() {
         const notifTime = reactive({
-            spacing: 10,
+            spacing: 3600,
             duration: 3,
             loop: false
         });

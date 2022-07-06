@@ -21,12 +21,16 @@
 
 .control {    
     padding: .3rem .7rem;
-    display: flex; justify-content: center;
+    display: flex; justify-content: center; flex-wrap: wrap;
     width: 100%;
     margin: 0.4rem 0;
 	&__division {
 		padding: .3rem .6rem;
 		box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 		background: white;
+		margin: 0.4rem 0;
+		@include mq('lg') {
+			margin: 0rem 0.4rem;
+		}
 	}
 }

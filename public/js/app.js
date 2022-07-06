@@ -24613,7 +24613,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   setup: function setup() {
     var notifTime = (0,vue__WEBPACK_IMPORTED_MODULE_1__.reactive)({
-      spacing: 10,
+      spacing: 3600,
       duration: 3,
       loop: false
     });
@@ -24922,7 +24922,7 @@ var _hoisted_17 = {
   "class": "control__division"
 };
 var _hoisted_18 = {
-  "class": "form-group form-group--x form-group--center"
+  "class": "form-group form-group--x form-group--center flex-wrap"
 };
 
 var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
@@ -25032,6 +25032,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* PROPS */
   , _hoisted_16), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.countdownValueStep]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Slider that let selecting countdown time "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [_hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     type: "range",
+    style: {
+      minWidth: '120px'
+    },
     "class": "form-control ml-1",
     id: "slider-countdown",
     min: $setup.countdownValueMin,
@@ -25500,7 +25503,7 @@ var _hoisted_3 = {
 var _hoisted_4 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
     "class": "mr-2"
-  }, "Notif time in seconds", -1
+  }, "Sonnez après (seconds)", -1
   /* HOISTED */
   );
 });
@@ -25636,7 +25639,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var routes = [{
   path: '/',
-  component: _pages_TimerPage__WEBPACK_IMPORTED_MODULE_5__["default"]
+  component: _pages_Home_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
 }, {
   path: '/about',
   component: _pages_About__WEBPACK_IMPORTED_MODULE_4__["default"]
@@ -25924,7 +25927,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.timer-card {            \r\n            background-color: #F7F5FB;\r\n            border-radius: 26px 0 26px 0;\r\n            transition: transform .4s;\r\n            padding: 1rem;\n}\n.timer-card-list__item {\r\n            list-style-type: none;\r\n            padding: 1.5rem 2rem;\r\n            font-size: 2rem;            \r\n            border-radius: 6px;\r\n            cursor: pointer;\r\n            display: flex; align-items: center;\n}\n.timer-card__title {\r\n            background: #1E1E1E;\r\n            color: white;\r\n            font-weight: bold;\r\n            font-size: 6rem;\r\n            text-transform: uppercase;\r\n            text-align: center;\n}\r\n    ", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.timer-card {            \r\n            background-color: #F7F5FB;\r\n            border-radius: 26px 0 26px 0;\r\n            transition: transform .4s;\r\n            padding: 1rem;\n}\n.timer-card-list__item {\r\n            list-style-type: none;\r\n            padding: 1.5rem 2rem;\r\n            font-size: 2rem;            \r\n            border-radius: 6px;\r\n            cursor: pointer;\r\n            display: flex; align-items: center;\n}\n.timer-card__title {\r\n            background: #1E1E1E;\r\n            color: white;\r\n            font-weight: bold;\r\n            font-size: 4rem;\r\n            text-transform: uppercase;\r\n            text-align: center;\n}\n@media screen and (min-width: 720px)  {\n.timer-card__title {\r\n                font-size: 6rem;\n}\n}\r\n    ", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

@@ -48,9 +48,10 @@
 
                     <div class="control__division">
                         <!-- Slider that let selecting countdown time -->
-                        <div class="form-group form-group--x form-group--center">
+                        <div class="form-group form-group--x form-group--center flex-wrap">
                             <label for="slider-countdown">Countdown</label>
                             <input type="range"
+                                :style="{ minWidth: '120px'}"
                                 class="form-control ml-1"
                                 id="slider-countdown"
                                 :min="countdownValueMin"
@@ -250,7 +251,7 @@
             background-color: #F7F5FB;
             border-radius: 26px 0 26px 0;
             transition: transform .4s;
-            padding: 1rem;            
+            padding: 1rem;
         }
         .timer-card-list__item {
             list-style-type: none;
@@ -264,8 +265,13 @@
             background: #1E1E1E;
             color: white;
             font-weight: bold;
-            font-size: 6rem;
+            font-size: 4rem;
             text-transform: uppercase;
-            text-align: center;
+            text-align: center;            
+        }
+        @media screen and (min-width: 720px)  {
+            .timer-card__title {
+                font-size: 6rem;                
+            }
         }
     </style>

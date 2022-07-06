@@ -10,7 +10,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import useResponsive from './composables/useResponsive';
 
 const routes = [
-    { path: '/', component: TimerPage },
+    { path: '/', component: Home },
     { path: '/about', component: About },
     { path: '/contact', component: Contact },
     { path: '/timer', component: TimerPage }
