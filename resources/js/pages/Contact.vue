@@ -39,7 +39,21 @@
                 </div>
 
                 <!-- Google recaptcha -->
-                <div id="recaptcha-container"></div>
+                <!-- <div id="recaptcha-container"></div> -->
+
+                <!-- Mew captcha -->
+                <div class="flex gap-3 mb-4">
+                    <span id="captcha-img">
+                        <img :src="captcha.img" alt="">
+                    </span>
+                    <button 
+                        class="px-2 py-1 rounded bg-red-400 hover:bg-red-300"
+                        @click.prevent="fetchCaptcha()"
+                    >Reload</button>
+                </div>
+                <div>
+                    <input type="text" name="captcha" placeholder="Captcha" v-model="userCaptcha">
+                </div>
 
                 <br>
                 <button 
@@ -101,12 +115,14 @@ export default {
 
         let isSent = ref(localStorage.getItem('isSent') ? localStorage.getItem('isSent') : false);
 
+        const userCaptcha = ref();
+
         onMounted(() => {
-            grecaptcha.ready(function() {
-                grecaptcha.render("recaptcha-container", {
-                    "sitekey": captchaKey
-                });
-            });
+            // grecaptcha.ready(function() {
+            //     grecaptcha.render("recaptcha-container", {
+            //         "sitekey": captchaKey
+            //     });
+            // });
         })
 
         function flashMsg(notif, msg='', timeout=8000) {
@@ -116,9 +132,25 @@ export default {
             setTimeout(() => {
                 notif.data = [];
             }, timeout);
-        }        
+        }
+
+        const captcha = ref({
+            img: '',
+            key: ''
+        });
+
+        function fetchCaptcha() {            
+            axios.get(siteURL + 'captcha/api/math')
+            .then((response) => {
+                captcha.value = response.data;
+            })
+        }
+
+        fetchCaptcha();
         
-        return { v$, form, validationData, errors, siteURL, flashMsg, isSent, captchaKey };
+        return { v$, form, validationData, errors, siteURL, flashMsg, isSent, captchaKey,
+            userCaptcha, captcha, fetchCaptcha
+        };
     },
     computed: {
         isOkForSending() {            
@@ -146,7 +178,8 @@ export default {
                 msg: this.form.msg,
                 city: null,
                 zipcode: null,
-                "g-recaptcha-response": grecaptcha.getResponse()
+                captcha: this.userCaptcha,
+                key: this.captcha.key
             }
             axios.post(this.siteURL + 'api/message', payload)
             .then((response) => {

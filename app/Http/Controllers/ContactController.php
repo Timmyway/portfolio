@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
-use App\Rules\Captcha;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Request;
 
@@ -19,13 +18,13 @@ class ContactController extends Controller
             'phone' => ['max:50', 'regex:/^(00261|^\+261|^0)+\s?(32|34|33|38)+\s?[0-9]{2}\s?[0-9]{3}\s?[0-9]{2}$/i'],
             'zipcode' => '',
             'city' => '',
-            'msg' => ['max:1000', 'string'],
-            'g-recaptcha-response' => [new Captcha]
+            'msg' => ['max:1000', 'string']
         ];
     }
 
     public function sendMessage(Request $request)
     {
+        $this->validations['captcha'] = 'required|captcha_api:'. $request['key'] . ',math';
         $validatedData = $this->validate($request, $this->validations);
         // Create a new contact
 

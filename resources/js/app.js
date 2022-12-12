@@ -44,11 +44,13 @@ const app = createApp({
             return '';
         }
     }
-})
+});
 
 function capitalize(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
+
+app.use(router);
 
 app.provide('templateDatas', window.templateDatas);
 app.provide('$axios', axios);
@@ -59,3 +61,5 @@ if (process.env.MIX_APP_ENV === 'prod') {
     app.provide('$siteURL', 'http://127.0.0.1:8000/');
 }
 app.provide('$googleCaptchaClientKey', process.env.MIX_GOOGLE_CAPTCHA_CLIENT_KEY);
+
+app.mount('#app');
