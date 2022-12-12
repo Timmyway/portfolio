@@ -1,7 +1,7 @@
 <nav class="navbar bg-primary">
     <div class="navbar__container">
         <ul class="navbar__items">
-            <li class="navbar__items__item">
+            <li class="navbar__items__item ">
                 <!-- Navigation Links -->
                 <a :href="{{ route('dashboard') }}" active="{{ request()->routeIs('dashboard') }}" class="text-theme">
                     Timmy Way
