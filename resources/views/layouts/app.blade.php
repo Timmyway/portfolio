@@ -28,10 +28,30 @@
                 <div class="footer__column">
                     <span>&copy; Timmyway {{ date("Y") }}</span>
                     <a class="ti-link text-theme" href="https://github.com/Timmyway" target="_blank">
-                        <span>Retrouvez moi sur Github<span>                                
+                        <i class="fa-brands fa-github fa-2x mr-2"></i>
+                        <span class="underline">Retrouvez moi sur Github<span>
+                    </a>
+                    <a class="ti-link text-theme" href="https://www.linkedin.com/in/timmyway/" target="_blank">
+                        <i class="fa-brands fa-linkedin fa-2x mr-2"></i>
+                        <span class="underline">Et sur Linkedin<span>
                     </a>
                 </div>
             </div>
-        </footer>        
+        </footer>
+        <script>
+            /* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */
+            var prevScrollpos = window.pageYOffset;            
+            window.onscroll = () => {
+                var currentScrollPos = window.pageYOffset;
+                if (prevScrollpos > currentScrollPos) {
+                    document.getElementById("blade-navbar").style.top = "0";
+                    document.getElementById("vue-navbar").style.top = "0";
+                } else {
+                    document.getElementById("blade-navbar").style.top = "-50px";
+                    document.getElementById("vue-navbar").style.top = "-150px";                    
+                }
+                prevScrollpos = currentScrollPos;
+            }
+        </script>
     </body>
 </html>

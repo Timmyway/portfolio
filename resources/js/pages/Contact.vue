@@ -1,7 +1,7 @@
 <template>
-<div class="container-fluid">
-    <section class="mt-4 container-xxl">
-        <h4 class="text-lg text-center">Contact me</h4>
+<div class="container mx-auto">
+    <section class="mt-4 container mx-auto">
+        <h1 class="text-4xl p-6 text-center font-bold">Contact me</h1>
         <div class="ti-form" v-if="!isSent">            
             <form>
                 <MdTextfield
@@ -58,7 +58,7 @@
                 <br>
                 <button 
                     v-if="!isSent"
-                    class="btn" type="submit" 
+                    class="btn bg-blue-600 text-theme hover:bg-blue-700" type="submit" 
                     :class="[isOkForSending ? 'btn-success' : 'btn-disabled']"
                     @click.prevent="submit"
                 >Contacter</button>                

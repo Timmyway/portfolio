@@ -1,7 +1,7 @@
 <template>
 <div class="card-container" :style="{ backgroundColor: bgcolor }">
-    <h4 class="text-md card-container__title">{{ title }}</h4>
-    <div class="card-container__cards" :style="{justifyContent: hAlign}">    
+    <h4 class="text-lg card-container__title">{{ title }}</h4>
+    <div class="card-container__cards" :style="{justifyContent: hAlign}">
         <template v-for="card in cards" :key="`${identifier}-${card.id}`">
         <Card 
             :width="cardWidth"
@@ -38,7 +38,3 @@ export default {
     }
 }
 </script>
-
-<style>
-
-</style>

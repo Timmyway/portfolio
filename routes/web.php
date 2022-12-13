@@ -28,6 +28,9 @@ Route::get('/about', function() {
 Route::get('/timer', function() {
     return Redirect::to('/');
 });
+Route::get('/projects', function() {
+    return Redirect::to('/');
+});
 
 // Route::get('/pwd-generator/{password}', function($password) {
 //     return Hash::make($password);

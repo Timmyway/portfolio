@@ -1,4 +1,4 @@
-<nav class="navbar bg-primary">
+<nav class="navbar bg-primary fixed top-0 left-0 w-full" id="blade-navbar">
     <div class="navbar__container">
         <ul class="navbar__items">
             <li class="navbar__items__item ">
@@ -13,7 +13,7 @@
             <!-- Authentication -->
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
-                <button type="submit" class="btn btn-warning btn-sm">
+                <button type="submit" class="btn bg-orange-600 hover:bg-orange-700 btn-sm">
                     {{ __('Log Out') }}
                 </button>
             </form>

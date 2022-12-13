@@ -2,7 +2,9 @@
 	font-size: 1.2rem;
 	padding-top: 0.5rem;
 	padding-bottom: 0.5rem;	
-	box-shadow: $shadowPrimary;
+	box-shadow: $shadowPrimary;	
+	transition: top 0.3s;
+	z-index: 99;	
 	&__container {
 		display: flex; align-items: center;
 		justify-content: space-between;
@@ -23,14 +25,15 @@
 		&__item {
 			list-style-type: none;
 			border-radius: 0 11px 0 11px;
-			padding: 0.3rem;
+			padding: 0.2rem;
+			font-size: 1rem;
 			cursor: pointer;			
 			a {				
 				text-decoration: none;
 				padding: 0.5rem 1rem;
 				color: $reverseThemeColor;
 				&:hover {
-					color: darken($reverseThemeColor, 15%);
+					color: lighten($reverseThemeColor, 15%);
 				}
 			}
 		}
@@ -49,21 +52,23 @@
 	.navbar__container {
 		display: flex; align-items: center;
 		justify-content: flex-end;
-		padding: .7rem .3rem;				
+		padding: .7rem .3rem;
+		position: relative;
+		min-height: 40px;
 	}
 	.navbar__menu {
 		position: absolute;
-		right: 1%; top: 1%; z-index: 999999;
+		right: 5px; top: 2px; z-index: 99;
 	}
 	.navbar__items {		
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		flex-direction: column;
-		background-color: $primaryColor;		
+		background-color: #ffffff;
 		box-shadow: $shadowPrimary;
-		position: absolute; z-index: 999998;
-		top: -20px; left: 0;
+		position: absolute; z-index: 99;
+		top: 0px; left: 0;
 		width: 100%;
 		padding: .7rem;
 		&__item {
@@ -74,7 +79,7 @@
 			a {				
 				text-decoration: none;
 				padding: 0.5rem 1rem;
-				color: $themeColor;
+				color: $darkColor;
 				&:hover {
 					color: darken($reverseThemeColor, 15%);
 				}

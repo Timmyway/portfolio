@@ -34,15 +34,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     max-width: 1100px;
-    padding: 1rem;    
+    padding: 1rem;
     &__title {
         color: $secondaryColor;        
     }
     &__cards {
         display: flex; flex-wrap: wrap;
         max-width: 1100px;
-        padding: 1rem;    
+        padding: 1rem;
+        gap: 25px;
     }
     &:first-child {
         border-radius: 6px 6px 0 0;

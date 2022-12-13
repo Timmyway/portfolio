@@ -3,6 +3,7 @@ import axios from 'axios';
 // import useVuelidate from '@vuelidate/core'
 // import { required } from '@vuelidate/validators'
 import Home from './pages/Home.vue';
+import ProjectPage from './pages/ProjectPage.vue';
 import Contact from './pages/Contact';
 import About from './pages/About';
 import TimerPage from './pages/TimerPage';
@@ -10,9 +11,10 @@ import { createRouter, createWebHistory } from 'vue-router';
 import useResponsive from './composables/useResponsive';
 
 const routes = [
-    { path: '/', component: Home },
+    { path: '/', component: ProjectPage },
     { path: '/about', component: About },
     { path: '/contact', component: Contact },
+    { path: '/projects', component: ProjectPage },
     { path: '/timer', component: TimerPage }
 ]
 

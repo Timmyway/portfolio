@@ -1,10 +1,10 @@
 <template>
-<section class="container-fluid pa-2">
-    <h1 class="text-xl mt-2 d-flex align-items-center">Outil de conversion</h1>
+<section class="container">
+    <h1 class="text-xl mt-2 flex items-center">Outil de conversion</h1>
     <p>
         <u>Description</u>: outil permettant d'effectuer des traitements basiques comme encoder un texte en <strong>Base64</strong>, une <strong>URL</strong> ou des <strong>caractères spéciaux</strong>.
     </p>
-    <h4>Mode disponibles :</h4>
+    <h4 class="mb-2 text-lg">Mode disponibles :</h4>
     <select name="" id="" class="form-control" v-model="mode">
         <option value="b64-to-utf8">Conversion Base64 vers UTF-8</option>
         <option value="utf8-to-b64">Conversion UTF-8 vers Base64</option>
@@ -15,7 +15,7 @@
         <option value="html-entities">Encoder/décoder caractères HTML</option>
         <option value="iso-latin-1">Encoder/décoder caractères ISO-8859-1</option>
     </select>
-    <div class="command-bar bg-joker command-bar--detached">        
+    <div class="command-bar bg-joker command-bar--detached">
         <div>
             <div class="group" v-show="mode === 'html-entities'">
                 <button class="group__item btn btn-sm bg-white text-theme-contrast" @click.prevent="setHTMLEntities('encode')">Encoder caractères HTML</button>
@@ -72,7 +72,7 @@ export default {
                     return `Conversion d'un texte en Base64 vers UTF-8.
     "UTF-8 (abréviation de l’anglais Universal Character Set Transformation Format1 - 8 bits) est un codage de caractères informatiques conçu pour coder l’ensemble des caractères du « répertoire universel de caractères codés »" Wikipedia.
 
-    Bref, c'est l'ensemble de tous les caractères possibles existant, des caractères japonais ばんかい aux emoji ⚽. Sans l'Unicode, le web serait fade.`
+    Bref, c'est l'ensemble de tous les caractères possibles existant, des caractères japonais ばんかい aux emoji ⚽.`
                 case 'url-encode':
                     return "Si en entrée on a: https://mozilla.org/?x=шеллы, on peut s'attendre en sortie à quelque chose comme cela: https://mozilla.org/?x=%D1%88%D0%B5%D0%BB%D0%BB%D1%8B";
                     break;

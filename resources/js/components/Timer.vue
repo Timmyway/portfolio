@@ -1,11 +1,11 @@
     <template>
-    <div class="container-fluid pa-2" :style="{ backgroundColor: bgcolor }">    
+    <div class="container mx-auto p-4" :style="{ backgroundColor: bgcolor }">        
         <div class="timer-card">
             <div class="timer-card__title">
                 {{ formattedTime }}
             </div>
 
-            <div class="timer-card__subtitle pa-2">
+            <div class="timer-card__subtitle p-2">
                 <div class="control__division">
                     <div class="form-group form-group--x form-group--center">
                         <label for="chk-countdown-mode">Compte à rebours</label>
@@ -157,8 +157,7 @@
                 laps.push({
                     seconds: currentTimer.value,
                     [formattedTime.value]: formatTime(currentTimer.value)
-                });
-                console.log('================>', laps.value);
+                });                
                 latestlap.value = formatTime(currentTimer.value);
             }
 

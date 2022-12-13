@@ -1,20 +1,23 @@
 <template>
-<div class="container-fluid">
+<div class="mx-auto">
     <section>
         <Hero 
             title="Bienvenue sur mon portefolio" 
             subtitle="Ici, je partage avec vous ma passion pour le WEB. Mais je vous montre également les technologies que j'utilise au quotidien." 
-            src="https://images.unsplash.com/photo-1623946724822-ba48a838f3da?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-        ></Hero>
-        <h4 class="text-lg text-center">A propos de moi</h4>
-        <div class="container-xxl">
-            <p>
-                Je suis Tim, développeur fullstack autodidacte et passionné du WEB. J'ai commencé mon aventure en 2016, en apprennant le langage de programmation Python, et depuis je ne peux plus m'arrêter de coder.
-                J'adore créer des sites et applications permettant de résoudre des problématiques.<br>
-                Quand je ne suis pas en train de coder, j'essaye au maximum de profiter de mes proches. Enfin, mon équipe de foot préférée est le ... Ah désolé, je suis trop bavard. Je ne t'ennuie pas plus longtemps. 😊
+            :src="$siteURL + 'images/bg.jpg'"
+            credit="Photo by Caio: https://www.pexels.com/photo/macbook-air-on-grey-wooden-table-67112/"
+        ></Hero>        
+        <div class="container p-6 mx-auto">
+            <h4 class="text-4xl p-6 text-center font-bold">À propos de moi</h4>
+            <p class="text-xl mb-10">
+                Je suis Tim, développeur fullstack autodidacte et passionné du WEB.<br>
+                J'ai commencé mon aventure en 2016, en apprennant le langage de programmation Python, et depuis je ne peux plus m'arrêter de coder.<br>
+                J'adore créer des sites et applications afin de me perfectionner, mais aussi de résoudre des problématiques diverses.<br>
+                Quand je ne suis pas en train de coder, j'essaye au maximum de profiter de mes proches. <br>
+                Dans mes temps libres, je joue au ⚽ et au 🏀.
             </p>
-            <div class="spacer"></div>
-            <article>
+            
+            <article class="flex justify-center flex-wrap gap-4">
                 <Cards 
                     :cards="languages" 
                     identifier="languages" 
