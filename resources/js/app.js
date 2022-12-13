@@ -58,9 +58,9 @@ app.provide('templateDatas', window.templateDatas);
 app.provide('$axios', axios);
 app.provide('$capitalize', capitalize);
 if (process.env.MIX_APP_ENV === 'prod') {
-    app.provide('$siteURL', process.env.MIX_APP_URL);
+    app.provide('$siteURL', process.env.MIX_APP_PROD_URL);
 } else {
-    app.provide('$siteURL', 'http://127.0.0.1:8000/');
+    app.provide('$siteURL', process.env.MIX_APP_URL);
 }
 app.provide('$googleCaptchaClientKey', process.env.MIX_GOOGLE_CAPTCHA_CLIENT_KEY);
 
