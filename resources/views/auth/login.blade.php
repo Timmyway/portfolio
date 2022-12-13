@@ -16,7 +16,7 @@
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
                             <div class="mb-4">
-                                <span class="text-sm">No account ? No problem, you're welcome as a guest : guest@gmail.com | Guest987</span>
+                                <span class="text-sm">Pas de compte ? Aucun problème, bienvenue en tant qu'invité : guest@gmail.com | Guest987</span>
                             </div>
                             <div class="form-group mb-2">
                                 <label class="mb-1" for="field-email">Email *</label>
@@ -42,7 +42,7 @@
 
                             <input type="submit" 
                                 class="btn bg-blue-600 hover:bg-blue-700 text-theme" 
-                                value="Login"
+                                value="Se connecter"
                             >
                         </form>
                     </div>

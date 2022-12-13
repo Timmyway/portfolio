@@ -1,5 +1,5 @@
 <template>
-<section class="container">
+<section class="container mx-auto p-4">
     <h1 class="text-xl mt-2 flex items-center">Outil de conversion</h1>
     <p>
         <u>Description</u>: outil permettant d'effectuer des traitements basiques comme encoder un texte en <strong>Base64</strong>, une <strong>URL</strong> ou des <strong>caractères spéciaux</strong>.

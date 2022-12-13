@@ -1,17 +1,17 @@
 <template>
 <div class="container mx-auto">
     <section class="mt-4 container mx-auto">
-        <h1 class="text-4xl p-6 text-center font-bold">Contact me</h1>
+        <h1 class="text-4xl p-6 text-center font-bold">Me contacter</h1>
         <div class="ti-form" v-if="!isSent">            
             <form>
                 <MdTextfield
-                    label="Lastname *" field="lastname" type="text"
+                    label="Nom *" field="lastname" type="text"
                     v-model:value="form.lastname"
                     :validator="v$"
                     name="lastname"
                 ></MdTextfield>
                 <MdTextfield
-                    label="Firstname *" field="firstname"
+                    label="Prénom *" field="firstname"
                     v-model:value="form.firstname"
                     :validator="v$"
                     name="firstname"
@@ -23,7 +23,7 @@
                     name="email"
                 ></MdTextfield>
                 <MdTextfield
-                    label="Phone" field="phone" type="tel"
+                    label="Téléphone *" field="phone" type="tel"
                     v-model:value="form.phone"
                     :validator="v$"
                     name="phone"
@@ -61,7 +61,7 @@
                     class="btn bg-blue-600 text-theme hover:bg-blue-700" type="submit" 
                     :class="[isOkForSending ? 'btn-success' : 'btn-disabled']"
                     @click.prevent="submit"
-                >Contacter</button>                
+                >Envoyer</button>                
                 <br>
 
                 <!-- Error messages from backend -->
