@@ -1,6 +1,6 @@
 <x-app-layout>
 @section('content')
-<nav id="vue-navbar" class="navbar--light pt-16 fixed top-0 left-0 w-full z-50" :class="[isMobile ? 'navbar--mobile' : 'navbar']">
+<nav id="vue-navbar" class="navbar--light w-full" :class="[isMobile ? 'navbar--mobile' : 'navbar']">
     <div class="navbar__container">
         <ul class="navbar__items" v-if="(isMobile && view.mobileMenu) || !isMobile">
             <li class="navbar__items__item" :class="[isActiveRoute('/')]">

@@ -56,9 +56,7 @@
 <script>
 import Hero from '../components/Hero.vue';
 import Cards from '../components/Cards.vue';
-// import useVuelidate from '@vuelidate/core';
 import MdTextfield from '../components/MdTextfield.vue';
-import useValidation from '../composables/useValidation';
 
 export default {
     inject: ['$siteURL'],
@@ -66,11 +64,7 @@ export default {
         Hero,
         Cards,
         MdTextfield
-    }, 
-    setup() {        
-        const { v$, form, validationData } = useValidation();
-        return { v$, form, validationData };
-    },
+    },     
     data() {
         return {
             languages: [
