@@ -1,6 +1,7 @@
 <template>
 <section class="carousel">
     <div class="carousel__board">
+        {{ currentImage }}
         <button class="carousel-btn" @click="previous">
             <i class="fa fa-chevron-left"></i>
         </button>

@@ -1,9 +1,25 @@
 <template>
-    <section class="mx-auto">
+<div class="home">
+    <div class="shortcut">
+        <template v-for="(section,index) in sections" :key="`section-${index}`">
+            <a
+                @click="accessShortcut(section)" class="shortcut__point"
+                :class="{'shortcut--active': section === activeShortcut}"
+            ></a>
+        </template>        
+    </div>    
+    <section id="portfolio-hero" class="mx-auto">        
         <div class="lg:grid lg:grid-cols-2">
             <div class="bg-secondary py-16 px-8 xl:py-32 xl:px-4 flex flex-col justify">
-                <h1 class="text-2xl xl:text-4xl mb-4">Bienvenue sur mon portfolio</h1>
-                <h2 class="text-6xl xl:text-8xl">DÉVELOPPEUR <br><span class="text-white text-8xl">WEB</span></h2>
+                <h3 class="mb-4">
+                    <wt-changing-text
+                        :texts="['Bienvenue sur mon', 'portfolio']"
+                        class="text-4xl xl:text-6xl"
+                    ></wt-changing-text>
+                </h3>
+                <h2 class="text-4xl xl:text-6xl">Tim <span class="text-white text-4xl xl:text-6xl">W</span>ay <i class="fa-solid fa-code text-primary"></i></h2>
+                <h2 class="text-3xl xl:text-5xl">Développeur</h2>
+                <h2 class="text-white text-8xl">WEB</h2>                
                 <p class="leading-8 max-w-3xl text-justify">
                     Bienvenue dans mon univers numérique !
                     Je suis Tim, un développeur fullstack passionné du WEB. 
@@ -45,8 +61,57 @@
         </div>        
     </section>
 
-    <section class="py-12 xl:py-20">
-        <article class="flex justify-center flex-wrap gap-4">
+    <section id="portfolio-service" class="bg-slate-900 py-12 flex flex-col xl:py-24">
+        <h3 class="text-5xl font-bold text-white p-4 mb-6 text-center font-secondary">Ce que je fais</h3>
+        <div class="flex flex-wrap justify-center">
+            <article class="grid grid-cols-4 max-w-lg">
+                <div class="col-span-1 p-4">
+                    <i class="fa-solid fa-desktop text-7xl text-secondary"></i>
+                </div>
+                <div class="flex flex-col gap-4 col-span-3">
+                    <h6 class="text-2xl px-2 py-4 font-bold text-white">Impressionnez avec des Landing Pages Réactives</h6>
+                    <p class="text-xl leading-relaxed text-slate-300">
+                        Offrez une expérience utilisateur exceptionnelle avec des Landing Pages modernes 
+                        et adaptées à tous les appareils. Nous concevons des pages d'atterrissage 
+                        efficaces pour captiver votre audience et augmenter vos conversions.
+                    </p>
+                </div>
+            </article>
+
+            <article class="grid grid-cols-4 max-w-lg">
+                <div class="col-span-1 p-4">
+                    <i class="fa-solid fa-cogs text-7xl text-secondary"></i>
+                </div>
+                <div class="flex flex-col gap-4 col-span-3">
+                    <h6 class="text-2xl px-2 py-4 font-bold text-white">Votre Site Web Unique, Votre Identité en Ligne</h6>
+                    <p class="text-xl leading-relaxed text-slate-300">
+                        Donnez vie à votre vision avec un site web personnalisé qui reflète parfaitement 
+                        votre marque. Notre équipe crée des sites web sur mesure, 
+                        fonctionnels et esthétiquement agréables pour 
+                        mettre en valeur votre entreprise.
+                    </p>
+                </div>
+            </article>
+
+            <article class="grid grid-cols-4 max-w-lg">
+                <div class="col-span-1 p-4">
+                    <i class="fa-solid fa-code text-7xl text-secondary"></i>
+                </div>
+                <div class="flex flex-col gap-4 col-span-3">
+                    <h6 class="text-2xl px-2 py-4 font-bold text-white">Puissantes Apps Web pour Dynamiser Votre Entreprise</h6>
+                    <p class="text-xl leading-relaxed text-slate-300">
+                        Transformez vos idées en réalité avec nos applications web performantes 
+                        et faciles à utiliser. Nous concevons des solutions sur mesure pour 
+                        optimiser vos processus et stimuler l'efficacité de votre entreprise.
+                    </p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section id="portfolio-tech" class="py-12 xl:py-24">
+        <h3 class="text-5xl font-bold p-4 mb-6 text-center font-secondary">Ma Palette Technologique au Quotidien</h3>
+        <article class="flex justify-center flex-wrap gap-4 xl:gap-8">
             <Cards 
                 :cards="appStore.getTech().languages"
                 identifier="languages" 
@@ -81,11 +146,54 @@
             ></Cards>
         </article>
     </section>
+</div>
 </template>
 
 <script setup>
 import Cards from '../components/Cards.vue';
 import { useAppStore } from '../stores/appStore';
+import WtChangingText from '../components/portfolio/WtChangingText.vue';
+import { ref } from 'vue';
 
 const appStore = useAppStore();
+const sections = ref(['portfolio-hero', 'portfolio-service', 'portfolio-tech']);
+const activeShortcut = ref('portfolio-hero');
+
+function accessShortcut(elementId) {
+    const targetElement = document.querySelector('#' + elementId);
+    console.log(targetElement);
+    targetElement.scrollIntoView({ behavior: 'smooth' });
+    activeShortcut.value = elementId;
+}
 </script>
+
+<style lang="scss">
+.shortcut {
+    position: fixed;
+    right: 1%;
+    top: 60%;
+    transform: translate(0, -50%);
+    background: hsl(0, 0%, 7%, .3);
+    padding: 4px 3px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    &__point {
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        display: block;
+        background: white;
+        cursor: pointer;
+        transition: all .2s;
+        &:hover {
+            transform: scale(2);
+        }
+    }
+}
+.shortcut--active {
+    background: yellow;
+    transform: scale(2);
+}
+</style>

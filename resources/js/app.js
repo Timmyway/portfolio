@@ -10,8 +10,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import useResponsive from './composables/useResponsive';
 
 const routes = [
-    { path: '/', component: Home },
-    { path: '/about', component: About },
+    { path: '/', component: Home },    
     { path: '/contact', component: Contact },
     { path: '/projects', component: Projects }    
 ];

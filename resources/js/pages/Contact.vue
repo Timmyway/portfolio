@@ -1,15 +1,9 @@
 <template>
 <div class="container mx-auto">
     <section class="mt-4 container mx-auto">
-        <h1 class="text-4xl p-6 text-center font-bold">Me contacter</h1>
-        <div class="ti-form" v-if="!isSent">            
+        <h1 class="text-4xl text-center font-bold mb-4">Me contacter</h1>
+        <div class="ti-form shadow-lg bg-slate-100 mb-4" v-if="!isSent">            
             <form>
-                <MdTextfield
-                    label="Nom *" field="lastname" type="text"
-                    v-model:value="formStore.form.lastname"
-                    :validator="formStore.v$"
-                    name="lastname"
-                ></MdTextfield>
                 <MdTextfield
                     label="Prénom *" field="firstname"
                     v-model:value="formStore.form.firstname"
@@ -21,15 +15,12 @@
                     v-model:value="formStore.form.email"
                     :validator="formStore.v$"
                     name="email"
-                ></MdTextfield>
-                <MdTextfield
-                    label="Téléphone *" field="phone" type="tel"
-                    v-model:value="formStore.form.phone"
-                    :validator="formStore.v$"
-                    name="phone"
-                ></MdTextfield>
-                <div class="workspace">
-                    <div class="workspace__counter">{{ formStore.form.msg.length }}</div>
+                ></MdTextfield>                
+                <div class="workspace">                    
+                    <div
+                        class="workspace__counter text-lg"
+                        v-show="formStore.form.msg?.length > 0"
+                    >{{ formStore.form.msg.length }} caractères</div>
                     <textarea 
                         class="form-control mb-2" 
                         cols="30" rows="10" v-model="formStore.form.msg"

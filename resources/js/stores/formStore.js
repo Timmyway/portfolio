@@ -1,3 +1,4 @@
+
 import { required } from "@vuelidate/validators";
 import { defineStore } from "pinia";
 import { computed, reactive } from "vue";
@@ -57,8 +58,8 @@ export const useFormStore = defineStore('multistep', () => {
     const v$ = useVuelidate(rules, form);    
 
     const isReadyForSending = computed(() => {
-        if (!v$.value.firstname.validFirstname.$invalid && !v$.value.lastname.validLastname.$invalid &&
-            !v$.value.email.validEmail.$invalid && !v$.value.phone.validPhone.$invalid &&
+        if (!v$.value.firstname.validFirstname.$invalid && 
+            !v$.value.email.validEmail.$invalid &&
             form.msg          
         ) {
             return true;

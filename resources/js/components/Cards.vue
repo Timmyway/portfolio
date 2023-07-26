@@ -1,9 +1,9 @@
 <template>
 <div
-    :class="['card-container', bgClass]"
+    :class="['wt-card-container', bgClass]"
 >
-    <h4 class="text-2xl card-container__title">{{ title }}</h4>
-    <div class="card-container__cards" :style="{justifyContent: hAlign}">
+    <h4 class="text-2xl wt-card-container__title text-3xl font-bold pb-2">{{ title }}</h4>
+    <div class="wt-card-container__cards" :style="{justifyContent: hAlign}">
         <template v-for="card in cards" :key="`${identifier}-${card.id}`">
         <Card 
             :width="cardWidth"
@@ -41,3 +41,29 @@ export default {
     }
 }
 </script>
+
+<style lang="scss">
+.wt-card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 1100px;
+    padding: 1rem;
+    &__title {
+        color: white;
+    }
+    &__cards {
+        display: flex; flex-wrap: wrap;
+        max-width: 1100px;
+        padding: 1rem;
+        gap: 25px;
+    }
+    &:first-child {
+        border-radius: 6px 6px 0 0;
+    }
+    &:last-child {
+        border-radius: 0 0 6px 6px;
+    }
+}
+</style>
