@@ -90,8 +90,7 @@
             <p v-if="isSent" class="text-md thanks__msg">
                 Merci pour votre message.
             </p>
-        </div>
-        Test: {{ formStore.isReadyForSending }}
+        </div>        
     </section>
 </div>
 </template>
@@ -135,11 +134,11 @@ const captcha = ref({
     key: ''
 });
 
-function fetchCaptcha() {            
-    axios.get(siteURL + 'captcha/api/math')
-    .then((response) => {
-        captcha.value = response.data;
-    })
+async function fetchCaptcha() {
+    // Get the captcha math challenge
+    const response = await axios.get(siteURL + 'captcha/api/math');
+    captcha.value = response.data;
+    console.log('====> ', captcha.value)
 }
 
 fetchCaptcha();
@@ -150,7 +149,7 @@ async function submit() {
         flashMsg(errors, {'client error': ['Les champs : nom, prénom et email sont requis. Vérifier que votre message comporte au moins 10 caractères. Merci']});
         return;
     }
-    isSent.value = false;
+    isSent.value = false;    
     const payload = {
         firstname: formStore.form.firstname,
         lastname: formStore.form.lastname,
@@ -160,11 +159,10 @@ async function submit() {
         city: null,
         zipcode: null,
         captcha: userCaptcha.value,
-        key: captcha.key
-    }
-    const response = await axios.post(siteURL + 'api/message', payload);
+        key: captcha.value.key
+    }    
     try {
-        console.log(response.data);
+        const response = await axios.post(siteURL + 'api/message', payload);        
         if (response.data.response === 'Message saved') {
             isSent.value = true;
             localStorage.setItem('isSent', true);
@@ -176,8 +174,9 @@ async function submit() {
                 isSent.value = false;                        
                 errors.data = err.response.data;
                 errors.msg = err.response.data.message;
+                fetchCaptcha();
             }
-        }
+        }        
     }
 }
 </script>

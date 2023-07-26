@@ -25,9 +25,6 @@ Route::get('/contact', function() {
 Route::get('/about', function() {
     return Redirect::to('/');
 });
-Route::get('/timer', function() {
-    return Redirect::to('/');
-});
 Route::get('/projects', function() {
     return Redirect::to('/');
 });

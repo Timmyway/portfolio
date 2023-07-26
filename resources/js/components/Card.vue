@@ -1,6 +1,6 @@
 <template>
 <div class="card ma-1" :style="{width: width}">
-    <div class="card-head" v-if="src">    
+    <div class="card-head" v-if="src">
         <img :src="src" :alt="label" :style="{ width: imageWidth }" />
     </div>
     <div class="card-body">

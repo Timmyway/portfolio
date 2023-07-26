@@ -1,33 +1,29 @@
 <template>
-<div>
-    <div class="control">
-        <div class="control__division">
-            <div class="form-group">
-                <label class="mr-2">Sonnez après (seconds)</label>
-                <input
-                    type="number"
-                    class="form-control"
-                    v-model="notifTime.spacing"            
-                    :rules="[notifTime.spacing > 1 && notifTime.spacing <= 3600]"
-                    style="max-width: 120px; min-width: 100px;"
-                />
-            </div>
-        </div>
-        <div class="control__division ml-1">
-            <div class="form-group">
-                <label>En boucle</label>
-                <input type="checkbox"
-                    class="checkbox--lg ml-1"
-                    v-model="notifTime.loop"            
-                    color="primary"                        
-                />
-                <button class="btn btn-icon"
-                    @click="stopSound"             
-                >
-                    <i class="fa-solid fa-hourglass text-primary"></i>
-                </button>
-            </div>
-        </div>
+<div class="flex flex-col gap-4 bg-slate-200 p-2">
+    <div class="flex items-center justify-center gap-4">
+        <div>
+            <label class="mr-2">Sonnez après (seconds)</label>
+            <input
+                type="number"
+                class="p-2 text-lg rounded-md border-2"
+                v-model="notifTime.spacing"            
+                :rules="[notifTime.spacing > 1 && notifTime.spacing <= 3600]"
+                style="max-width: 120px; min-width: 100px;"
+            />
+        </div>                
+        <div class="flex items-center justify-center gap-2">
+            <label>En boucle</label>
+            <input type="checkbox"
+                class="w-8 h-8 mx-2"
+                v-model="notifTime.loop"            
+                color="primary"                        
+            />
+            <button class="btn btn-icon"
+                @click="stopSound"             
+            >
+                <i class="fa-solid fa-volume-mute text-red-600"></i>
+            </button>
+        </div>        
     </div>
     <Timer         
         :notifTime="notifTime"
@@ -48,38 +44,28 @@
 </transition>
 </template>
 
-<script>
+<script setup>
 import Timer from '../components/Timer.vue';
 import { reactive } from 'vue';
 
-export default {
-    name: 'TimerPage',
+// Datas        
+const notifTime = reactive({
+    spacing: 3600,
+    duration: 3,
+    loop: false
+});
 
-    components: {    
-        Timer
-    },
-    setup() {
-        const notifTime = reactive({
-            spacing: 3600,
-            duration: 3,
-            loop: false
-        });
+let notif = reactive({ type: 'danger', msg: '', isVisible: false });
 
-        let notif = reactive({ type: 'danger', msg: '', isVisible: false });
-
-        function notifUser($event) {
-            console.log($event);
-            notif.msg = $event.msg;
-            notif.type = $event.type;
-            notif.isVisible = true;
-            setTimeout(() => {
-                notif.isVisible = false;
-            }, 3000)
-        }
-
-        return { notifTime, notif, notifUser }
-    }
-};
+function notifUser($event) {
+    console.log($event);
+    notif.msg = $event.msg;
+    notif.type = $event.type;
+    notif.isVisible = true;
+    setTimeout(() => {
+        notif.isVisible = false;
+    }, 3000)
+}
 </script>
 <style scoped>
 .form-group {

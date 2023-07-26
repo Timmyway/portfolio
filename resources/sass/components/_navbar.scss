@@ -89,12 +89,12 @@
 }
 
 .nav-item--active {
-	background-color: $jokerColor;	
+	background-color: $secondaryColor;	
 	a {
 		font-weight: bold;		
 	}
 	&:hover {
-		background-color: darken($jokerColor, 10%);
-		a { color: $themeColor }
+		background-color: lighten($secondaryColor, 10%);
+		
 	}
 }

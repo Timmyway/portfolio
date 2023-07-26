@@ -1,6 +1,40 @@
 <template>
-<section class="container mt-4 mx-auto p-4">
-    <h1 class="text-4xl p-6 text-center font-bold">Mes réalisations</h1>
+<section class="container mt-4 mx-auto p-4">    
+    <h1 class="text-6xl p-6 text-center font-bold">Mes réalisations</h1>
+    <!-- Convertisseur -->
+    <portfolio-project
+        title="Outil de conversion"
+        description="L'application est un outil de conversion et d'encodage qui offre les fonctionnalités suivantes : conversion entre Base64 et UTF-8, encodage et décodage d'URL, encodage et décodage d'entités HTML. Ces fonctionnalités permettent de manipuler facilement et en toute sécurité les données et les caractères spéciaux, rendant ainsi les interactions en ligne plus efficaces et pratiques."
+    >
+        <template #project>
+            <conversion-tool></conversion-tool>    
+        </template>
+    </portfolio-project>
+
+    <!-- Timer application -->
+    <portfolio-project
+        title="Timer"        
+    >
+        <template #description>
+            <div>
+                <p>L'application est un minuteur réalisé en Vue.js, conçue pour servir de démo et de pratique. Elle offre les fonctionnalités d'un chronomètre et d'un compte à rebours.</p>                
+                <h6 class="text-xl font-bold mb-2">Principales fonctionnalités :</h6>
+                <ul class="flex flex-col gap-2 my-4">
+                    <li class="text-xl"><i class="fas fa-star text-yellow-500"></i> Chronomètre : Permet de mesurer le temps écoulé depuis le début du compte à rebours.</li>
+                    <li class="text-xl"><i class="fas fa-star text-yellow-500"></i> Compte à rebours : Permet de définir une durée spécifique et de compter à rebours jusqu'à zéro.</li>
+                    <li class="text-xl"><i class="fas fa-star text-yellow-500"></i> Contrôles : L'application propose des boutons pour gérer le minuteur, y compris play (démarrer), pause, stop (remise à zéro), et reprendre (continuer à partir du temps en pause).</li>                
+                </ul>
+                <p>
+                    Cette application constitue une excellente occasion de mettre en pratique les compétences en Vue.js et offre une démonstration des fonctionnalités essentielles d'un minuteur interactif.
+                </p>
+            </div>
+        </template>
+        <template #project>
+            <timer-page></timer-page>
+        </template>
+    </portfolio-project>
+
+    <h2 class="text-4xl p-6 text-center font-bold">Certains projets dont je suis l'auteur</h2>
     <p class="text-xl">
         Voici un apperçu des mes réalisations personnelles. Je ne peux mettre que des images car certaines ne sont pas des projets WEB mais desktop.
         Et d'autres sont des projets dont je n'ai pas le droit de partager le code source.
@@ -50,6 +84,9 @@
 
 <script setup>
 import Carousel from '../components/Carousel.vue';
+import PortfolioProject from '../components/PortfolioProject.vue';
+import ConversionTool from '../components/ConversionTool.vue';
+import TimerPage from './TimerPage.vue';
 
 const projects = {
     "teamtool": [

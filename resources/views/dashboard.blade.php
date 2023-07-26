@@ -4,10 +4,7 @@
     <div class="navbar__container">
         <ul class="navbar__items" v-if="(isMobile && view.mobileMenu) || !isMobile">
             <li class="navbar__items__item" :class="[isActiveRoute('/')]">
-                <router-link class="nav-link" to="/" aria-current="page">Convertisseur</router-link>
-            </li>
-            <li class="navbar__items__item" :class="[isActiveRoute('/timer')]">
-                <router-link class="nav-link" to="/timer" aria-current="page">Timer</router-link>
+                <router-link class="nav-link" to="/" aria-current="page">Accueil</router-link>
             </li>
             <li class="navbar__items__item" :class="[isActiveRoute('/about')]">
                 <router-link class="nav-link" to="/about" aria-current="page">A propos</router-link>

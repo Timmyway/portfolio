@@ -13,8 +13,7 @@ const routes = [
     { path: '/', component: Home },
     { path: '/about', component: About },
     { path: '/contact', component: Contact },
-    { path: '/projects', component: Projects },
-    { path: '/timer', component: TimerPage }
+    { path: '/projects', component: Projects }    
 ];
 
 const pinia = createPinia()
