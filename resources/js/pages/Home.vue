@@ -2,10 +2,16 @@
 <div class="home">
     <div class="shortcut">
         <template v-for="(section,index) in sections" :key="`section-${index}`">
-            <a
-                @click="accessShortcut(section)" class="shortcut__point"
+            <div
+                class="flex items-center gap-2 cursor-pointer"
                 :class="{'shortcut--active': section === activeShortcut}"
-            ></a>
+                @click="accessShortcut(section)"
+            >
+                <a
+                    class="shortcut__point"                    
+                ></a>
+                <span class="text-white text-xs capitalize">{{ section.replace('portfolio-', '') }}</span>
+            </div>
         </template>        
     </div>    
     <section id="portfolio-hero" class="mx-auto">        
@@ -16,7 +22,11 @@
                         :texts="['Bienvenue sur mon', 'portfolio']"
                         class="text-4xl xl:text-6xl"
                     ></wt-changing-text>
-                </h3>
+                </h3>                
+                <wt-typewriter
+                    sentence="Bienvenue sur mon portfolio"
+                    class="text-2xl xl:text-4xl"
+                ></wt-typewriter>                
                 <h2 class="text-4xl xl:text-6xl">Tim <span class="text-white text-4xl xl:text-6xl">W</span>ay <i class="fa-solid fa-code text-primary"></i></h2>
                 <h2 class="text-3xl xl:text-5xl">Développeur</h2>
                 <h2 class="text-white text-8xl">WEB</h2>                
@@ -150,10 +160,12 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
 import Cards from '../components/Cards.vue';
 import { useAppStore } from '../stores/appStore';
+// Custom components
 import WtChangingText from '../components/portfolio/WtChangingText.vue';
-import { ref } from 'vue';
+import WtTypewriter from '../components/portfolio/WtTypewriter.vue';
 
 const appStore = useAppStore();
 const sections = ref(['portfolio-hero', 'portfolio-service', 'portfolio-tech']);
@@ -193,7 +205,13 @@ function accessShortcut(elementId) {
     }
 }
 .shortcut--active {
-    background: yellow;
-    transform: scale(2);
+    span {
+        color: yellow!important;
+        font-weight: bold;
+    }
+    a.shortcut__point {
+        background: yellow;
+        transform: scale(2);
+    }    
 }
 </style>
