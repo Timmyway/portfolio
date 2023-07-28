@@ -24,7 +24,9 @@
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
                             <div class="mb-4">
-                                <span class="text-sm">Pas de compte ? Aucun problème, bienvenue en tant qu'invité : guest@gmail.com | Bi1venu€</span>
+                                <span class="text-lg">Pas de compte ? Aucun problème, bienvenue en tant qu'invité :<br> 
+                                    email: <span class="font-bold text-secondary">guest@gmail.com</span> | mot de passe : <span class="font-bold text-secondary">Bi1venu€</span>
+                                </span>
                             </div>
                             <div class="form-group mb-2">
                                 <label class="mb-1" for="field-email">Email *</label>
@@ -34,17 +36,19 @@
                                     class="form-control text-dark"
                                     name="email"
                                     placeholder="Entrez votre adresse email"
+                                    autocomplete="username"
                                 >                                
                             </div>
 
                             <div class="form-group mb-6">
-                                <label class="mb-1" for="field-password">Password *</label>
+                                <label class="mb-1" for="field-password">Mot de passe *</label>
                                 <input 
                                     id="field-password"
                                     type="password" 
                                     class="form-control text-dark"
                                     name="password"
                                     placeholder="Entrez votre mot de passe"
+                                    autocomplete="current-password"
                                 >                                
                             </div>
 

@@ -16,17 +16,11 @@
     </div>    
     <section id="portfolio-hero" class="mx-auto">        
         <div class="lg:grid lg:grid-cols-2">
-            <div class="bg-secondary py-16 px-8 xl:py-32 xl:px-4 flex flex-col justify">
-                <h3 class="mb-4">
-                    <wt-changing-text
-                        :texts="['Bienvenue sur mon', 'portfolio']"
-                        class="text-4xl xl:text-6xl"
-                    ></wt-changing-text>
-                </h3>                
+            <div class="bg-secondary py-16 px-8 xl:py-32 xl:px-4 flex flex-col justify">                             
                 <wt-typewriter
                     sentence="Bienvenue sur mon portfolio"
                     class="text-2xl xl:text-4xl"
-                ></wt-typewriter>                
+                ></wt-typewriter>
                 <h2 class="text-4xl xl:text-6xl">Tim <span class="text-white text-4xl xl:text-6xl">W</span>ay <i class="fa-solid fa-code text-primary"></i></h2>
                 <h2 class="text-3xl xl:text-5xl">Développeur</h2>
                 <h2 class="text-white text-8xl">WEB</h2>                
