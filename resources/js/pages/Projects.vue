@@ -56,9 +56,9 @@
                 Son principal object est l'optimisation de Kit emailing et le routage. <br>
                 En effet, il est connecté à une solution de routage et permet d'utiliser tout le potentiel du router sans avoir à ouvrir l'appli WEB à chaque fois.
             </p>
-            <WtCarousel
+            <wt-carousel-enhanced
                 :images="projects.teamtool"
-            ></WtCarousel>        
+            ></wt-carousel-enhanced>        
         </article>
 
         <article class="container mt-5 sm:mt-10">
@@ -91,6 +91,7 @@
 
 <script setup>
 import WtCarousel from '../components/WtCarousel.vue';
+import WtCarouselEnhanced from '../components/portfolio/WtCarouselEnhanced.vue';
 import PortfolioProject from '../components/PortfolioProject.vue';
 import ConversionTool from '../components/ConversionTool.vue';
 import TimerPage from './TimerPage.vue';
