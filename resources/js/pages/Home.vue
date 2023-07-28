@@ -14,15 +14,9 @@
             </div>
         </template>        
     </div>    
-    <section id="portfolio-hero" class="mx-auto">        
+    <section ref="portfolioHero" id="portfolio-hero" class="mx-auto">        
         <div class="lg:grid lg:grid-cols-2">
-            <div class="bg-secondary py-16 px-8 xl:py-32 xl:px-4 flex flex-col justify">
-                <h3 class="mb-4">
-                    <wt-changing-text
-                        :texts="['Bienvenue sur mon', 'portfolio']"
-                        class="text-4xl xl:text-6xl"
-                    ></wt-changing-text>
-                </h3>                
+            <div class="bg-secondary py-16 px-8 xl:py-32 xl:px-4 flex flex-col justify">                
                 <wt-typewriter
                     sentence="Bienvenue sur mon portfolio"
                     class="text-2xl xl:text-4xl"
@@ -71,7 +65,7 @@
         </div>        
     </section>
 
-    <section id="portfolio-service" class="bg-slate-900 py-12 flex flex-col xl:py-24">
+    <section ref="portfolioService" id="portfolio-service" class="bg-slate-900 py-12 flex flex-col xl:py-24">
         <h3 class="text-5xl font-bold text-white p-4 mb-6 text-center font-secondary">Ce que je fais</h3>
         <div class="flex flex-wrap justify-center">
             <article class="grid grid-cols-4 max-w-lg">
@@ -119,7 +113,7 @@
         </div>
     </section>
 
-    <section id="portfolio-tech" class="py-12 xl:py-24">
+    <section ref="portfolioTech" id="portfolio-tech" class="py-12 xl:py-24">
         <h3 class="text-5xl font-bold p-4 mb-6 text-center font-secondary">Ma Palette Technologique au Quotidien</h3>
         <article class="flex justify-center flex-wrap gap-4 xl:gap-8">
             <Cards 
@@ -160,20 +154,49 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { onMounted, onUnmounted, ref } from 'vue';
 import Cards from '../components/Cards.vue';
 import { useAppStore } from '../stores/appStore';
 // Custom components
 import WtChangingText from '../components/portfolio/WtChangingText.vue';
 import WtTypewriter from '../components/portfolio/WtTypewriter.vue';
+import useIntersectionObserver from '../composables/useIntersectionObserver';
 
 const appStore = useAppStore();
 const sections = ref(['portfolio-hero', 'portfolio-service', 'portfolio-tech']);
 const activeShortcut = ref('portfolio-hero');
 
+// Intesection observer
+const portfolioHero = ref(null);
+const portfolioService = ref(null);
+const portfolioTech = ref(null);
+
+onMounted(() => {
+    const elements = [portfolioHero.value, portfolioService.value, portfolioTech.value];
+    const { observeTargets, unobserveTargets } = useIntersectionObserver(elements, 
+        { threshold: 0 }, 
+        { intersect: handleIntersection, unintersect: handleUnintersect }
+    );
+    observeTargets();
+});
+
+function handleIntersection(observable) {
+    // Custom logic to handle the intersection    
+    console.log(`Entries: ${observable} | ${observable.target}`);
+    // observable.target.style = "border: 4px solid red";
+    // Update the active shortcut menu with the intersecting section
+    activeShortcut.value = observable.target.id;
+    observable.target.classList.add('section--observed');
+    observable.target.classList.remove('section--unobserved');
+}
+
+function handleUnintersect(observable) {
+    observable.target.classList.remove('section--observed');
+    observable.target.classList.add('section--unobserved');    
+}
+
 function accessShortcut(elementId) {
-    const targetElement = document.querySelector('#' + elementId);
-    console.log(targetElement);
+    const targetElement = document.querySelector('#' + elementId);    
     targetElement.scrollIntoView({ behavior: 'smooth' });
     activeShortcut.value = elementId;
 }
@@ -213,5 +236,9 @@ function accessShortcut(elementId) {
         background: yellow;
         transform: scale(2);
     }    
+}
+
+.section--observed {
+    border: 2px solid #333;
 }
 </style>
