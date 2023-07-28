@@ -56,9 +56,9 @@
                 Son principal object est l'optimisation de Kit emailing et le routage. <br>
                 En effet, il est connecté à une solution de routage et permet d'utiliser tout le potentiel du router sans avoir à ouvrir l'appli WEB à chaque fois.
             </p>
-            <Carousel
+            <WtCarousel
                 :images="projects.teamtool"
-            ></Carousel>        
+            ></WtCarousel>        
         </article>
 
         <article class="container mt-5 sm:mt-10">
@@ -69,9 +69,9 @@
                 Basé sur un système de template, il est possible de modifier le design original afin d'avoir des variations en un temps record. <br>
                 Une gallerie d'image est disponible ainsi qu'un éditeur d'image. Une fonction de rognage avancé est également à disposition.
             </p>
-            <Carousel
+            <WtCarousel
                 :images="projects.kitbuilder"
-            ></Carousel>        
+            ></WtCarousel>        
         </article> 
     
         <article class="container mt-5 sm:mt-10">
@@ -81,16 +81,16 @@
                 En effet, il permet de redimentionner en lot des images, et les exporter au format souhaité.<br>
                 Les technologies utilisées sont Python et PYQT.
             </p>
-            <Carousel
+            <WtCarousel
                 :images="projects.imageOptimizer"
-            ></Carousel>        
+            ></WtCarousel>        
         </article> 
     </div>
 </section>
 </template>
 
 <script setup>
-import Carousel from '../components/Carousel.vue';
+import WtCarousel from '../components/WtCarousel.vue';
 import PortfolioProject from '../components/PortfolioProject.vue';
 import ConversionTool from '../components/ConversionTool.vue';
 import TimerPage from './TimerPage.vue';
