@@ -51,46 +51,71 @@
 
         <article class="container">
             <h4 class="text-2xl py-4 font-bold">Projet 1 : Teamtool</h4>
-            <p class="text-xl mb-5">
-                Description : ce projet est un client desktop développé avec Python et le framework graphique PYQT.<br>
+            <p class="text-xl mb-4">
+                <span class="underline font-bold">Description</span> : ce projet est un client desktop développé avec Python et le framework graphique PYQT.<br>
                 Son principal object est l'optimisation de Kit emailing et le routage. <br>
                 En effet, il est connecté à une solution de routage et permet d'utiliser tout le potentiel du router sans avoir à ouvrir l'appli WEB à chaque fois.
             </p>
-            <Carousel
+            <wt-carousel-enhanced
                 :images="projects.teamtool"
-            ></Carousel>        
+                class="bg-gradient-to-r from-yellow-500 to-orange-300"
+            ></wt-carousel-enhanced>
         </article>
 
         <article class="container mt-5 sm:mt-10">
             <h4 class="text-2xl py-4 font-bold">Projet 2 : Newsletter builder</h4>
-            <p class="text-xl">
-                Description : ce projet est une boîte à outil permettant la création d'une newsletter email rapidement.<br>
+            <p class="text-xl mb-4">
+                <span class="underline font-bold">Description</span> : ce projet est une boîte à outil permettant la création d'une newsletter email rapidement.<br>
                 Il a été développé avec le framework PHP Laravel et le framework javascript VueJS 3.
                 Basé sur un système de template, il est possible de modifier le design original afin d'avoir des variations en un temps record. <br>
                 Une gallerie d'image est disponible ainsi qu'un éditeur d'image. Une fonction de rognage avancé est également à disposition.
-            </p>
-            <Carousel
+            </p>            
+            <wt-carousel-enhanced
                 :images="projects.kitbuilder"
-            ></Carousel>        
+                class="bg-gradient-to-r from-pink-50 to-pink-300"
+            ></wt-carousel-enhanced>      
         </article> 
     
         <article class="container mt-5 sm:mt-10">
             <h4 class="text-2xl py-4 font-bold">Projet 3 : Image optimizer</h4>
-            <p class="text-xl">
-                Description : ce projet est un petit mais très utile outil à utiliser au quotidien.<br>
+            <p class="text-xl mb-4">
+                <span class="underline font-bold">Description</span> : ce projet est un petit mais très utile outil à utiliser au quotidien.<br>
                 En effet, il permet de redimentionner en lot des images, et les exporter au format souhaité.<br>
                 Les technologies utilisées sont Python et PYQT.
             </p>
-            <Carousel
+            <wt-carousel-enhanced
                 :images="projects.imageOptimizer"
-            ></Carousel>        
+                class="bg-gradient-to-r from-teal-50 to-teal-300"
+            ></wt-carousel-enhanced>        
         </article> 
     </div>
+
+    <article class="py-10">
+        <div class="p-5">
+            <h6 class="text-2xl font-bold mb-2">Et bien d'autres encore...</h6>
+            <p>
+                Félicitations pour être arrivé jusqu'à la fin de ma page de projets ! 🎉 J'espère que vous avez apprécié découvrir mes réalisations et que vous avez trouvé des projets qui vous ont inspiré.
+                <br>
+                C'est avec enthousiasme et passion que j'ai créé chacun de ces projets, en mettant tout mon cœur dans leur conception et leur développement. Mon objectif était de relever des défis, d'apprendre de nouvelles choses et de repousser mes limites créatives à chaque étape du processus.
+                <br><br>
+                Que vous soyez un recruteur, un collègue développeur, un futur client ou simplement un visiteur curieux, je vous remercie du temps que vous avez consacré à explorer mon portfolio. J'espère que mes projets vous ont donné un aperçu de mes compétences techniques et de ma passion pour le développement web.
+                <br><br>
+                Si vous avez des questions, des commentaires ou des opportunités de collaboration, n'hésitez pas à me contacter ! Je suis toujours ouvert aux nouvelles idées et aux projets passionnants.
+                <br>
+                Encore une fois, merci de visiter mon portfolio et de partager cette aventure avec moi. Je suis impatient de voir ce que l'avenir nous réserve et de continuer à créer des projets exceptionnels.
+                <br><br>
+                Restez curieux, créatif et inspiré ! 🚀
+                <br>
+                Bienvenue dans mon univers numérique ! 💻
+            </p>
+        </div>
+    </article>
 </section>
 </template>
 
 <script setup>
-import Carousel from '../components/Carousel.vue';
+import WtCarousel from '../components/WtCarousel.vue';
+import WtCarouselEnhanced from '../components/portfolio/WtCarouselEnhanced.vue';
 import PortfolioProject from '../components/PortfolioProject.vue';
 import ConversionTool from '../components/ConversionTool.vue';
 import TimerPage from './TimerPage.vue';

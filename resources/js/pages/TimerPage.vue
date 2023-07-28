@@ -1,5 +1,5 @@
 <template>
-<div class="flex flex-col gap-4 bg-slate-200 p-2">
+<div class="flex flex-col gap-4 bg-slate-50 text-dark p-2">
     <div class="flex items-center justify-center gap-4">
         <div>
             <label class="mr-2">Sonnez après (seconds)</label>
