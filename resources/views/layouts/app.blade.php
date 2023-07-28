@@ -8,12 +8,10 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Rubik+Moonrocks&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700;900&family=Rubik+Moonrocks&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/7f150bd29b.js" crossorigin="anonymous"></script>
-        <!-- Styles -->
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-        <!-- Scripts -->
-        <script src="{{ asset('js/app.js') }}" defer></script>
+        <!-- VITE -->
+        @vite(['resources/sass/app.scss', 'resources/js/app.js'])
         <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     </head>
     <body>       

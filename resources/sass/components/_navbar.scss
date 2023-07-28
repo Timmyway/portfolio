@@ -89,11 +89,12 @@
 }
 
 .nav-item--active {
-	background-color: $successColor;
+	background-color: $secondaryColor;	
 	a {
-		color: $themeColor; font-weight: bold;
-		&:hover {
-			color: darken($themeColor, 15%);
-		}
+		font-weight: bold;		
+	}
+	&:hover {
+		background-color: lighten($secondaryColor, 10%);
+		
 	}
 }

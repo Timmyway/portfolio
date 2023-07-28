@@ -1,185 +1,244 @@
 <template>
-<section class="container mx-auto p-4">
-    <h1 class="text-xl mt-2 flex items-center">Outil de conversion</h1>
-    <p>
-        <u>Description</u>: outil permettant d'effectuer des traitements basiques comme encoder un texte en <strong>Base64</strong>, une <strong>URL</strong> ou des <strong>caractères spéciaux</strong>.
-    </p>
-    <h4 class="mb-2 text-lg">Mode disponibles :</h4>
-    <select name="" id="" class="form-control" v-model="mode">
-        <option value="b64-to-utf8">Conversion Base64 vers UTF-8</option>
-        <option value="utf8-to-b64">Conversion UTF-8 vers Base64</option>
-        <option value="url-encode">Encodage d'URI souple (A-Z a-z 0-9 ; , / ? : @ & = + $ - _ . ! ~ * ' ( ) #)</option>
-        <option value="url-decode">Décodage d'URI souple (A-Z a-z 0-9 ; , / ? : @ & = + $ - _ . ! ~ * ' ( ) #)</option>
-        <option value="url-encode-full">Encodage d'URI complète (encode tout)</option>
-        <option value="url-decode-full">Décodage d'URI complète (décode tout)</option>
-        <option value="html-entities">Encoder/décoder caractères HTML</option>
-        <option value="iso-latin-1">Encoder/décoder caractères ISO-8859-1</option>
-    </select>
-    <div class="command-bar bg-joker command-bar--detached">
-        <div>
-            <div class="group" v-show="mode === 'html-entities'">
-                <button class="group__item btn btn-sm bg-white text-theme-contrast" @click.prevent="setHTMLEntities('encode')">Encoder caractères HTML</button>
-                <button class="group__item btn btn-sm bg-white text-theme-contrast" @click.prevent="setHTMLEntities('decode')">Décoder caractères HTML</button>					
+<div class="home">
+    <div class="shortcut">
+        <template v-for="(section,index) in sections" :key="`section-${index}`">
+            <div
+                class="flex items-center gap-2 cursor-pointer"
+                :class="{'shortcut--active': section === activeShortcut}"
+                @click="accessShortcut(section)"
+            >
+                <a
+                    class="shortcut__point"                    
+                ></a>
+                <span class="text-white text-xs capitalize">{{ section.replace('portfolio-', '') }}</span>
             </div>
-            <div class="group" v-show="mode === 'iso-latin-1'">
-                <button class="group__item btn btn-sm text-theme-contrast" @click.prevent="setIsolatin">Convertir Iso latin 1 en UTF-8</button>						
+        </template>        
+    </div>    
+    <section ref="portfolioHero" id="portfolio-hero" class="mx-auto">        
+        <div class="lg:grid lg:grid-cols-2">
+            <div class="bg-secondary py-16 px-8 xl:py-32 xl:px-4 flex flex-col justify">                
+                <wt-typewriter
+                    sentence="Bienvenue sur mon portfolio"
+                    class="text-2xl xl:text-4xl"
+                ></wt-typewriter>                
+                <h2 class="text-4xl xl:text-6xl">Tim <span class="text-white text-4xl xl:text-6xl">W</span>ay <i class="fa-solid fa-code text-primary"></i></h2>
+                <h2 class="text-3xl xl:text-5xl">Développeur</h2>
+                <h2 class="text-white text-8xl">WEB</h2>                
+                <p class="leading-8 max-w-3xl text-justify">
+                    Bienvenue dans mon univers numérique !
+                    Je suis Tim, un développeur fullstack passionné du WEB. 
+                    Mon voyage a commencé avec une simple ligne de code en 2016, et depuis, 
+                    je n’ai jamais cessé d’apprendre et de créer. 
+                    Explorez mes réalisations et plongez-vous dans les projets qui reflètent ma passion 
+                    pour la résolution de problèmes et l’innovation. 
+                    Rejoignez-moi dans cette aventure technologique, où la créativité et la détermination 
+                    s’unissent pour façonner l’avenir numérique. Prêt à explorer le WEB avec moi ?
+                </p>
+                <button class="btn btn-primary py-4 px-8 w-fit mt-12" style="margin-bottom: 0;">A propos de moi</button>
             </div>
-        </div>        
-    </div>	
+            <div class="bg-secondary">
+                <img src="images/bg.WebP" alt="" class="h-full object-cover">
+            </div>
+        </div>
+    </section>    
 
-    <div class="row">
-        <div class="col-md-6 col-12 mb-2 workspace">
-            <!-- Input your string here -->
-            <textarea class="form-control workspace-txt" v-model="msg" :placeholder="helpMsg" maxlength="50000"></textarea>
-            <div class="workspace__counter">{{ msgLength }}</div>
+    <section class="flex justify-center">
+        <div class="flex justify-center relative top-[-30px] p-4 bg-slate-50 shadow-xl">
+            <article class="p-8 flex flex-col items-center text-center border-r-2 border-solid border-gray-400">
+                <h6 class="text-6xl">6</h6>
+                <p class="text-xl">
+                    années d'expérience
+                </p>
+            </article>
+            <article class="p-8 flex flex-col items-center text-center border-r-2 border-solid border-gray-400">
+                <h6 class="text-6xl">50</h6>
+                <p class="text-xl">
+                    projets et plus réalisés
+                </p>
+            </article>
+            <article class="p-8 flex flex-col items-center text-center">
+                <h6 class="text-6xl">3</h6>
+                <p class="text-xl">
+                    langages de programmation
+                </p>
+            </article>
+        </div>        
+    </section>
+
+    <section ref="portfolioService" id="portfolio-service" class="bg-slate-900 py-12 flex flex-col xl:py-24">
+        <h3 class="text-5xl font-bold text-white p-4 mb-6 text-center font-secondary">Ce que je fais</h3>
+        <div class="flex flex-wrap justify-center">
+            <article class="grid grid-cols-4 max-w-lg">
+                <div class="col-span-1 p-4">
+                    <i class="fa-solid fa-desktop text-7xl text-secondary"></i>
+                </div>
+                <div class="flex flex-col gap-4 col-span-3">
+                    <h6 class="text-2xl px-2 py-4 font-bold text-white">Impressionnez avec des Landing Pages Réactives</h6>
+                    <p class="text-xl leading-relaxed text-slate-300">
+                        Offrez une expérience utilisateur exceptionnelle avec des Landing Pages modernes 
+                        et adaptées à tous les appareils. Nous concevons des pages d'atterrissage 
+                        efficaces pour captiver votre audience et augmenter vos conversions.
+                    </p>
+                </div>
+            </article>
+
+            <article class="grid grid-cols-4 max-w-lg">
+                <div class="col-span-1 p-4">
+                    <i class="fa-solid fa-cogs text-7xl text-secondary"></i>
+                </div>
+                <div class="flex flex-col gap-4 col-span-3">
+                    <h6 class="text-2xl px-2 py-4 font-bold text-white">Votre Site Web Unique, Votre Identité en Ligne</h6>
+                    <p class="text-xl leading-relaxed text-slate-300">
+                        Donnez vie à votre vision avec un site web personnalisé qui reflète parfaitement 
+                        votre marque. Notre équipe crée des sites web sur mesure, 
+                        fonctionnels et esthétiquement agréables pour 
+                        mettre en valeur votre entreprise.
+                    </p>
+                </div>
+            </article>
+
+            <article class="grid grid-cols-4 max-w-lg">
+                <div class="col-span-1 p-4">
+                    <i class="fa-solid fa-code text-7xl text-secondary"></i>
+                </div>
+                <div class="flex flex-col gap-4 col-span-3">
+                    <h6 class="text-2xl px-2 py-4 font-bold text-white">Puissantes Apps Web pour Dynamiser Votre Entreprise</h6>
+                    <p class="text-xl leading-relaxed text-slate-300">
+                        Transformez vos idées en réalité avec nos applications web performantes 
+                        et faciles à utiliser. Nous concevons des solutions sur mesure pour 
+                        optimiser vos processus et stimuler l'efficacité de votre entreprise.
+                    </p>
+                </div>
+            </article>
         </div>
-        <div class="col-md-6 col-12 mb-2 workspace">
-            <!-- Get result here -->
-            <textarea class="form-control workspace-txt" v-model="result" placeholder="Résultat" ref="area-result"></textarea>
-            <button class="btn btn-sm mt-3 btn-icon" @click="copy('area-result')">
-                <i class="fas fa-copy "></i>
-            </button>
-        </div>
-    </div>		
-</section>
+    </section>
+
+    <section ref="portfolioTech" id="portfolio-tech" class="py-12 xl:py-24">
+        <h3 class="text-5xl font-bold p-4 mb-6 text-center font-secondary">Ma Palette Technologique au Quotidien</h3>
+        <article class="flex justify-center flex-wrap gap-4 xl:gap-8">
+            <Cards 
+                :cards="appStore.getTech().languages"
+                identifier="languages" 
+                title="Languages"
+                card-width="200px"
+                h-align="center"
+                bg-class="bg-blue-900"
+            ></Cards>
+            <Cards 
+                :cards="appStore.getTech().frameworks" 
+                identifier="frameworks" 
+                title="Frameworks"
+                card-width="200px"
+                h-align="center"
+                bg-class="bg-red-900"
+            ></Cards>
+            <Cards 
+                :cards="appStore.getTech().tools" 
+                identifier="tools" 
+                title="Tools"
+                card-width="200px"
+                h-align="center"
+                bg-class="bg-indigo-900"
+            ></Cards>
+            <Cards 
+                :cards="appStore.getTech().databases" 
+                identifier="databases" 
+                title="Databases"
+                card-width="200px"
+                h-align="center"
+                bg-class="bg-green-900"
+            ></Cards>
+        </article>
+    </section>
+</div>
 </template>
 
-<script>
-export default {
-    inject: ['$axios'],
-    data() {
-        return {
-            baseURL: 'tools/',
-            msg: '',
-            mode: 'b64-to-utf8',
-            updatedResult: ''				
-        }
-    },
-    computed: {
-        msgLength() {
-            return this.msg.length;
-        },
-        helpMsg() {
-            switch (this.mode) {
-                case 'utf8-to-b64':
-                    return `Conversion d'un texte en UTF-8 vers Base64.
-    Utilité: Echapper les accents, espaces et autres caractères spéciaux. 
-    "En informatique, base64 est un codage de l'information utilisant 64 caractères, choisis pour être disponibles sur la majorité des systèmes." Wikipedia.
+<script setup>
+import { onMounted, onUnmounted, ref } from 'vue';
+import Cards from '../components/Cards.vue';
+import { useAppStore } from '../stores/appStore';
+// Custom components
+import WtChangingText from '../components/portfolio/WtChangingText.vue';
+import WtTypewriter from '../components/portfolio/WtTypewriter.vue';
+import useIntersectionObserver from '../composables/useIntersectionObserver';
 
-    26 lettres minuscules, 26 lettres majuscules, 10 chiffres (0 à 9), +, /`
-                    break;
-                case 'b64-to-utf8':
-                    return `Conversion d'un texte en Base64 vers UTF-8.
-    "UTF-8 (abréviation de l’anglais Universal Character Set Transformation Format1 - 8 bits) est un codage de caractères informatiques conçu pour coder l’ensemble des caractères du « répertoire universel de caractères codés »" Wikipedia.
+const appStore = useAppStore();
+const sections = ref(['portfolio-hero', 'portfolio-service', 'portfolio-tech']);
+const activeShortcut = ref('portfolio-hero');
 
-    Bref, c'est l'ensemble de tous les caractères possibles existant, des caractères japonais ばんかい aux emoji ⚽.`
-                case 'url-encode':
-                    return "Si en entrée on a: https://mozilla.org/?x=шеллы, on peut s'attendre en sortie à quelque chose comme cela: https://mozilla.org/?x=%D1%88%D0%B5%D0%BB%D0%BB%D1%8B";
-                    break;
-                case 'url-encode-full':
-                    return `Si en entrée on a: https://mozilla.org/?x=шеллы, on peut s'attendre en sortie à quelque chose comme cela: https%3A%2F%2Fmozilla.org%2F%3Fx%3D%D1%88%D0%B5%D0%BB%D0%BB%D1%8B.
+// Intesection observer
+const portfolioHero = ref(null);
+const portfolioService = ref(null);
+const portfolioTech = ref(null);
 
-    Remarque: Même les ":", "/" et même le "?" ont été convertis.`
-                case 'html-entities':
-                    return "Convertit les entités HTML à leurs caractères correspondant et vis versa";
-                    break;
-                case 'iso-latin-1':
-                    return `"La norme ISO 8859-1, dont le nom complet est ISO/CEI 8859-1, et qui est souvent appelée Latin-1 ou Europe occidentale, forme la première partie de la norme internationale ISO/CEI 8859, qui est une norme de l’Organisation internationale de normalisation pour le codage des caractères en informatique." Wikipedia`;
-                    break;							
-                default:
-                    return 'Entrer le texte à encoder ici';
-                    break;
-            }
-        },
-        result: {
-            get() {
-                // Base64 encodage
-                if (this.mode === 'utf8-to-b64') {
-                    return this.utf8ToB64(this.msg);						
-                } else if (this.mode === 'b64-to-utf8') {
-                    return this.b64ToUtf8(this.msg);
-                // URL encodage
-                } else if (this.mode === 'url-encode') {
-                    return encodeURI(this.msg)
-                } else if (this.mode === 'url-decode') {
-                    return decodeURI(this.msg)					
-                } else if (this.mode === 'url-encode-full') {
-                    return encodeURIComponent(this.msg)
-                } else if (this.mode === 'url-decode-full') {
-                    return decodeURIComponent(this.msg)
-                } else if (this.mode === 'html-entities' || this.mode === 'iso-latin-1') {
-                    return this.updatedResult;
-                }
-            },
-            set(newValue) {						
-                return newValue;
-            }
-        }
-    },
-    methods: {
-        setHTMLEntities(encodageMode) {
-            console.log('Encode HTML chars');
-            if (!this.msg || this.mode !== 'html-entities') {
-                console.log('Nothing to encode/decode');
-                return;
-            }
-            this.result = '';
-            this.$axios.post('api/hentities', {
-                str: this.msg,
-                mode: encodageMode
-            })
-            .then((response) => {						
-                this.updatedResult = response.data.response;
-                this.result = response.data.response;						
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-        },
-        setIsolatin() {
-            if (!this.msg || this.mode !== 'iso-latin-1') {
-                console.log('Nothing to encode/decode');
-                return;
-            }
-            this.result = '';
-            this.$axios.post('api/isolatin', {
-                str: this.msg
-            })
-            .then((response) => {						
-                this.updatedResult = response.data.response;
-                this.result = response.data.response;						
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-        },
-        utf8ToB64(str) {
-            try {
-                return window.btoa(unescape(encodeURIComponent( str )));						
-            } catch(err) {
-                return ''
-            }
-            
-        },
-        b64ToUtf8(str) {
-            try {
-                return decodeURIComponent(escape(window.atob( str )));
-            } catch(err) {
-                return
-            }					
-        },
-        copy(ref) {            
-            /* Select the text field */
-            const copyText = this.$refs[ref];
-            if (!copyText.value) {                
-                return;
-            }
-            copyText.select();
-            copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+onMounted(() => {
+    const elements = [portfolioHero.value, portfolioService.value, portfolioTech.value];
+    const { observeTargets, unobserveTargets } = useIntersectionObserver(elements, 
+        { threshold: 0 }, 
+        { intersect: handleIntersection, unintersect: handleUnintersect }
+    );
+    observeTargets();
+});
 
-            /* Copy the text inside the text field */
-            document.execCommand("copy");					
+function handleIntersection(observable) {
+    // Custom logic to handle the intersection    
+    console.log(`Entries: ${observable} | ${observable.target}`);
+    // observable.target.style = "border: 4px solid red";
+    // Update the active shortcut menu with the intersecting section
+    activeShortcut.value = observable.target.id;
+    observable.target.classList.add('section--observed');
+    observable.target.classList.remove('section--unobserved');
+}
+
+function handleUnintersect(observable) {
+    observable.target.classList.remove('section--observed');
+    observable.target.classList.add('section--unobserved');    
+}
+
+function accessShortcut(elementId) {
+    const targetElement = document.querySelector('#' + elementId);    
+    targetElement.scrollIntoView({ behavior: 'smooth' });
+    activeShortcut.value = elementId;
+}
+</script>
+
+<style lang="scss">
+.shortcut {
+    position: fixed;
+    right: 1%;
+    top: 60%;
+    transform: translate(0, -50%);
+    background: hsl(0, 0%, 7%, .3);
+    padding: 4px 3px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    &__point {
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        display: block;
+        background: white;
+        cursor: pointer;
+        transition: all .2s;
+        &:hover {
+            transform: scale(2);
         }
     }
 }
-</script>
+.shortcut--active {
+    span {
+        color: yellow!important;
+        font-weight: bold;
+    }
+    a.shortcut__point {
+        background: yellow;
+        transform: scale(2);
+    }    
+}
+
+.section--observed {
+    border: 2px solid #333;
+}
+</style>

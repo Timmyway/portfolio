@@ -109,23 +109,7 @@ $navHeight: 60px;
 		width: 48px; height: 48px;
 	}
 }
-.command-bar {
-	display: flex;
-	flex-direction: row;
-	align-items: flex-start;
-	&--detached {margin: 10px 0;}	
-	.group {
-		display: flex;
-		flex-direction: row;
-		align-items: flex-start;
-		flex-wrap: wrap;
-		justify-content: space-evenly;
-		padding: 5px 15px;		
-	}
-	.group__item {margin-bottom: 3px; margin-top: 3px;}
-	.group__item:not(:first-child) {margin-left: 3px;}
-	.group__item:not(:last-child) {margin-right: 3px}
-}
+
 
 .cards-galery {
 	display: grid;

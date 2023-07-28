@@ -1,38 +1,29 @@
 <template>
 <div class="container mx-auto">
     <section class="mt-4 container mx-auto">
-        <h1 class="text-4xl p-6 text-center font-bold">Me contacter</h1>
-        <div class="ti-form" v-if="!isSent">            
+        <h1 class="text-4xl text-center font-bold mb-4">Me contacter</h1>
+        <div class="ti-form shadow-lg bg-slate-100 mb-4" v-if="!isSent">            
             <form>
                 <MdTextfield
-                    label="Nom *" field="lastname" type="text"
-                    v-model:value="form.lastname"
-                    :validator="v$"
-                    name="lastname"
-                ></MdTextfield>
-                <MdTextfield
                     label="Prénom *" field="firstname"
-                    v-model:value="form.firstname"
-                    :validator="v$"
+                    v-model:value="formStore.form.firstname"
+                    :validator="formStore.v$"
                     name="firstname"
                 ></MdTextfield>
                 <MdTextfield
                     label="Email *" field="email" type="email"
-                    v-model:value="form.email"
-                    :validator="v$"
+                    v-model:value="formStore.form.email"
+                    :validator="formStore.v$"
                     name="email"
-                ></MdTextfield>
-                <MdTextfield
-                    label="Téléphone *" field="phone" type="tel"
-                    v-model:value="form.phone"
-                    :validator="v$"
-                    name="phone"
-                ></MdTextfield>
-                <div class="workspace">
-                    <div class="workspace__counter">{{ form.msg.length }}</div>
+                ></MdTextfield>                
+                <div class="workspace">                    
+                    <div
+                        class="workspace__counter text-lg"
+                        v-show="formStore.form.msg?.length > 0"
+                    >{{ formStore.form.msg.length }} caractères</div>
                     <textarea 
                         class="form-control mb-2" 
-                        cols="30" rows="10" v-model="form.msg"
+                        cols="30" rows="10" v-model="formStore.form.msg"
                         placeholder="Tu peux me laisser un message, je serai ravis de le lire. (5 caractères minimum)"
                         name="msg"
                     ></textarea>
@@ -59,7 +50,7 @@
                 <button 
                     v-if="!isSent"
                     class="btn bg-blue-600 text-theme hover:bg-blue-700" type="submit" 
-                    :class="[isOkForSending ? 'btn-success' : 'btn-disabled']"
+                    :class="[formStore.isOkForSending ? 'btn-success' : 'btn-disabled']"
                     @click.prevent="submit"
                 >Envoyer</button>                
                 <br>
@@ -90,120 +81,93 @@
             <p v-if="isSent" class="text-md thanks__msg">
                 Merci pour votre message.
             </p>
-        </div>    
+        </div>        
     </section>
 </div>
 </template>
 
-<script>
+<script setup>
 // import useVuelidate from '@vuelidate/core';
 import MdTextfield from '../components/MdTextfield.vue';
-import useValidation from '../composables/useValidation';
-const axios = require('axios');
-import { inject, onMounted, reactive, ref } from 'vue';
+import axios from 'axios';
+import { computed, inject, onMounted, reactive, ref } from 'vue';
+import { useFormStore } from '../stores/formStore.js';
 
-export default {    
-    components: {
-        MdTextfield
-    },  
-    setup() {
-        const siteURL = inject('$siteURL');
-        const captchaKey = inject('$googleCaptchaClientKey');
-        const { v$, form, validationData } = useValidation();
+const siteURL = inject('$siteURL');
+const captchaKey = inject('$googleCaptchaClientKey');
+const formStore = useFormStore();
 
-        const errors = reactive({msg: '', data: {}});
+const errors = reactive({msg: '', data: {}});
 
-        let isSent = ref(localStorage.getItem('isSent') ? localStorage.getItem('isSent') : false);
+let isSent = ref(localStorage.getItem('isSent') ? localStorage.getItem('isSent') : false);
 
-        const userCaptcha = ref();
+const userCaptcha = ref();
 
-        onMounted(() => {
-            // grecaptcha.ready(function() {
-            //     grecaptcha.render("recaptcha-container", {
-            //         "sitekey": captchaKey
-            //     });
-            // });
-        })
+onMounted(() => {
+    // grecaptcha.ready(function() {
+    //     grecaptcha.render("recaptcha-container", {
+    //         "sitekey": captchaKey
+    //     });
+    // });
+})
 
-        function flashMsg(notif, msg='', timeout=8000) {
-            console.log(notif.data);
-            notif.data = [];
-            notif.data.push(msg);
-            setTimeout(() => {
-                notif.data = [];
-            }, timeout);
-        }
+function flashMsg(notif, msg='', timeout=8000) {
+    console.log(notif.data);
+    notif.data = [];
+    notif.data.push(msg);
+    setTimeout(() => {
+        notif.data = [];
+    }, timeout);
+}
 
-        const captcha = ref({
-            img: '',
-            key: ''
-        });
+const captcha = ref({
+    img: '',
+    key: ''
+});
 
-        function fetchCaptcha() {            
-            axios.get(siteURL + 'captcha/api/math')
-            .then((response) => {
-                captcha.value = response.data;
-            })
-        }
+async function fetchCaptcha() {
+    // Get the captcha math challenge
+    const response = await axios.get(siteURL + 'captcha/api/math');
+    captcha.value = response.data;
+    console.log('====> ', captcha.value)
+}
 
-        fetchCaptcha();
-        
-        return { v$, form, validationData, errors, siteURL, flashMsg, isSent, captchaKey,
-            userCaptcha, captcha, fetchCaptcha
-        };
-    },
-    computed: {
-        isOkForSending() {            
-            if (this.v$.firstname.validFirstname.$invalid || this.v$.lastname.validLastname.$invalid
-                || this.v$.email.validEmail.$invalid || this.v$.msg.$invalid
-            ) {
-                console.log('Client validation fails');
-                return false;
-            }
-            return true;
-        }
-    },
-    methods: {        
-        submit() {
-            if (!this.isOkForSending) {                
-                this.flashMsg(this.errors, {'client error': ['Les champs : nom, prénom et email sont requis. Vérifier que votre message comporte au moins 10 caractères. Merci']});
-                return;
-            }
-            this.isSent = false;
-            const payload = {
-                firstname: this.form.firstname,
-                lastname: this.form.lastname,
-                email: this.form.email,
-                phone: this.form.phone,
-                msg: this.form.msg,
-                city: null,
-                zipcode: null,
-                captcha: this.userCaptcha,
-                key: this.captcha.key
-            }
-            axios.post(this.siteURL + 'api/message', payload)
-            .then((response) => {
-                console.log(response.data);
-                if (response.data.response === 'Message saved') {
-                    this.isSent = true;
-                    localStorage.setItem('isSent', true);
-                    // window.location.href = `${this.siteURL}`;
-                }
-            })
-            .catch((err) => {
-                if(err.response) {                    
-                    if (err.response.status == 422) {
-                        this.isSent = false;                        
-                        this.errors.data = err.response.data;
-                        this.errors.msg = err.response.data.message;
-                    }
-                }                
-            })        
-        }
+fetchCaptcha();
+
+
+async function submit() {
+    if (!formStore.isReadyForSending) {                
+        flashMsg(errors, {'client error': ['Les champs : nom, prénom et email sont requis. Vérifier que votre message comporte au moins 10 caractères. Merci']});
+        return;
+    }
+    isSent.value = false;    
+    const payload = {
+        firstname: formStore.form.firstname,
+        lastname: formStore.form.lastname,
+        email: formStore.form.email,
+        phone: formStore.form.phone,
+        msg: formStore.form.msg,
+        city: null,
+        zipcode: null,
+        captcha: userCaptcha.value,
+        key: captcha.value.key
     }    
+    try {
+        const response = await axios.post(siteURL + 'api/message', payload);        
+        if (response.data.response === 'Message saved') {
+            isSent.value = true;
+            localStorage.setItem('isSent', true);
+            // window.location.href = `${this.siteURL}`;
+        }
+    } catch(err) {
+        if(err.response) {                    
+            if (err.response.status == 422) {
+                isSent.value = false;                        
+                errors.data = err.response.data;
+                errors.msg = err.response.data.message;
+                fetchCaptcha();
+            }
+        }        
+    }
 }
 </script>
-
-<style>
-
-</style>

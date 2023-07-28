@@ -27,7 +27,7 @@
 
 <script>
 import { ref } from '@vue/runtime-core';
-import useValidation from '../composables/useValidation';
+import { validationData } from '../stateless/validationData';
 
 export default {
     name: 'MdTextfield',
@@ -50,8 +50,7 @@ export default {
             type: Object
         }
     },
-    setup(props) {
-        const { validationData } = useValidation();
+    setup(props) {        
         let value = ref('');                
 
         return { validationData, value }

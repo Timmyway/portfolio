@@ -5,18 +5,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Login</title>
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     </head>
+    <style>
+        body {
+            background-image: url('{{ asset('images/login-bg.WebP')}}');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+    </style>
     <body>
         <div id="app">
             <section>
                 <div class="login-form">
-                    <img class="t-logo" src="{{ asset('images/logo.svg') }}" alt="">
+                    <img class="t-logo" src="{{ asset('images/logo.png') }}" alt="">
                     <div class="p-5">
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
                             <div class="mb-4">
-                                <span class="text-sm">Pas de compte ? Aucun problème, bienvenue en tant qu'invité : guest@gmail.com | Guest987</span>
+                                <span class="text-sm">Pas de compte ? Aucun problème, bienvenue en tant qu'invité : guest@gmail.com | Bi1venu€</span>
                             </div>
                             <div class="form-group mb-2">
                                 <label class="mb-1" for="field-email">Email *</label>
@@ -42,14 +50,12 @@
 
                             <input type="submit" 
                                 class="btn bg-blue-600 hover:bg-blue-700 text-theme" 
-                                value="Se connecter"
+                                value="Visiter"
                             >
                         </form>
                     </div>
                 </div>
             </section>
-        </div>
-        
-        <script src="{{ asset('js/app.js') }}" defer></script>
+        </div>       
     </body>
 </html>

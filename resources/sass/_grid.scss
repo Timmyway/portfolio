@@ -37,8 +37,8 @@ $variable-prefix:             bs- !default;
 $spacer: 1rem !default;
 $spacers: (
   0: 0,
-  1: $spacer / 4,
-  2: $spacer / 2,
+  1: calc($spacer / 4),
+  2: calc($spacer / 2),
   3: $spacer,
   4: $spacer * 1.5,
   5: $spacer * 3,
@@ -93,7 +93,7 @@ $gutters: $spacers !default;
 
 // Container padding
 
-$container-padding-x: $grid-gutter-width / 2 !default;
+$container-padding-x: calc($grid-gutter-width / 2) !default;
 
 // ---------- END OF VARIABLE ----------
 
@@ -165,7 +165,7 @@ $container-padding-x: $grid-gutter-width / 2 !default;
 
 @mixin make-col($size, $columns: $grid-columns) {
   flex: 0 0 auto;
-  width: percentage($size / $columns);
+  width: percentage(calc($size / $columns));
 }
 
 @mixin make-col-auto() {
@@ -174,7 +174,7 @@ $container-padding-x: $grid-gutter-width / 2 !default;
 }
 
 @mixin make-col-offset($size, $columns: $grid-columns) {
-  $num: $size / $columns;
+  $num: calc($size / $columns);
   margin-left: if($num == 0, 0, percentage($num));
 }
 
@@ -186,7 +186,7 @@ $container-padding-x: $grid-gutter-width / 2 !default;
 @mixin row-cols($count) {
   > * {
     flex: 0 0 auto;
-    width: 100% / $count;
+    width: calc(100% / $count);
   }
 }
 

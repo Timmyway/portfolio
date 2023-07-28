@@ -1,22 +1,21 @@
 import { computed, createApp, reactive } from 'vue/dist/vue.esm-bundler';
 import axios from 'axios';
-// import useVuelidate from '@vuelidate/core'
-// import { required } from '@vuelidate/validators'
+import { createPinia } from 'pinia'
 import Home from './pages/Home.vue';
-import ProjectPage from './pages/ProjectPage.vue';
-import Contact from './pages/Contact';
-import About from './pages/About';
-import TimerPage from './pages/TimerPage';
+import Projects from './pages/Projects.vue';
+import Contact from './pages/Contact.vue';
+import About from './pages/About.vue';
+import TimerPage from './pages/TimerPage.vue';
 import { createRouter, createWebHistory } from 'vue-router';
 import useResponsive from './composables/useResponsive';
 
 const routes = [
-    { path: '/', component: Home },
-    { path: '/about', component: About },
+    { path: '/', component: Home },    
     { path: '/contact', component: Contact },
-    { path: '/projects', component: ProjectPage },
-    { path: '/timer', component: TimerPage }
-]
+    { path: '/projects', component: Projects }    
+];
+
+const pinia = createPinia()
 
 const router = createRouter({
     history: createWebHistory(),
@@ -53,15 +52,16 @@ function capitalize(str) {
 }
 
 app.use(router);
+app.use(pinia);
 
 app.provide('templateDatas', window.templateDatas);
 app.provide('$axios', axios);
 app.provide('$capitalize', capitalize);
-if (process.env.MIX_APP_ENV === 'prod') {
-    app.provide('$siteURL', process.env.MIX_APP_PROD_URL);
+if (import.meta.env.VITE_APP_ENV === 'prod') {
+    app.provide('$siteURL', import.meta.env.VITE_APP_PROD_URL);
 } else {
-    app.provide('$siteURL', process.env.MIX_APP_URL);
+    app.provide('$siteURL', import.meta.env.VITE_APP_URL);
 }
-app.provide('$googleCaptchaClientKey', process.env.MIX_GOOGLE_CAPTCHA_CLIENT_KEY);
+app.provide('$googleCaptchaClientKey', import.meta.env.VITE_GOOGLE_CAPTCHA_CLIENT_KEY);
 
 app.mount('#app');
