@@ -20,21 +20,55 @@
                 <wt-typewriter
                     sentence="Bienvenue sur mon portfolio"
                     class="text-2xl xl:text-4xl"
-                ></wt-typewriter>                
+                ></wt-typewriter>
                 <h2 class="text-4xl xl:text-6xl">Tim <span class="text-white text-4xl xl:text-6xl">W</span>ay <i class="fa-solid fa-code text-primary"></i></h2>
                 <h2 class="text-3xl xl:text-5xl">Développeur</h2>
-                <h2 class="text-white text-8xl">WEB</h2>                
-                <p class="leading-8 max-w-3xl text-justify">
-                    Bienvenue dans mon univers numérique !
-                    Je suis Tim, un développeur fullstack passionné du WEB. 
-                    Mon voyage a commencé avec une simple ligne de code en 2016, et depuis, 
-                    je n’ai jamais cessé d’apprendre et de créer. 
-                    Explorez mes réalisations et plongez-vous dans les projets qui reflètent ma passion 
-                    pour la résolution de problèmes et l’innovation. 
-                    Rejoignez-moi dans cette aventure technologique, où la créativité et la détermination 
-                    s’unissent pour façonner l’avenir numérique. Prêt à explorer le WEB avec moi ?
-                </p>
-                <button class="btn btn-primary py-4 px-8 w-fit mt-12" style="margin-bottom: 0;">A propos de moi</button>
+                <h2 class="text-white text-8xl mb-4">WEB</h2>
+                <div class="max-w-3xl">
+                    <p class="leading-8 text-justify text-gray-700">
+                        <span class="font-bold text-dark">Bienvenue sur le portfolio de DevAmbition !</span>
+
+                        Je suis ravi de vous accueillir ici pour vous faire découvrir ma passion pour le WEB 
+                        <br><br>
+
+                        Avec <span class="font-bold text-dark">plusieurs années d'expérience</span> dans le domaine, 
+                        je suis heureux de vous proposer les services suivants :
+                        <br><br>                    
+                    </p>
+                    <ul class="flex flex-col gap-5">
+                        <li class="flex gap-2">
+                            <div class="w-8 flex justify-center items-center">
+                                <i class="fas fa-laptop-code fa-2x"></i>
+                            </div>
+                            <span class="font-bold text-lg">Développement de sites web responsive et modernes</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <div class="w-8 flex justify-center items-center">
+                                <i class="fas fa-file-alt fa-2x"></i>
+                            </div>
+                            <span class="font-bold text-lg">Création de landing pages optimisées pour la conversion</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <div class="w-8 flex justify-center items-center">
+                                <i class="fas fa-cubes fa-2x"></i>
+                            </div>
+                            <span class="font-bold text-lg">Développement d'applications Web sur mesure</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <div class="w-8 flex justify-center items-center">
+                                <i class="fas fa-envelope fa-2x"></i>
+                            </div>
+                            <span class="font-bold text-lg">Création de kits (newsletters) HTML</span>
+                        </li>
+                    </ul>
+                </div>
+                <router-link to="/a-propos">
+                    <button 
+                        class="btn btn-primary py-4 px-8 w-fit mt-12"
+                        style="margin-bottom: 0;"
+
+                    >À PROPOS DE MOI</button>
+                </router-link>
             </div>
             <div class="bg-secondary">
                 <img src="images/bg.WebP" alt="" class="h-full object-cover">
@@ -43,14 +77,14 @@
     </section>    
 
     <section class="flex justify-center">
-        <div class="flex justify-center relative top-[-30px] p-4 bg-slate-50 shadow-xl">
-            <article class="p-8 flex flex-col items-center text-center border-r-2 border-solid border-gray-400">
+        <div class="flex justify-center flex-wrap relative top-[-30px] p-4 bg-slate-50 shadow-xl">
+            <article class="p-8 flex flex-col items-center text-center lg:border-r-2 border-solid border-gray-400">
                 <h6 class="text-6xl">6</h6>
                 <p class="text-xl">
                     années d'expérience
                 </p>
             </article>
-            <article class="p-8 flex flex-col items-center text-center border-r-2 border-solid border-gray-400">
+            <article class="p-8 flex flex-col items-center text-center lg:border-r-2 border-solid border-gray-400">
                 <h6 class="text-6xl">50</h6>
                 <p class="text-xl">
                     projets et plus réalisés
@@ -214,6 +248,7 @@ function accessShortcut(elementId) {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    z-index: 99;
     &__point {
         width: 5px;
         height: 5px;

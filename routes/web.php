@@ -22,10 +22,10 @@ Route::get('/', function () {
 Route::get('/contact', function() {
     return Redirect::to('/');
 });
-Route::get('/about', function() {
+Route::get('/a-propos', function() {
     return Redirect::to('/');
 });
-Route::get('/projects', function() {
+Route::get('/projets', function() {
     return Redirect::to('/');
 });
 

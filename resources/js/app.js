@@ -10,9 +10,10 @@ import { createRouter, createWebHistory } from 'vue-router';
 import useResponsive from './composables/useResponsive';
 
 const routes = [
-    { path: '/', component: Home },    
+    { path: '/', component: Home },
+    { path: '/a-propos', component: About },
     { path: '/contact', component: Contact },
-    { path: '/projects', component: Projects }    
+    { path: '/projets', component: Projects }    
 ];
 
 const pinia = createPinia()

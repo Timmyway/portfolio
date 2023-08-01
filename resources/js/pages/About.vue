@@ -1,6 +1,23 @@
 <template>
 <div class="mx-auto">
     <section>
+        <media-content-block
+            heading="Je suis Tim"
+            :image-src="`${$siteURL}images/tim.WebP`"
+        >
+            <template #paragraph>
+                <p class="text-lg">
+                    <span class="text-4xl font-bold">D</span>éveloppeur fullstack autodidacte et passionné du WEB.
+                    <br>
+                    J'ai commencé mon aventure en 2016, en apprennant le langage de programmation Python, et depuis je ne peux plus m'arrêter de coder.
+                    <br><br>
+                    J'adore créer des sites et applications afin de me perfectionner, mais aussi de résoudre des problématiques diverses.
+                    <br><br>
+                    Quand je ne suis pas en train de coder, j'essaye au maximum de profiter de mes proches. <br>
+                    Dans mes temps libres, je joue au ⚽ et au 🏀."
+                </p>
+            </template>
+        </media-content-block>
         <Hero 
             title="Bienvenue sur mon portefolio" 
             subtitle="Ici, je partage avec vous ma passion pour le WEB. Mais je vous montre également les technologies que j'utilise au quotidien." 
@@ -15,83 +32,20 @@
                 J'adore créer des sites et applications afin de me perfectionner, mais aussi de résoudre des problématiques diverses.<br>
                 Quand je ne suis pas en train de coder, j'essaye au maximum de profiter de mes proches. <br>
                 Dans mes temps libres, je joue au ⚽ et au 🏀.
-            </p>
-            
-            <article class="flex justify-center flex-wrap gap-4">
-                <Cards 
-                    :cards="languages" 
-                    identifier="languages" 
-                    title="Languages"
-                    card-width="200px"
-                    h-align="center"
-                ></Cards>
-                <Cards 
-                    :cards="frameworks" 
-                    identifier="frameworks" 
-                    title="Frameworks"
-                    card-width="200px"
-                    h-align="center"
-                ></Cards>
-                <Cards 
-                    :cards="tools" 
-                    identifier="tools" 
-                    title="Tools"
-                    card-width="200px"
-                    h-align="center"
-                ></Cards>
-                <Cards 
-                    :cards="databases" 
-                    identifier="databases" 
-                    title="Databases"
-                    card-width="200px"
-                    h-align="center"
-                ></Cards>
-            </article>
-            <div class="spacer"></div>
+            </p>            
         </div>
     </section>
 </div>
 </template>
 
-<script>
+<script setup>
+import { inject } from 'vue';
 import Hero from '../components/Hero.vue';
-import Cards from '../components/Cards.vue';
-import MdTextfield from '../components/MdTextfield.vue';
+import MediaContentBlock from '../components/portfolio/MediaContentBlock.vue';
 
-export default {
-    inject: ['$siteURL'],
-    components: {
-        Hero,
-        Cards,
-        MdTextfield
-    },     
-    data() {
-        return {
-            languages: [
-                {"id": 1, "label": "PHP", "src": "images/icons/php-icon.png"},
-                {"id": 2, "label": "Python", "src": "images/icons/py-icon.png"},
-                {"id": 3, "label": "Javascript", "src": "images/icons/js-icon.png"},
-                
-            ],
-            frameworks: [
-                {"id": 1, "label": "Laravel", "src": "images/icons/laravel-icon.png"},                
-                {"id": 3, "label": "Flask", "src": "images/icons/flask-icon.png"},
-                {"id": 4, "label": "VueJS", "src": "images/icons/vue-icon.png"}
-            ],
-            tools: [
-                {"id": 1, "label": "Sass", "src": "images/icons/sass-icon.png"},
-                {"id": 2, "label": "Webpack", "src": "images/icons/webpack-icon.png"},
-                {"id": 3, "label": "Adobe XD", "src": "images/icons/adobexd-icon.png"},
-            ],
-            databases: [
-                {"id": 1, "label": "SQL", "src": "images/icons/sql-icon.png"},
-                {"id": 2, "label": "MongoDB", "src": "images/icons/mongodb-icon.png"},
-            ]
-        }
-    }    
-}
+const $siteURL = inject('$siteURL');
 </script>
 
-<style>
+<style lang="scss">
 
 </style>
