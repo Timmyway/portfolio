@@ -25,8 +25,7 @@ const props = defineProps({
 </script>
 
 <style lang="scss">
-.media-content-block {    
-    padding: 15px;
+.media-content-block {        
     display: grid;
     grid-template-columns: 1fr;
     @media screen and (min-width: 768px) {
