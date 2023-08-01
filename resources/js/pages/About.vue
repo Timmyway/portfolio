@@ -20,9 +20,10 @@
                     lorsque je ne suis pas plongé dans mes lignes de code.<br>
                     Dans mes temps libres, je fais aussi un peu de sport."
                     <br><br>
-                    <span class="text-4xl font-bold">I</span>déalement, si vous souhaitez en savoir plus sur mon parcours, mes projets 
-                    ou si vous avez des opportunités de collaboration, n'hésitez pas à me contacter. 
-                    Je suis toujours enthousiaste à l'idée de rencontrer de nouvelles personnes 
+                    <span class="text-4xl font-bold">C</span>ontactez moi si vous souhaitez en savoir plus sur mon parcours, mes projets 
+                    ou si vous avez des opportunités de collaboration. 
+                    <br><br>
+                    <span class="text-4xl font-bold">I</span>mpatient et toujours enthousiaste à l'idée de rencontrer de nouvelles personnes 
                     et de relever de nouveaux défis.
                 </p>
             </template>

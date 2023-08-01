@@ -70,7 +70,7 @@
                     >À PROPOS DE MOI</button>
                 </router-link>
             </div>
-            <div class="bg-secondary">
+            <div class="bg-primary">
                 <img src="images/bg.WebP" alt="" class="h-full object-cover">
             </div>
         </div>
