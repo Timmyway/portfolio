@@ -24,7 +24,7 @@
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
                             <div class="mb-4">
-                                <span class="text-sm">Pas de compte ? Aucun problème, bienvenue en tant qu'invité : guest@gmail.com | Bi1venu€</span>
+                                <span class="text-md">Pas de compte ? Aucun problème, bienvenue en tant qu'invité : <span class="font-bold text-secondary">guest@gmail.com</span> | <span class="font-bold text-secondary">Bi1venu€</span></span>
                             </div>
                             <div class="form-group mb-2">
                                 <label class="mb-1" for="field-email">Email *</label>

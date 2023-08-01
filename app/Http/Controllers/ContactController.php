@@ -13,12 +13,12 @@ class ContactController extends Controller
     {
         $this->validations = [
             'firstname' => ['required', 'max:255', 'string'],
-            'lastname' => ['required', 'max:255', 'string'],
+            'lastname' => ['nullable', 'max:255', 'string'],
             'email' => ['required', 'email', 'max:255', 'string'],
-            'phone' => ['max:50', 'regex:/^(00261|^\+261|^0)+\s?(32|34|33|38)+\s?[0-9]{2}\s?[0-9]{3}\s?[0-9]{2}$/i'],
+            'phone' => ['nullable', 'max:50', 'regex:/^(00261|^\+261|^0)+\s?(32|34|33|38)+\s?[0-9]{2}\s?[0-9]{3}\s?[0-9]{2}$/i'],
             'zipcode' => '',
             'city' => '',
-            'msg' => ['max:1000', 'string']
+            'msg' => ['min:5', 'max:1000', 'string']
         ];
     }
 

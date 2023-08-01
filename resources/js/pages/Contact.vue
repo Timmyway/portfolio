@@ -143,9 +143,9 @@ async function submit() {
     isSent.value = false;    
     const payload = {
         firstname: formStore.form.firstname,
-        lastname: formStore.form.lastname,
+        lastname: formStore.form.firstname,
         email: formStore.form.email,
-        phone: formStore.form.phone,
+        phone: null,
         msg: formStore.form.msg,
         city: null,
         zipcode: null,
