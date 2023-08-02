@@ -100,10 +100,7 @@
                 <br><br>
                 Que vous soyez un recruteur, un collègue développeur, un futur client ou simplement un visiteur curieux, je vous remercie du temps que vous avez consacré à explorer mon portfolio. J'espère que mes projets vous ont donné un aperçu de mes compétences techniques et de ma passion pour le développement web.
                 <br><br>
-                Si vous avez des questions, des commentaires ou des opportunités de collaboration, n'hésitez pas à me contacter ! Je suis toujours ouvert aux nouvelles idées et aux projets passionnants.
-                <br>
-                Encore une fois, merci de visiter mon portfolio et de partager cette aventure avec moi. Je suis impatient de voir ce que l'avenir nous réserve et de continuer à créer des projets exceptionnels.
-                <br><br>
+                Si vous avez des questions, des commentaires ou des opportunités de collaboration, n'hésitez pas à me contacter ! Je suis toujours ouvert aux nouvelles idées et aux projets passionnants.                                
                 Restez curieux, créatif et inspiré ! 🚀
                 <br>
                 Bienvenue dans mon univers numérique ! 💻
