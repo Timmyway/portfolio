@@ -25,7 +25,7 @@
                 <h2 class="text-3xl xl:text-5xl">Développeur</h2>
                 <h2 class="text-white text-8xl mb-4">WEB</h2>
                 <div class="max-w-3xl">
-                    <p class="leading-8 text-justify text-gray-700">
+                    <p class="leading-8 text-justify text-gray-900">
                         <span class="font-bold text-dark">Bienvenue sur le portfolio de DevAmbition !</span>
 
                         Je suis ravi de vous accueillir ici pour vous faire découvrir ma passion pour le WEB 
@@ -110,7 +110,7 @@
                     <h6 class="text-2xl px-2 py-4 font-bold text-white">Impressionnez avec des Landing Pages Réactives</h6>
                     <p class="text-xl leading-relaxed text-slate-300">
                         Offrez une expérience utilisateur exceptionnelle avec des Landing Pages modernes 
-                        et adaptées à tous les appareils. Nous concevons des pages d'atterrissage 
+                        et adaptées à tous les appareils. Je conçois des pages d'atterrissage 
                         efficaces pour captiver votre audience et augmenter vos conversions.
                     </p>
                 </div>
@@ -121,10 +121,10 @@
                     <i class="fa-solid fa-cogs text-7xl text-secondary"></i>
                 </div>
                 <div class="flex flex-col gap-4 col-span-3">
-                    <h6 class="text-2xl px-2 py-4 font-bold text-white">Votre Site Web Unique, Votre Identité en Ligne</h6>
+                    <h6 class="text-2xl px-2 py-4 font-bold text-white">Votre Site Web Unique, votre Identité en Ligne</h6>
                     <p class="text-xl leading-relaxed text-slate-300">
                         Donnez vie à votre vision avec un site web personnalisé qui reflète parfaitement 
-                        votre marque. Notre équipe crée des sites web sur mesure, 
+                        votre marque. Je crée des sites web sur mesure, 
                         fonctionnels et esthétiquement agréables pour 
                         mettre en valeur votre entreprise.
                     </p>
@@ -138,8 +138,8 @@
                 <div class="flex flex-col gap-4 col-span-3">
                     <h6 class="text-2xl px-2 py-4 font-bold text-white">Puissantes Apps Web pour Dynamiser Votre Entreprise</h6>
                     <p class="text-xl leading-relaxed text-slate-300">
-                        Transformez vos idées en réalité avec nos applications web performantes 
-                        et faciles à utiliser. Nous concevons des solutions sur mesure pour 
+                        Transformez vos idées en réalité avec des applications web performantes 
+                        et faciles à utiliser. Je propose des solutions sur mesure pour 
                         optimiser vos processus et stimuler l'efficacité de votre entreprise.
                     </p>
                 </div>

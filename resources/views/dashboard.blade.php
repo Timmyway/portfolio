@@ -15,6 +15,11 @@
             <li class="navbar__items__item" :class="[isActiveRoute('/contact')]">
                 <router-link class="nav-link" to="/contact" aria-current="page">Contact</router-link>
             </li>
+            <li class="navbar__items__item">
+                <a class="nav-link" href="{{ asset('docs/cv-tim.pdf') }}" target="_blank" download>
+                    <i class="fas fa-download"></i> Mon CV
+                </a>
+            </li>
         </ul>
         <div class="navbar__menu" v-if="isMobile">
             <i
