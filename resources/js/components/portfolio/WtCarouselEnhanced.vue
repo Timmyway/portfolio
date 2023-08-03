@@ -1,45 +1,3 @@
-<template>
-<section class="carousel">
-    <!-- Overlay -->
-    <div class="carousel-overlay" :class="{ active: isOverlayActive }" @click="closePreview"></div>
-    <div class="carousel__board">            
-        <div class="carousel__board__viewer">
-            <button class="carousel-control" @click="previousImage">
-                <i class="fa fa-chevron-left"></i>
-            </button>
-            <div>
-                <TransitionGroup name="carousel" tag="div">
-                <template v-for="(image,index) in images" :key="`wt-carousel-image${image.id}`">                    
-                    <div v-show="image.id === currentImage.id">
-                        <h6 class="carousel__board__title">{{ index + 1 }} - {{ image?.title }}</h6>                
-                        <img 
-                            class="carousel__board__viewer__image"
-                            :class="[image?.id === currentImageToPreview?.id ? 'preview' : 'no-preview' ]"
-                            :src="`${siteURL}${image?.src}`" alt=""
-                            @dblclick="tooglePreviewImage(image)"
-                        >
-                    </div>
-                </template>
-                </TransitionGroup>
-            </div>
-            <button class="carousel-control" @click="nexImage">
-                <i class="fa fa-chevron-right"></i>
-            </button>
-        </div>
-        <div class="carousel__board__thumbnails">
-            <template v-for="thumbnail in images" :key="`wt-carousel-thumbnail${thumbnail.id}`">
-                <img 
-                    class="carousel__board__thumbnails__thumbnail"
-                    :class="{ 'thumbnail--active': thumbnail.id === currentImage.id}"
-                    :src="`${siteURL}${thumbnail?.src}`" alt=""
-                    @click="selectImage(thumbnail)"
-                >
-            </template>
-        </div>            
-    </div>
-</section>
-</template>
-    
 <script setup>
 import { computed, inject, ref } from "@vue/runtime-core"
 
@@ -90,7 +48,7 @@ function previousImage() {
     }
 }
 
-function nexImage() {
+function nextImage() {
     if (pointer.value < props.images.length - 1) {
         pointer.value += 1;
     } else {
@@ -115,31 +73,109 @@ function tooglePreviewImage(image) {
         preview(image)        
     }    
 }
+
+function onSwipeLeft(event) {
+    previousImage();
+}
+function onSwipeRight(event) {
+    nextImage();
+}
+function onSwipe(direction) {
+    console.log(direction);
+    switch (direction) {
+        case 'left':
+            nextImage();
+            break;
+        case 'right':
+            previousImage();
+            break;
+    }
+}
 </script>
-    
+
+<template>
+    <section class="carousel">        
+        <!-- Overlay -->
+        <div class="carousel-overlay" :class="{ active: isOverlayActive }" @click="closePreview"></div>
+        <div class="carousel__board">            
+            <div class="carousel__board__viewer">
+                <button class="carousel-control" @click="previousImage">
+                    <i class="fa fa-chevron-left"></i>
+                </button>
+                <div>
+                    <TransitionGroup name="carousel" tag="div">                        
+                    <template v-for="(image,index) in images" :key="`wt-carousel-image${image.id}`">                    
+                        <div                            
+                            v-show="image.id === currentImage.id"
+                            v-touch:swipe="onSwipe"
+                        >
+                            <h6 class="carousel__board__title">{{ index + 1 }} - {{ image?.title }}</h6>
+                            <div class="carousel__board__viewer__image-wrapper">
+                                <img 
+                                    class="carousel__board__viewer__image"
+                                    :class="[image?.id === currentImageToPreview?.id ? 'preview' : 'no-preview' ]"
+                                    :src="`${siteURL ?? ''}${image?.src}`" alt=""
+                                    @dblclick="tooglePreviewImage(image)"
+                                >
+                            </div>
+                        </div>
+                    </template>
+                    </TransitionGroup>
+                </div>
+                <button class="carousel-control" @click="nextImage">
+                    <i class="fa fa-chevron-right"></i>
+                </button>
+            </div>
+            <div class="carousel__board__thumbnails">
+                <template v-for="thumbnail in images" :key="`wt-carousel-thumbnail${thumbnail.id}`">
+                    <img 
+                        class="carousel__board__thumbnails__thumbnail"
+                        :class="{ 'thumbnail--active': thumbnail.id === currentImage.id}"
+                        :src="`${siteURL ?? ''}${thumbnail?.src}`" alt=""
+                        @click="selectImage(thumbnail)"
+                    >
+                </template>
+            </div>            
+        </div>
+    </section>
+</template>
+        
 <style scoped lang="scss">    
 .carousel {
     box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
-    padding: 15px;    
+    padding: 5px;
 }
 .carousel__board {    
     display: flex;
     flex-direction: column;
     align-items: center;
     max-width: 1100px;
-    margin: 0 auto;    
+    margin: 0 auto;
     &__viewer {
         display: flex;
-        align-items: center;
-        gap: 10px;  
+        align-items: center;            
+        gap: 10px;            
+        overflow: hidden;
+        &__image-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;                
+            overflow: hidden;
+            height: 240px;
+        }
         &__image {
             box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+            width: 100%;
+            object-fit: contain;
+            display: block;
         }      
     }
     &__title {    
         font-weight: bold;
         font-size: 1rem;
         padding: 5px 0;
+        margin: 5px 0;
     }
     &__images {
         display: flex;
@@ -168,7 +204,7 @@ function tooglePreviewImage(image) {
         scrollbar-width: thin;
         /* End styling custom scrollbar */
         &__thumbnail {
-            width: 120px;
+            width: 48px;
             cursor: pointer;
             transition: all .2s;
             box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
@@ -189,15 +225,15 @@ function tooglePreviewImage(image) {
 }
 
 .thumbnail--active {
-    border: 4px solid #20FCB5;
+    border: 2px solid #20FCB5;
     border-radius: 6px;    
 }
     
 .carousel-control {
     font-size: 1.5rem;
-    width: 32px; height: 32px;
+    width: 20px; height: 24px;
     border: 2px solid #777;
-    padding: 20px;
+    padding: 12px;
     display: flex; justify-content: center; align-items: center;
     border-radius: 50%;
     transition: all .2s;
@@ -243,24 +279,26 @@ function tooglePreviewImage(image) {
         font-size: 1.5rem;
         padding: 10px 0;
     }
+    .carousel {
+        &__board__viewer {
+            &__image-wrapper {
+                height: 480px;
+            }
+        }
+    }
     
 }
-
-.carousel-move, /* apply transition to moving elements */
-.carousel-enter-active,
-.carousel-leave-active {
-    transition: all 0.3s ease;
+    
+    /* Carousel animation */
+.carousel-enter-active, .carousel-leave-active {
+  transition: opacity 0.2s;
 }
-
-.carousel-enter-from,
-.carousel-leave-to {
-    opacity: 0;
-    // width: 0px;
-    transform: translateX(-2px);
+.carousel-enter, .carousel-leave-to {
+  opacity: 0;
 }
-
+    
 /* ensure leaving items are taken out of layout flow so that moving
-   animations can be calculated correctly. */
+    animations can be calculated correctly. */
 .carousel-leave-active {
     position: absolute;
 }

@@ -8,6 +8,7 @@ import About from './pages/About.vue';
 import TimerPage from './pages/TimerPage.vue';
 import { createRouter, createWebHistory } from 'vue-router';
 import useResponsive from './composables/useResponsive';
+import Vue3TouchEvents from "vue3-touch-events";
 
 const routes = [
     { path: '/', component: Home },
@@ -54,6 +55,7 @@ function capitalize(str) {
 
 app.use(router);
 app.use(pinia);
+app.use(Vue3TouchEvents);
 
 app.provide('templateDatas', window.templateDatas);
 app.provide('$axios', axios);
