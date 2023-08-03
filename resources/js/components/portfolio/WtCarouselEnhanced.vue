@@ -80,6 +80,10 @@ function onSwipeLeft(event) {
 function onSwipeRight(event) {
     nextImage();
 }
+function onTap() {
+    console.log('=============> Tapping');
+    alert('Tapping')
+}
 function onSwipe(direction) {
     console.log(direction);
     switch (direction) {
@@ -107,9 +111,12 @@ function onSwipe(direction) {
                     <template v-for="(image,index) in images" :key="`wt-carousel-image${image.id}`">                    
                         <div                            
                             v-show="image.id === currentImage.id"
-                            v-touch:swipe="onSwipe"
+                            v-touch:swipe="onSwipe"                            
                         >
-                            <h6 class="carousel__board__title">{{ index + 1 }} - {{ image?.title }}</h6>
+                            <h6 class="carousel__board__title">
+                                <i class="fas fa-expand" @click="tooglePreviewImage(image)"></i>
+                                {{ index + 1 }} - {{ image?.title }}                                
+                            </h6>
                             <div class="carousel__board__viewer__image-wrapper">
                                 <img 
                                     class="carousel__board__viewer__image"
@@ -176,6 +183,9 @@ function onSwipe(direction) {
         font-size: 1rem;
         padding: 5px 0;
         margin: 5px 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;        
     }
     &__images {
         display: flex;
@@ -249,9 +259,9 @@ function onSwipe(direction) {
     position: fixed;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    max-width: 80%;
+    max-width: 90%;
     z-index: 1000;
-    transition: all .7s;
+    transition: all .4s ease-in-out;
     // transform: scale(1.4);
     cursor: zoom-out;
     box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
