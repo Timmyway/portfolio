@@ -3,8 +3,14 @@
         <ul class="navbar__items">
             <li class="navbar__items__item">
                 <!-- Navigation Links -->
-                <a :href="{{ route('dashboard') }}" active="{{ request()->routeIs('dashboard') }}" class="text-theme">
+                <a href="{{ route('dashboard') }}" active="{{ request()->routeIs('dashboard') }}" class="text-theme">
                     <img class="block h-16" src="{{ asset('images/logo.png') }}" alt="">
+                </a>
+            </li>
+            <li class="navbar__items__item">
+                <!-- Navigation Links -->
+                <a href="{{ route('localisation') }}" active="{{ request()->routeIs('localisation') }}" class="text-theme">
+                    Localisation
                 </a>
             </li>
         </ul>

@@ -28,6 +28,10 @@ Route::get('/a-propos', function() {
 Route::get('/projets', function() {
     return Redirect::to('/');
 });
+Route::get('/localisation', function() {
+    // dd('test');
+    return view('pages.map');
+})->name('localisation');
 
 // Route::get('/pwd-generator/{password}', function($password) {
 //     return Hash::make($password);

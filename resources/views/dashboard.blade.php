@@ -1,4 +1,7 @@
 <x-app-layout>
+@slot('vite')
+@vite(['resources/sass/app.scss', 'resources/js/app.js'])  
+@endslot
 @section('content')
 <nav id="vue-navbar" class="navbar--light w-full" :class="[isMobile ? 'navbar--mobile' : 'navbar']">
     <div class="navbar__container">
