@@ -28,8 +28,7 @@ Route::get('/a-propos', function() {
 Route::get('/projets', function() {
     return Redirect::to('/');
 });
-Route::get('/localisation', function() {
-    // dd('test');
+Route::get('/localisation', function() {    
     return view('pages.map');
 })->name('localisation');
 

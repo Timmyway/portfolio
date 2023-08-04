@@ -15,8 +15,8 @@ html, body {
 @endslot
 
 @section('content')
-<div class="p-4">
-    <h1 class="text-xl">Localisation</h1>    
+<div class="container mx-auto py-8">
+    <h1 class="text-3xl font-semibold text-center mb-4">Trouvez-nous facilement - Notre localisation sur la carte</h1>
     <section>
         <div class="grid gap-4 md:grid-cols-2">
             <wt-map id="map"
@@ -39,7 +39,7 @@ html, body {
                         c: [-18.894721314652706, 47.54814509613757],
                         action: 'circle',
                         options: { color: '#F6AA1C', fillColor: '#1F0C6E', radius: 50 },
-                        message: `Home`
+                        message: `Emplacement approximatif voir fictive pour des raisons évidentes de sécurité`
                     }
                 ]"                
             ></wt-map>
@@ -60,7 +60,28 @@ html, body {
                 ></wt-map>
             </div>
         </div>
-    </section>    
+    </section>
+
+    <section>
+        <!-- Location Details -->
+        <div class="md:w-2/5 p-4 bg-white shadow rounded-lg">
+            <h3 class="text-xl font-semibold mb-2">Adresse :</h3>
+            <p>Madagascar<br>101, Antananarivo</p>
+            <h3 class="text-xl font-semibold mt-4 mb-2">Téléphone :</h3>
+            <p>+261 33 41 590 57</p>
+            <h3 class="text-xl font-semibold mt-4 mb-2">Email :</h3>
+            <p>timmyway@devambition.com</p>
+            <h3 class="text-xl font-semibold mt-4 mb-2">Horaires d'ouverture :</h3>
+            <p>Lundi - Vendredi : 8h00 - 18h00<br>Samedi - Dimanche : Fermé</p>
+            <h3 class="text-xl font-semibold mt-4 mb-2">Accès :</h3>
+            <p>Nous sommes facilement accessibles en voiture, en transports en commun, ou à pied.</p>
+        </div>
+        </div>
+        <div class="text-center mt-4">
+            <p>N'hésitez pas à nous contacter si vous avez besoin d'aide pour nous trouver. Nous sommes impatients de vous
+            accueillir !</p>
+        </div>
+    </section>
 </div>
 @endsection
 @slot('scripts')

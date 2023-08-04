@@ -12,8 +12,7 @@ const attrs = useAttrs();
 
 const map = ref();
 
-onMounted(() => {
-    // var map = L.map(props.identifier);    
+onMounted(() => {    
     setMap(attrs.id);
     setView(props.coordinates, props.zoomLevel);
     credit();

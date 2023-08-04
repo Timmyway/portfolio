@@ -10,7 +10,9 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700;900&family=Rubik+Moonrocks&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/7f150bd29b.js" crossorigin="anonymous"></script>
+        @if(isset($vite))
         {{ $vite }}
+        @endif
         <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     </head>
     <body>       
@@ -51,5 +53,7 @@
             }
         </script>
     </body>
+    @if(isset($scripts))
     {{ $scripts }}
+    @endif
 </html>

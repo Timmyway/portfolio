@@ -21,7 +21,8 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		flex-wrap: wrap;
+		// flex-wrap: wrap;
+		gap: 10px;
 		&__item {
 			list-style-type: none;
 			border-radius: 0 11px 0 11px;
