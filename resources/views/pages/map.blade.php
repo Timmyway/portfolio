@@ -39,7 +39,7 @@ html, body {
                         c: [-18.894721314652706, 47.54814509613757],
                         action: 'circle',
                         options: { color: '#F6AA1C', fillColor: '#1F0C6E', radius: 50 },
-                        message: `Emplacement approximatif voir fictive pour des raisons évidentes de sécurité`
+                        message: `Emplacement approximatif voire fictive pour des raisons évidentes de sécurité`
                     }
                 ]"                
             ></wt-map>
