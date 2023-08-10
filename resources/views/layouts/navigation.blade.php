@@ -1,10 +1,10 @@
 <nav class="navbar bg-primary w-full" id="blade-navbar">
-    <div class="navbar__container h-16">
+    <div class="navbar__container flex-wrap min-w-360">
         <ul class="navbar__items">
             <li class="navbar__items__item">
                 <!-- Navigation Links -->
                 <a href="{{ route('dashboard') }}" active="{{ request()->routeIs('dashboard') }}" class="text-theme">
-                    <img class="block w-8 h-8 lg:w-16 lg:h-16" src="{{ asset('images/logo.png') }}" alt="">
+                    <img class="block w-8 lg:w-16 lg:h-16" src="{{ asset('images/logo.png') }}" alt="">
                 </a>
             </li>
             <li class="navbar__items__item text-md lg:text-xl">
@@ -17,7 +17,7 @@
             <li class="navbar__items__item text-md lg:text-xl">
                 <!-- Navigation Links -->
                 <a href="{{ route('showcase') }}" active="{{ request()->routeIs('showcase') }}" class="text-theme flex items-center">
-                    Vitrine client                    
+                    Vitrine client
                 </a>
             </li>
         </ul>
@@ -26,8 +26,8 @@
             <!-- Authentication -->
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
-                <button type="submit" class="btn bg-yellow-300 text-dark hover:bg-yellow-400 btn-sm">
-                    {{ __('Se déconnecter') }}
+                <button type="submit" class="btn bg-yellow-300 text-dark w-fit hover:bg-yellow-400 btn-sm text-xs">
+                    {{ __('Déconnexion') }}
                 </button>
             </form>
         </div>
