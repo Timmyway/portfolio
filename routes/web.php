@@ -32,6 +32,10 @@ Route::get('/localisation', function() {
     return view('pages.map');
 })->name('localisation');
 
+Route::get('/vitrine-clients', function() {
+    return view('pages.showcase');
+})->name('showcase');
+
 // Route::get('/pwd-generator/{password}', function($password) {
 //     return Hash::make($password);
 // });

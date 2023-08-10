@@ -11,7 +11,13 @@
                 <!-- Navigation Links -->
                 <a href="{{ route('localisation') }}" active="{{ request()->routeIs('localisation') }}" class="text-theme flex items-center">
                     Localisation
-                    <img src="{{ asset('images/icons/gps.gif') }}" alt="GPS Icon" class="w-8 h-8 lg:w-24 lg:h-24 mr-2">
+                    <img src="{{ asset('images/icons/gps.gif') }}" alt="GPS Icon" class="w-6 h-6 lg:w-12 lg:h-12 mr-2">
+                </a>
+            </li>
+            <li class="navbar__items__item text-md lg:text-xl">
+                <!-- Navigation Links -->
+                <a href="{{ route('showcase') }}" active="{{ request()->routeIs('showcase') }}" class="text-theme flex items-center">
+                    Vitrine client                    
                 </a>
             </li>
         </ul>

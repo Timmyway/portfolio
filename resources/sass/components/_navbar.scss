@@ -20,9 +20,9 @@
 	&__items {		
 		display: flex;
 		align-items: center;
-		justify-content: center;
+		justify-content: center;		
 		// flex-wrap: wrap;
-		gap: 10px;
+		gap: 5px;
 		&__item {
 			list-style-type: none;
 			border-radius: 0 11px 0 11px;
@@ -32,7 +32,7 @@
 			a {				
 				text-decoration: none;
 				padding: 0.5rem 1rem;
-				color: $reverseThemeColor;
+				color: $reverseThemeColor;				
 				&:hover {
 					color: lighten($reverseThemeColor, 15%);
 				}
