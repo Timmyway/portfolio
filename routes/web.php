@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\ForceHttps;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
@@ -15,26 +16,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::middleware(['web', ForceHttps::class])->group(function () {
+    Route::get('/', function () {
+        return view('dashboard');
+    })->middleware(['auth'])->name('dashboard');
+    
+    Route::get('/contact', function() {
+        return Redirect::to('/');
+    });
+    Route::get('/a-propos', function() {
+        return Redirect::to('/');
+    });
+    Route::get('/projets', function() {
+        return Redirect::to('/');
+    });
+    Route::get('/localisation', function() {    
+        return view('pages.map');
+    })->name('localisation');
+    
+    Route::get('/vitrine-clients', function() {
+        return view('pages.showcase');
+    })->name('showcase');
 
-Route::get('/contact', function() {
-    return Redirect::to('/');
+    require __DIR__.'/auth.php'; // Include authentication routes
 });
-Route::get('/a-propos', function() {
-    return Redirect::to('/');
-});
-Route::get('/projets', function() {
-    return Redirect::to('/');
-});
-Route::get('/localisation', function() {    
-    return view('pages.map');
-})->name('localisation');
-
-Route::get('/vitrine-clients', function() {
-    return view('pages.showcase');
-})->name('showcase');
 
 // Route::get('/pwd-generator/{password}', function($password) {
 //     return Hash::make($password);
@@ -43,5 +48,3 @@ Route::get('/vitrine-clients', function() {
 // Route::get('/{url}', function($url) {
 //     return Redirect::to('/');
 // });
-
-require __DIR__.'/auth.php';
