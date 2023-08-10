@@ -1,13 +1,14 @@
 import { createApp,  } from 'vue/dist/vue.esm-bundler.js';
 import axios from 'axios';
 import { createPinia } from 'pinia';
+import ClientShowcase from './pages/ClientShowcase.vue';
 
 const pinia = createPinia()
 
 // Work with Vue3
 const app = createApp({
     components: {
-        
+        ClientShowcase
     },
     setup() {
         const name = 'Tim';

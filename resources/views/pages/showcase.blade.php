@@ -13,9 +13,8 @@
     @endslot
     
     @section('content')
-    <div class="container mx-auto py-8">
-        <h1 class="text-3xl font-semibold text-center mb-4">Vitrine client</h1>
-        
+    <div class="container mx-auto py-8">        
+        <client-showcase></client-showcase>
     </div>
     @endsection
     @slot('scripts')
