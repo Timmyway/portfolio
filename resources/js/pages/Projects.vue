@@ -1,6 +1,10 @@
 <template>
 <section class="mt-4 mx-auto">    
-    <h1 class="text-6xl p-6 text-center font-bold">Mes réalisations</h1>
+    <h1 class="text-4xl p-4 text-center font-bold">Projets secondaires</h1>
+    <p class="text-xl p-2 text-center max-w-2xl mx-auto">
+        Il s'agit de projets que j'ai développés pendant mes moments de libre 
+        et dans un but de perfectionnement.
+    </p>
     <article class="px-4 py-2 mx-2 flex flex-col xl:py-4">
         <!-- Convertisseur -->
         <portfolio-project

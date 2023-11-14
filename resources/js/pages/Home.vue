@@ -16,13 +16,13 @@
     </div>    
     <section ref="portfolioHero" id="portfolio-hero" class="mx-auto">        
         <div class="lg:grid lg:grid-cols-2">
-            <div class="bg-secondary py-16 px-8 xl:py-32 xl:px-4 flex flex-col justify">                
+            <div class="bg-secondary py-8 px-8 xl:py-16 xl:px-4 flex flex-col justify">                
                 <wt-typewriter
                     sentence="Bienvenue sur mon portfolio"
                     class="text-2xl xl:text-4xl"
                 ></wt-typewriter>
-                <h2 class="text-4xl xl:text-6xl">Tim <span class="text-white text-4xl xl:text-6xl">W</span>ay <i class="fa-solid fa-code text-primary"></i></h2>
-                <h2 class="text-3xl xl:text-5xl">Développeur</h2>
+                <h2 class="text-4xl xl:text-6xl my-2 lg:my-4">Tim <span class="text-white text-4xl xl:text-6xl">W</span>ay <i class="fa-solid fa-code text-primary"></i></h2>
+                <h2 class="text-3xl xl:text-5xl my-2 lg:my-4">Développeur</h2>
                 <h2 class="text-white text-8xl mb-4">WEB</h2>
                 <div class="max-w-3xl">
                     <p class="leading-8 text-justify text-gray-900">
