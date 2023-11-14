@@ -37,28 +37,28 @@
                     </p>
                     <ul class="flex flex-col gap-5">
                         <li class="flex gap-2">
-                            <div class="w-8 flex justify-center items-center">
-                                <i class="fas fa-laptop-code fa-2x"></i>
+                            <div class="w-8 flex justify-center items-center text-center">
+                                <i class="fas fa-laptop-code fa-2x w-8"></i>
                             </div>
                             <span class="font-bold text-lg">Développement de sites web responsive et modernes</span>
                         </li>
                         <li class="flex gap-2">
-                            <div class="w-8 flex justify-center items-center">
-                                <i class="fas fa-file-alt fa-2x"></i>
+                            <div class="w-8 flex justify-center items-center text-center">
+                                <i class="fas fa-file-alt fa-2x w-8"></i>
                             </div>
                             <span class="font-bold text-lg">Création de landing pages optimisées pour la conversion</span>
                         </li>
                         <li class="flex gap-2">
-                            <div class="w-8 flex justify-center items-center">
-                                <i class="fas fa-cubes fa-2x"></i>
+                            <div class="w-8 flex justify-center items-center text-center">
+                                <i class="fas fa-cubes fa-2x w-8"></i>
                             </div>
                             <span class="font-bold text-lg">Développement d'applications Web sur mesure</span>
                         </li>
                         <li class="flex gap-2">
-                            <div class="w-8 flex justify-center items-center">
-                                <i class="fas fa-envelope fa-2x"></i>
+                            <div class="w-8 flex justify-center items-center text-center">
+                                <i class="fas fa-envelope fa-2x w-8"></i>
                             </div>
-                            <span class="font-bold text-lg">Création de kits (newsletters) HTML</span>
+                            <span class="font-bold text-lg">Conception d'e-mails HTML optimisés pour une délivrabilité et un affichage optimaux dans les boîtes de réception.</span>
                         </li>
                     </ul>
                 </div>

@@ -23,6 +23,7 @@
         </ul>
 
         <div class="mx-2">
+            @auth                        
             <!-- Authentication -->
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
@@ -30,6 +31,7 @@
                     {{ __('Déconnexion') }}
                 </button>
             </form>
+            @endauth
         </div>
     </div>
 </nav>

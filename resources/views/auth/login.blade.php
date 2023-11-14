@@ -22,10 +22,7 @@
                     <img class="t-logo" src="{{ asset('images/logo.png') }}" alt="">
                     <div class="p-5">
                         <form method="POST" action="{{ route('login') }}">
-                            @csrf
-                            <div class="mb-4">
-                                <span class="text-md">Pas de compte ? Aucun problème, bienvenue en tant qu'invité : <span class="font-bold text-secondary">guest@gmail.com</span> | <span class="font-bold text-secondary">Bi1venu€</span></span>
-                            </div>
+                            @csrf                            
                             <div class="form-group mb-2">
                                 <label class="mb-1" for="field-email">Email *</label>
                                 <input 

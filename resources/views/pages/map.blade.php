@@ -16,7 +16,7 @@ html, body {
 
 @section('content')
 <div class="container mx-auto py-8">
-    <h1 class="text-3xl font-semibold text-center mb-4">Trouvez-nous facilement - Notre localisation sur la carte</h1>
+    <h1 class="text-3xl font-semibold text-center mb-4">Trouvez-moi facilement</h1>
     <section>
         <div class="grid gap-4 md:grid-cols-2">
             <wt-map id="map"
@@ -74,12 +74,11 @@ html, body {
             <h3 class="text-xl font-semibold mt-4 mb-2">Horaires d'ouverture :</h3>
             <p>Lundi - Vendredi : 8h00 - 18h00<br>Samedi - Dimanche : Fermé</p>
             <h3 class="text-xl font-semibold mt-4 mb-2">Accès :</h3>
-            <p>Nous sommes facilement accessibles en voiture, en transports en commun, ou à pied.</p>
+            <p>Accessible en voiture, en transports en commun, ou à pied.</p>
         </div>
         </div>
         <div class="text-center mt-4">
-            <p>N'hésitez pas à nous contacter si vous avez besoin d'aide pour nous trouver. Nous sommes impatients de vous
-            accueillir !</p>
+            <p>N'hésitez pas à me contacter si vous avez besoin d'aide pour me trouver. 
         </div>
     </section>
 </div>
