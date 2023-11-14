@@ -7,6 +7,7 @@ $jokerColor: #20FCB5!default;
 $variantPrimaryColor: #010413!default;
 $variantSecondaryColor: #f1f1f1!default;
 $variantJokerColor: #e0f2ff!default;
+$bodyColor: #F1F2F6!default;
 // Notification colors
 $successColor: #2FBF71!default;
 $infoColor: #FED159!default;
@@ -55,6 +56,7 @@ $colors: ('primary': $primaryColor,
 	'primary--variant': $variantPrimaryColor,
 	'secondary--variant': $variantSecondaryColor,
 	'joker--variant': $variantJokerColor,
+	'body': $bodyColor,
 	// usual colors
 	'white': #FFFFFF,
 	'black': #000000,

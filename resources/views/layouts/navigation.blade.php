@@ -4,7 +4,7 @@
             <li class="navbar__items__item">
                 <!-- Navigation Links -->
                 <a href="{{ route('dashboard') }}" active="{{ request()->routeIs('dashboard') }}" class="text-theme">
-                    <img class="block w-8 lg:w-16 lg:h-16" src="{{ asset('images/logo.png') }}" alt="">
+                    <img class="block w-8 h-8" src="{{ asset('images/logo.png') }}" alt="">
                 </a>
             </li>
             <li class="navbar__items__item text-md lg:text-xl">

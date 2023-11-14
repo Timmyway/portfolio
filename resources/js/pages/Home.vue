@@ -101,12 +101,12 @@
 
     <section ref="portfolioService" id="portfolio-service" class="bg-slate-900 py-12 flex flex-col xl:py-24">
         <h3 class="text-5xl font-bold text-white p-4 mb-6 text-center font-secondary">Ce que je fais</h3>
-        <div class="flex flex-wrap justify-center">
-            <article class="grid grid-cols-4 max-w-lg">
-                <div class="col-span-1 p-4">
+        <div class="flex flex-wrap justify-center gap-4">
+            <article class="grid grid-cols-1 justify-center text-center lg:text-left lg:grid-cols-4 max-w-lg">
+                <div class="lg:col-span-1 p-4">
                     <i class="fa-solid fa-desktop text-7xl text-secondary"></i>
                 </div>
-                <div class="flex flex-col gap-4 col-span-3">
+                <div class="flex flex-col gap-4 lg:col-span-3">
                     <h6 class="text-2xl px-2 py-4 font-bold text-white">Impressionnez avec des Landing Pages Réactives</h6>
                     <p class="text-xl leading-relaxed text-slate-300">
                         Offrez une expérience utilisateur exceptionnelle avec des Landing Pages modernes 
@@ -116,11 +116,11 @@
                 </div>
             </article>
 
-            <article class="grid grid-cols-4 max-w-lg">
-                <div class="col-span-1 p-4">
+            <article class="grid grid-cols-1 justify-center text-center lg:text-left lg:grid-cols-4 max-w-lg">
+                <div class="lg:col-span-1 p-4">
                     <i class="fa-solid fa-cogs text-7xl text-secondary"></i>
                 </div>
-                <div class="flex flex-col gap-4 col-span-3">
+                <div class="flex flex-col gap-4 lg:col-span-3">
                     <h6 class="text-2xl px-2 py-4 font-bold text-white">Votre Site Web Unique, votre Identité en Ligne</h6>
                     <p class="text-xl leading-relaxed text-slate-300">
                         Donnez vie à votre vision avec un site web personnalisé qui reflète parfaitement 
@@ -131,11 +131,11 @@
                 </div>
             </article>
 
-            <article class="grid grid-cols-4 max-w-lg">
-                <div class="col-span-1 p-4">
+            <article class="grid grid-cols-1 justify-center text-center lg:text-left lg:grid-cols-4 max-w-lg">
+                <div class="lg:col-span-1 p-4">
                     <i class="fa-solid fa-code text-7xl text-secondary"></i>
                 </div>
-                <div class="flex flex-col gap-4 col-span-3">
+                <div class="flex flex-col gap-4 lg:col-span-3">
                     <h6 class="text-2xl px-2 py-4 font-bold text-white">Puissantes Apps Web pour Dynamiser Votre Entreprise</h6>
                     <p class="text-xl leading-relaxed text-slate-300">
                         Transformez vos idées en réalité avec des applications web performantes 

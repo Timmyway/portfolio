@@ -1,21 +1,15 @@
 %abstract-form-control {	
-	border: 1px solid #dddfe2;
-    border-radius: 6px;
+	border: 1px solid #dddfe2;    
     width: 95%;
 	box-sizing: border-box;
-	width: 100%;
-	// border-radius: 40px;
-	// height: 48px;
-	// margin-bottom: 5px;
+	width: 100%;	
 	font-size: 1.2rem !important;
-	padding: 14px 6px;
-	// box-shadow: $shadowPrimary; 
+	padding: 12px 10px;
 	border: 1px solid rgb(181, 191, 194);
-	border-radius: 8px;
-	// transform: skew(-12deg); 	
+	border-radius: 6px;	
 	@include mq('sm') {
 		font-size: 2rem;		
-	}
+	}	
 }
 input[type="text"], input[type="email"], input[type="tel"], input[type="password"], select {
 	@extend %abstract-form-control;
