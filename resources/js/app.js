@@ -9,12 +9,13 @@ import TimerPage from './pages/TimerPage.vue';
 import { createRouter, createWebHistory } from 'vue-router';
 import useResponsive from './composables/useResponsive';
 import Vue3TouchEvents from "vue3-touch-events";
+import 'animate.css';
 
 const routes = [
     { path: '/', component: Home },
     { path: '/a-propos', component: About },
     { path: '/contact', component: Contact },
-    { path: '/projets', component: Projects }    
+    { path: '/projets', component: Projects }
 ];
 
 const pinia = createPinia()
@@ -25,11 +26,11 @@ const router = createRouter({
 })
 
 // Work with Vue3
-const app = createApp({ 
+const app = createApp({
     setup() {
-        let { screenWidth, isMobile } = useResponsive(); 
-        
-        let view = reactive({mobileMenu: false});        
+        let { screenWidth, isMobile } = useResponsive();
+
+        let view = reactive({mobileMenu: false});
 
         return { screenWidth, isMobile, view }
     },
@@ -42,7 +43,7 @@ const app = createApp({
             } else if (Array.isArray(routes)) {
                 if (routes.includes(this.$route.path)) {
                     return 'nav-item--active';
-                }                
+                }
             }
             return '';
         }

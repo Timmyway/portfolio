@@ -1,16 +1,16 @@
 <template>
 <div
-    :class="['wt-card-container', bgClass]"
+    :class="['flex flex-col items-center max-w-4xl max-auto p-2', bgClass]"
 >
-    <h4 class="text-2xl wt-card-container__title text-3xl font-bold pb-2">{{ title }}</h4>
-    <div class="wt-card-container__cards" :style="{justifyContent: hAlign}">
+    <h4 class="text-white text-3xl font-bold py-4">{{ title }}</h4>
+    <div class="flex flex-wrap p-2 gap-4 2xl:gap-8" :style="{justifyContent: hAlign}">
         <template v-for="card in cards" :key="`${identifier}-${card.id}`">
-        <Card 
+        <Card
             :width="cardWidth"
             :src="$siteURL + card.src"
             :label="card.label"
             image-width="96px"
-        ></Card>        
+        ></Card>
         </template>
     </div>
 </div>
@@ -50,9 +50,6 @@ export default {
     justify-content: center;
     max-width: 1100px;
     padding: 1rem;
-    &__title {
-        color: white;
-    }
     &__cards {
         display: flex; flex-wrap: wrap;
         max-width: 1100px;

@@ -4,20 +4,22 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>@yield('title', 'Mon Portfolio: Tim, Développeur Web Full Stack')</title>
+        <meta name="description" content="@yield('description', 'Explorez mon portfolio en tant que développeur web full stack passionné. Découvrez mes projets et compétences en développement web front-end, back-end et API, ainsi que mon engagement à créer des expériences utilisateur exceptionnelles.')">
+        <meta name="keywords" content="@yield('keywords', 'portfolio, développeur web, full stack, front-end, back-end, API, expériences utilisateur')">
         <!-- Favicon -->
         <link rel="icon" href="{{ asset('images/tw-favicon.png') }}" type="image/png">
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700;900&family=Rubik+Moonrocks&display=swap" rel="stylesheet">
-        <script src="https://kit.fontawesome.com/7f150bd29b.js" crossorigin="anonymous"></script>
+
         @if(isset($vite))
         {{ $vite }}
         @endif
         <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     </head>
-    <body>       
+    <body>
         @include('layouts.navigation')
 
         <!-- Page Content -->
@@ -41,7 +43,7 @@
         </footer>
         <script>
             /* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */
-            var prevScrollpos = window.pageYOffset;            
+            var prevScrollpos = window.pageYOffset;
             window.onscroll = () => {
                 var currentScrollPos = window.pageYOffset;
                 if (prevScrollpos > currentScrollPos) {
@@ -49,7 +51,7 @@
                     document.getElementById("vue-navbar").style.top = "0";
                 } else {
                     document.getElementById("blade-navbar").style.top = "-50px";
-                    document.getElementById("vue-navbar").style.top = "-150px";                    
+                    document.getElementById("vue-navbar").style.top = "-150px";
                 }
                 prevScrollpos = currentScrollPos;
             }

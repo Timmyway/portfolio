@@ -29,6 +29,23 @@ export default {
 </script>
 
 <style lang="scss">
+.water {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: linear-gradient(#4cb8c4, #3b5998); /* Water color gradient */
+    animation: fillWater 2s forwards;
+}
+@keyframes fillWater {
+  from {
+    height: 0;
+  }
+  to {
+    height: 100%;
+  }
+}
 .wt-card {
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
     background-color: #F7F5FB;
@@ -36,18 +53,22 @@ export default {
     transition: transform .4s;
     filter: brightness(70%);
     &:hover {
-        transform: scale(1.15);
+        transform: scale(1.15) translateX(-3%) translateY(-5%);
         filter: brightness(100%);
         color: #1F0C6E;
         font-weight: bold;
+        box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.5);
     }
     &-sm {
         max-width: 320px;
     }
-    &__head {        
-        img { width: 100%; display: block; margin: 0 auto; }
+    &__head {
+        img {
+            width: 100%; display: block; margin: 0 auto;
+            padding: 5px;
+        }
     }
-    &__body {        
+    &__body {
         text-align: center;
         padding: 0.5rem 0.7rem;
         span {
@@ -57,9 +78,6 @@ export default {
             max-height: 150px;
             overflow: auto;
         }
-    }
-    &__footer {
-
     }
 }
 </style>

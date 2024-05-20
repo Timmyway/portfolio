@@ -1,28 +1,28 @@
 <template>
-    <section class="p-4">        
+    <section class="p-4">
         <h4 class="mb-2 text-lg">Mode disponibles :</h4>
         <select class="wt-conversion-tool__select" v-model="mode">
-            <option value="b64-to-utf8">Conversion Base64 vers UTF-8</option>
-            <option value="utf8-to-b64">Conversion UTF-8 vers Base64</option>
+            <option value="b64-to-utf8">Conversion de Base64 vers UTF-8</option>
+            <option value="utf8-to-b64">Conversion d'UTF-8 vers Base64</option>
             <option value="url-encode">Encodage d'URI souple (A-Z a-z 0-9 ; , / ? : @ & = + $ - _ . ! ~ * ' ( ) #)</option>
             <option value="url-decode">Décodage d'URI souple (A-Z a-z 0-9 ; , / ? : @ & = + $ - _ . ! ~ * ' ( ) #)</option>
-            <option value="url-encode-full">Encodage d'URI complète (encode tout)</option>
-            <option value="url-decode-full">Décodage d'URI complète (décode tout)</option>
-            <option value="html-entities">Encoder/décoder caractères HTML</option>
-            <option value="iso-latin-1">Encoder/décoder caractères ISO-8859-1</option>
+            <option value="url-encode-full">Encodage d'URI complet (encode tout)</option>
+            <option value="url-decode-full">Décodage d'URI complet (décode tout)</option>
+            <option value="html-entities">Encodage/décodage de caractères HTML</option>
+            <option value="iso-latin-1">Encodage/décodage de caractères ISO-8859-1</option>
         </select>
         <div class="command-bar bg-slate-100 command-bar--detached">
             <div>
                 <div class="group" v-show="mode === 'html-entities'">
                     <button class="group__item btn btn-sm bg-yellow-200 text-theme-contrast" @click.prevent="setHTMLEntities('encode')">Encoder caractères HTML</button>
-                    <button class="group__item btn btn-sm bg-blue-200 text-theme-contrast" @click.prevent="setHTMLEntities('decode')">Décoder caractères HTML</button>					
+                    <button class="group__item btn btn-sm bg-blue-200 text-theme-contrast" @click.prevent="setHTMLEntities('decode')">Décoder caractères HTML</button>
                 </div>
                 <div class="group" v-show="mode === 'iso-latin-1'">
-                    <button class="group__item btn btn-sm bg-yellow-200 text-theme-contrast" @click.prevent="setIsolatin">Convertir Iso latin 1 en UTF-8</button>						
+                    <button class="group__item btn btn-sm bg-yellow-200 text-theme-contrast" @click.prevent="setIsolatin">Convertir Iso latin 1 en UTF-8</button>
                 </div>
-            </div>        
-        </div>	
-    
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-md-6 col-12 mb-2 workspace">
                 <!-- Input your string here -->
@@ -47,10 +47,10 @@
                     <i class="fas fa-copy"></i>
                 </button>
             </div>
-        </div>		
+        </div>
     </section>
 </template>
-    
+
 <script setup>
 import { ref, inject, computed } from 'vue';
 import useCopy from '../composables/useCopy';
@@ -62,8 +62,8 @@ const msg = ref('');
 const mode = ref('b64-to-utf8');
 const updatedResult = ref('');
 const areaResult = ref();
-       
-// Computed    
+
+// Computed
 const msgLength = computed(() => {
     return msg.value.length;
 });
@@ -72,7 +72,7 @@ const helpMsg = computed(() => {
     switch (mode.value) {
         case 'utf8-to-b64':
             return `Conversion d'un texte en UTF-8 vers Base64.
-Utilité: Echapper les accents, espaces et autres caractères spéciaux. 
+Utilité: Echapper les accents, espaces et autres caractères spéciaux.
 "En informatique, base64 est un codage de l'information utilisant 64 caractères, choisis pour être disponibles sur la majorité des systèmes." Wikipedia.
 
 26 lettres minuscules, 26 lettres majuscules, 10 chiffres (0 à 9), +, /`
@@ -94,25 +94,25 @@ Remarque: Même les ":", "/" et même le "?" ont été convertis.`
             break;
         case 'iso-latin-1':
             return `"La norme ISO 8859-1, dont le nom complet est ISO/CEI 8859-1, et qui est souvent appelée Latin-1 ou Europe occidentale, forme la première partie de la norme internationale ISO/CEI 8859, qui est une norme de l’Organisation internationale de normalisation pour le codage des caractères en informatique." Wikipedia`;
-            break;							
+            break;
         default:
             return 'Entrer le texte à encoder ici';
             break;
     }
 });
-        
+
 const result = computed({
     get() {
         // Base64 encodage
         if (mode.value === 'utf8-to-b64') {
-            return utf8ToB64(msg.value);						
+            return utf8ToB64(msg.value);
         } else if (mode.value === 'b64-to-utf8') {
             return b64ToUtf8(msg.value);
         // URL encodage
         } else if (mode.value === 'url-encode') {
             return encodeURI(msg.value)
         } else if (mode.value === 'url-decode') {
-            return decodeURI(msg.value)					
+            return decodeURI(msg.value)
         } else if (mode.value === 'url-encode-full') {
             return encodeURIComponent(msg.value)
         } else if (mode.value === 'url-decode-full') {
@@ -121,11 +121,11 @@ const result = computed({
             return updatedResult.value;
         }
     },
-    set(newValue) {						
+    set(newValue) {
         return newValue;
     }
 });
-            
+
 // Methods
 function setHTMLEntities(encodageMode) {
     console.log('Encode HTML chars');
@@ -138,9 +138,9 @@ function setHTMLEntities(encodageMode) {
         str: msg.value,
         mode: encodageMode
     })
-    .then((response) => {						
+    .then((response) => {
         updatedResult.value = response.data.response;
-        result.value = response.data.response;						
+        result.value = response.data.response;
     })
     .catch((error) => {
         console.log(error);
@@ -156,9 +156,9 @@ function setIsolatin() {
     axios.post('api/isolatin', {
         str: msg.value
     })
-    .then((response) => {						
+    .then((response) => {
         updatedResult.value = response.data.response;
-        this.result = response.data.response;						
+        this.result = response.data.response;
     })
     .catch((error) => {
         console.log(error);
@@ -167,11 +167,11 @@ function setIsolatin() {
 
 function utf8ToB64(str) {
     try {
-        return window.btoa(unescape(encodeURIComponent( str )));						
+        return window.btoa(unescape(encodeURIComponent( str )));
     } catch(err) {
         return ''
     }
-    
+
 }
 
 function b64ToUtf8(str) {
@@ -179,7 +179,7 @@ function b64ToUtf8(str) {
         return decodeURIComponent(escape(window.atob( str )));
     } catch(err) {
         return
-    }					
+    }
 }
 
 const { copy } = useCopy(areaResult);
@@ -190,14 +190,14 @@ const { copy } = useCopy(areaResult);
 	display: flex;
 	flex-direction: row;
 	align-items: flex-start;
-	&--detached {margin: 10px 0;}	
+	&--detached {margin: 10px 0;}
 	.group {
 		display: flex;
 		flex-direction: row;
 		align-items: flex-start;
 		flex-wrap: wrap;
 		justify-content: space-evenly;
-		padding: 5px 15px;		
+		padding: 5px 15px;
 	}
 	.group__item {margin-bottom: 3px; margin-top: 3px;}
 	.group__item:not(:first-child) {margin-left: 3px;}
@@ -211,7 +211,7 @@ const { copy } = useCopy(areaResult);
 		position: absolute;
 		top: 0; right: 3%;
 		i {color: #040926;}
-		outline: none;			
+		outline: none;
 	}
 	.workspace-txt {
 		height: 320px;
@@ -222,10 +222,10 @@ const { copy } = useCopy(areaResult);
 		top: -10%; right: 0;
 		background-color: rgba(#111111, .5);
 		color: white;
-		padding: 0.3rem 0.7rem;		
-		text-align: center; 
+		padding: 0.3rem 0.7rem;
+		text-align: center;
 		border-radius: 4px;
-		font-size: 1.2rem;		
+		font-size: 1.2rem;
 		font-weight: bold;
 		z-index: 99;
 	}
@@ -248,6 +248,6 @@ const { copy } = useCopy(areaResult);
 }
 
 .wt-conversion-tool__select {
-    padding: 10px 10px;    
+    padding: 10px 10px;
 }
 </style>

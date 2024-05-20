@@ -1,7 +1,7 @@
-%abstract-heading {		
+%abstract-heading {
 	font-weight: bold;
 	margin: 1rem 0;
-	line-height: 1.2;	
+	line-height: 1.2;
 }
 
 [v-cloak] {display: none}
@@ -17,16 +17,17 @@ html {
 
 body {
 	font-family: $primaryFont;
-	box-sizing: border-box;		
-	margin: 0; padding: 0;		
-	font-size: 10px;		
-	display: flex; flex-direction: column;	
-	min-height: 100%;	
+	box-sizing: border-box;
+	margin: 0; padding: 0;
+	font-size: 10px;
+	display: flex; flex-direction: column;
+	min-height: 100%;
+    min-width: $screenMinWidth * 1px;
 }
 
 main {
-	min-width: $screenMinWidth * 1px;		
-	flex-grow: 1;	
+	min-width: $screenMinWidth * 1px;
+	flex-grow: 1;
 }
 
 .app-container {
@@ -46,12 +47,12 @@ label, span, p {
 }
 
 .ti-link {
-	
+
 }
 
 // General rules for H1 to H6 heading tags
 $textIncrementSize: $textMaxSize;
-@for $i from 1 through 6 {	
+@for $i from 1 through 6 {
 	@if $i < 3 {
 		h#{$i} {
 			@extend %abstract-heading;
@@ -62,19 +63,19 @@ $textIncrementSize: $textMaxSize;
 			h#{$i} {
 				font-size: #{$textIncrementSize * 0.7};
 				font-family: $secondaryFont;
-			}			
+			}
 		}
 	} @else {
 		h#{$i} {
 			@extend %abstract-heading;
-			font-family: $primaryFont;		
+			font-family: $primaryFont;
 			font-size: #{$textIncrementSize * 0.5};
 		}
 		@include mq('md') {
 			h#{$i} {
 				font-size: #{$textIncrementSize * 0.7};
 				font-family: $primaryFont;
-			}			
+			}
 		}
 	}
 	$textIncrementSize: $textIncrementSize * (1 - $textIncrementRatio);
@@ -138,9 +139,9 @@ $textIncrementSize: $textMaxSize;
 	position: fixed;
 	transition: 0.5s ease;
 	top: 0;
-	left: 0;	
+	left: 0;
 	height: 100%;
-	width: 0;	
+	width: 0;
 	z-index: 20;
 }
 
@@ -149,12 +150,12 @@ $textIncrementSize: $textMaxSize;
 }
 
 /* Intersection observer */
-.observed {	
-	transform: translateY(0);	
+.observed {
+	transform: translateY(0);
 	transition: all 1.2s;
 }
 
-.observed.not-visible {	
+.observed.not-visible {
 	transform: translateY(150px);
 	opacity: 0;
 }
@@ -173,15 +174,23 @@ $textIncrementSize: $textMaxSize;
 	animation: pulse 1s ease-out alternate;
 }
 
-.observed-circle.not-visible {	
+.observed-circle.not-visible {
 	opacity: 0;
 }
 
 @keyframes pulse {
 	0% {
 	  	transform: rotate(0deg);
-	}		
+	}
 	100% {
 		transform: rotate(360deg);
-	}	
+	}
   }
+
+/* Animation */
+.fade-enter-active, .fade-leave-active {
+    transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to {
+    opacity: 0;
+}

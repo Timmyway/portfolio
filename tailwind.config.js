@@ -15,6 +15,9 @@ module.exports = {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
+            boxShadow: {
+                'inner-white': 'inset 0 0 10px 5px rgba(255, 255, 255, 0.5)',
+            },
         },
-    }    
+    }
 };

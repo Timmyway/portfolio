@@ -1,11 +1,11 @@
 <x-app-layout>
 @slot('vite')
-@vite(['resources/sass/app.scss', 'resources/js/app.js'])  
+@vite(['resources/sass/app.scss', 'resources/js/app.js'])
 @endslot
 @section('content')
 <nav id="vue-navbar" class="navbar--light w-full" :class="[isMobile ? 'navbar--mobile' : 'navbar']">
     <div class="navbar__container">
-        <ul class="navbar__items" v-if="(isMobile && view.mobileMenu) || !isMobile">
+        <ul v-if="(isMobile && view.mobileMenu) || !isMobile" class="navbar__items">
             <li class="navbar__items__item" :class="[isActiveRoute('/')]">
                 <router-link class="nav-link" to="/" aria-current="page">Accueil</router-link>
             </li>
@@ -24,12 +24,14 @@
                 </a>
             </li>
         </ul>
-        <div class="navbar__menu" v-if="isMobile">
-            <i
-                class="fas fa-2x text-dark" :class="[view.mobileMenu ? 'fa-times text-danger' : 'fa-bars']"
-                v-on:click="view.mobileMenu = !view.mobileMenu"
-            ></i>            
-        </div>
+        <transition name="fade">
+            <div class="navbar__menu" v-if="isMobile">
+                <i
+                    class="fas fa-2x text-dark" :class="[view.mobileMenu ? 'fa-times text-danger' : 'fa-bars']"
+                    v-on:click="view.mobileMenu = !view.mobileMenu"
+                ></i>
+            </div>
+        </transition>
     </div>
 </nav>
 <router-view></router-view>

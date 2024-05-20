@@ -8,62 +8,25 @@
                 @click="accessShortcut(section)"
             >
                 <a
-                    class="shortcut__point"                    
+                    class="shortcut__point"
                 ></a>
                 <span class="text-white text-xs capitalize">{{ section.replace('portfolio-', '') }}</span>
             </div>
-        </template>        
-    </div>    
-    <section ref="portfolioHero" id="portfolio-hero" class="mx-auto">        
+        </template>
+    </div>
+    <section ref="portfolioHero" id="portfolio-hero" class="mx-auto">
         <div class="lg:grid lg:grid-cols-2">
-            <div class="bg-secondary py-8 px-8 xl:py-16 xl:px-4 flex flex-col justify">                
+            <div class="bg-secondary py-8 px-8 flex flex-col justify xl:py-16 xl:px-4">
                 <wt-typewriter
                     sentence="Bienvenue sur mon portfolio"
                     class="text-2xl xl:text-4xl"
                 ></wt-typewriter>
-                <h2 class="text-4xl xl:text-6xl my-2 lg:my-4">Tim <span class="text-white text-4xl xl:text-6xl">W</span>ay <i class="fa-solid fa-code text-primary"></i></h2>
-                <h2 class="text-3xl xl:text-5xl my-2 lg:my-4">Développeur</h2>
-                <h2 class="text-white text-8xl mb-4">WEB</h2>
-                <div class="max-w-3xl">
-                    <p class="leading-8 text-justify text-gray-900">
-                        <span class="font-bold text-dark">Bienvenue sur le portfolio de DevAmbition !</span>
+                <h2 class="text-4xl xl:text-6xl my-2 lg:my-4 lg:text-6xl">Tim <span class="text-white text-4xl xl:text-6xl">W</span>ay <i class="fa-solid fa-code text-primary"></i></h2>
+                <h2 class="text-4xl xl:text-4xl my-2 lg:my-4 lg:text-6xl">Développeur</h2>
+                <h2 class="text-2xl text-white lg:text-4xl mb-4">WEB</h2>
 
-                        Je suis ravi de vous accueillir ici pour vous faire découvrir ma passion pour le WEB 
-                        <br><br>
-
-                        Avec <span class="font-bold text-dark">plusieurs années d'expérience</span> dans le domaine, 
-                        je suis heureux de vous proposer les services suivants :
-                        <br><br>                    
-                    </p>
-                    <ul class="flex flex-col gap-5">
-                        <li class="flex gap-2">
-                            <div class="w-8 flex justify-center items-center text-center">
-                                <i class="fas fa-laptop-code fa-2x w-8"></i>
-                            </div>
-                            <span class="font-bold text-lg">Développement de sites web responsive et modernes</span>
-                        </li>
-                        <li class="flex gap-2">
-                            <div class="w-8 flex justify-center items-center text-center">
-                                <i class="fas fa-file-alt fa-2x w-8"></i>
-                            </div>
-                            <span class="font-bold text-lg">Création de landing pages optimisées pour la conversion</span>
-                        </li>
-                        <li class="flex gap-2">
-                            <div class="w-8 flex justify-center items-center text-center">
-                                <i class="fas fa-cubes fa-2x w-8"></i>
-                            </div>
-                            <span class="font-bold text-lg">Développement d'applications Web sur mesure</span>
-                        </li>
-                        <li class="flex gap-2">
-                            <div class="w-8 flex justify-center items-center text-center">
-                                <i class="fas fa-envelope fa-2x w-8"></i>
-                            </div>
-                            <span class="font-bold text-lg">Conception d'e-mails HTML optimisés pour une délivrabilité et un affichage optimaux dans les boîtes de réception.</span>
-                        </li>
-                    </ul>
-                </div>
                 <router-link to="/a-propos">
-                    <button 
+                    <button
                         class="btn btn-primary py-4 px-8 w-fit mt-12"
                         style="margin-bottom: 0;"
 
@@ -74,109 +37,126 @@
                 <img src="images/bg.WebP" alt="" class="h-full object-cover">
             </div>
         </div>
-    </section>    
+    </section>
 
     <section class="flex justify-center">
         <div class="flex justify-center flex-wrap relative top-[-30px] p-4 bg-slate-50 shadow-xl">
-            <article class="p-8 flex flex-col items-center text-center lg:border-r-2 border-solid border-gray-400">
-                <h6 class="text-6xl">6</h6>
+            <article class="animate__animated animate__swing animate__slow p-8 flex flex-col items-center text-center lg:border-r-2 border-solid border-gray-400">
+                <wt-stat
+                    class="text-6xl"
+                    :stat="calculateXp('2016-11-02').years"
+                ></wt-stat
+                >
                 <p class="text-xl">
                     années d'expérience
                 </p>
             </article>
-            <article class="p-8 flex flex-col items-center text-center lg:border-r-2 border-solid border-gray-400">
-                <h6 class="text-6xl">50</h6>
+            <article class="animate__animated animate__swing p-8 flex flex-col items-center text-center lg:border-r-2 border-solid border-gray-400">
+                <wt-stat class="text-6xl" :stat="50" :speed="50"></wt-stat>
                 <p class="text-xl">
                     projets et plus réalisés
                 </p>
             </article>
-            <article class="p-8 flex flex-col items-center text-center">
-                <h6 class="text-6xl">3</h6>
+            <article class="animate__animated animate__swing animate__slow p-8 flex flex-col items-center text-center">
+                <wt-stat class="text-6xl" :stat="3"></wt-stat>
                 <p class="text-xl">
                     langages de programmation
                 </p>
             </article>
-        </div>        
+        </div>
     </section>
 
-    <section ref="portfolioService" id="portfolio-service" class="bg-slate-900 py-12 flex flex-col xl:py-24">
-        <h3 class="text-5xl font-bold text-white p-4 mb-6 text-center font-secondary">Ce que je fais</h3>
-        <div class="flex flex-wrap justify-center gap-4">
-            <article class="grid grid-cols-1 justify-center text-center lg:text-left lg:grid-cols-4 max-w-lg">
+    <section ref="portfolioService" id="portfolio-service" class="bg-slate-900 py-6 flex flex-col lg:py-12 2xl:py-24">
+        <h3 class="text-3xl font-bold text-white pb-4 text-center font-secondary 2xl:text-5xl lg:pb-12">
+            Ce que j'aime créer
+        </h3>
+        <div class="flex flex-wrap justify-center gap-8">
+            <article class="grid grid-cols-1 justify-center text-center mx-2 lg:text-left lg:grid-cols-4 max-w-lg border-4 rounded-lg border-gray-200 py-2 px-2">
                 <div class="lg:col-span-1 p-4">
-                    <i class="fa-solid fa-desktop text-7xl text-secondary"></i>
+                    <i class="fa-solid fa-desktop text-4xl text-secondary"></i>
                 </div>
                 <div class="flex flex-col gap-4 lg:col-span-3">
-                    <h6 class="text-2xl px-2 py-4 font-bold text-white">Impressionnez avec des Landing Pages Réactives</h6>
+                    <h6 class="text-2xl px-2 py-4 font-bold text-white">Des Landing Pages optimisées pour boster vos conversions</h6>
                     <p class="text-xl leading-relaxed text-slate-300">
-                        Offrez une expérience utilisateur exceptionnelle avec des Landing Pages modernes 
-                        et adaptées à tous les appareils. Je conçois des pages d'atterrissage 
-                        efficaces pour captiver votre audience et augmenter vos conversions.
+                        Boostez vos conversions avec des landing pages modernes et responsive.
+                        Je conçois des pages d'atterrissage captivantes pour engager votre audience
+                        et maximiser vos résultats.
                     </p>
                 </div>
             </article>
 
-            <article class="grid grid-cols-1 justify-center text-center lg:text-left lg:grid-cols-4 max-w-lg">
+            <article class="grid grid-cols-1 justify-center text-center mx-2 lg:text-left lg:grid-cols-4 max-w-lg border-4 rounded-lg border-gray-200 py-2 px-2">
                 <div class="lg:col-span-1 p-4">
-                    <i class="fa-solid fa-cogs text-7xl text-secondary"></i>
+                    <i class="fa-solid fa-cogs text-4xl text-secondary"></i>
                 </div>
                 <div class="flex flex-col gap-4 lg:col-span-3">
-                    <h6 class="text-2xl px-2 py-4 font-bold text-white">Votre Site Web Unique, votre Identité en Ligne</h6>
+                    <h6 class="text-2xl px-2 py-4 font-bold text-white">Votre prochain Site Web, Unique et à votre Identité</h6>
                     <p class="text-xl leading-relaxed text-slate-300">
-                        Donnez vie à votre vision avec un site web personnalisé qui reflète parfaitement 
-                        votre marque. Je crée des sites web sur mesure, 
-                        fonctionnels et esthétiquement agréables pour 
-                        mettre en valeur votre entreprise.
+                        Donnez vie à votre vision avec un site web sur mesure qui reflète parfaitement votre marque.
+                        Je conçois des sites web fonctionnels et esthétiques pour valoriser votre entreprise.
                     </p>
                 </div>
             </article>
 
-            <article class="grid grid-cols-1 justify-center text-center lg:text-left lg:grid-cols-4 max-w-lg">
+            <article class="grid grid-cols-1 justify-center text-center mx-2 lg:text-left lg:grid-cols-4 max-w-lg border-4 rounded-lg border-gray-200 py-2 px-2">
                 <div class="lg:col-span-1 p-4">
-                    <i class="fa-solid fa-code text-7xl text-secondary"></i>
+                    <i class="fa-solid fa-code text-4xl text-secondary"></i>
                 </div>
                 <div class="flex flex-col gap-4 lg:col-span-3">
-                    <h6 class="text-2xl px-2 py-4 font-bold text-white">Puissantes Apps Web pour Dynamiser Votre Entreprise</h6>
+                    <h6 class="text-2xl px-2 py-4 font-bold text-white">Des applications sur mesure et adaptés à vos besoins</h6>
                     <p class="text-xl leading-relaxed text-slate-300">
-                        Transformez vos idées en réalité avec des applications web performantes 
-                        et faciles à utiliser. Je propose des solutions sur mesure pour 
-                        optimiser vos processus et stimuler l'efficacité de votre entreprise.
+                        Je crée des solutions personnalisées pour répondre précisément à vos exigences,
+                        vous permettant ainsi de tirer pleinement parti de votre potentiel.
+                    </p>
+                </div>
+            </article>
+
+            <article class="grid grid-cols-1 justify-center text-center mx-2 lg:text-left lg:grid-cols-4 max-w-lg border-4 rounded-lg border-gray-200 py-2 px-2">
+                <div class="lg:col-span-1 p-4">
+                    <i class="fa-solid fa-exchange-alt text-4xl text-secondary"></i>
+                </div>
+                <div class="flex flex-col gap-4 lg:col-span-3">
+                    <h6 class="text-2xl px-2 py-4 font-bold text-white">Développement d'API Web Personnalisées</h6>
+                    <p class="text-xl leading-relaxed text-slate-300">
+                        En tant que développeur expérimenté, je crée des interfaces de programmation adaptées
+                        à vos besoins spécifiques. Bénéficiez d'une connectivité optimale et d'une efficacité
+                        renforcée pour votre activité en ligne.
                     </p>
                 </div>
             </article>
         </div>
     </section>
 
-    <section ref="portfolioTech" id="portfolio-tech" class="py-12 xl:py-24">
-        <h3 class="text-5xl font-bold p-4 mb-6 text-center font-secondary">Ma Palette Technologique au Quotidien</h3>
+    <section ref="portfolioTech" id="portfolio-tech" class="py-6 lg:py-12 2xl:py-24">
+        <h3 class="text-3xl font-bold p-4 mb-6 text-center font-secondary">Ma Palette Technologique au Quotidien</h3>
         <article class="flex justify-center flex-wrap gap-4 xl:gap-8">
-            <Cards 
+            <Cards
                 :cards="appStore.getTech().languages"
-                identifier="languages" 
+                identifier="languages"
                 title="Languages"
                 card-width="200px"
                 h-align="center"
                 bg-class="bg-blue-900"
             ></Cards>
-            <Cards 
-                :cards="appStore.getTech().frameworks" 
-                identifier="frameworks" 
+            <Cards
+                :cards="appStore.getTech().frameworks"
+                identifier="frameworks"
                 title="Frameworks"
                 card-width="200px"
                 h-align="center"
                 bg-class="bg-red-900"
             ></Cards>
-            <Cards 
-                :cards="appStore.getTech().tools" 
-                identifier="tools" 
+            <Cards
+                :cards="appStore.getTech().tools"
+                identifier="tools"
                 title="Tools"
                 card-width="200px"
                 h-align="center"
                 bg-class="bg-indigo-900"
             ></Cards>
-            <Cards 
-                :cards="appStore.getTech().databases" 
-                identifier="databases" 
+            <Cards
+                :cards="appStore.getTech().databases"
+                identifier="databases"
                 title="Databases"
                 card-width="200px"
                 h-align="center"
@@ -195,6 +175,8 @@ import { useAppStore } from '../stores/appStore';
 import WtChangingText from '../components/portfolio/WtChangingText.vue';
 import WtTypewriter from '../components/portfolio/WtTypewriter.vue';
 import useIntersectionObserver from '../composables/useIntersectionObserver';
+import { calculateXp } from '../helpers/helpers';
+import WtStat from '../components/portfolio/WtStat.vue';
 
 const appStore = useAppStore();
 const sections = ref(['portfolio-hero', 'portfolio-service', 'portfolio-tech']);
@@ -207,15 +189,15 @@ const portfolioTech = ref(null);
 
 onMounted(() => {
     const elements = [portfolioHero.value, portfolioService.value, portfolioTech.value];
-    const { observeTargets, unobserveTargets } = useIntersectionObserver(elements, 
-        { threshold: 0 }, 
+    const { observeTargets, unobserveTargets } = useIntersectionObserver(elements,
+        { threshold: 0 },
         { intersect: handleIntersection, unintersect: handleUnintersect }
     );
     observeTargets();
 });
 
 function handleIntersection(observable) {
-    // Custom logic to handle the intersection    
+    // Custom logic to handle the intersection
     console.log(`Entries: ${observable} | ${observable.target}`);
     // observable.target.style = "border: 4px solid red";
     // Update the active shortcut menu with the intersecting section
@@ -226,11 +208,11 @@ function handleIntersection(observable) {
 
 function handleUnintersect(observable) {
     observable.target.classList.remove('section--observed');
-    observable.target.classList.add('section--unobserved');    
+    observable.target.classList.add('section--unobserved');
 }
 
 function accessShortcut(elementId) {
-    const targetElement = document.querySelector('#' + elementId);    
+    const targetElement = document.querySelector('#' + elementId);
     targetElement.scrollIntoView({ behavior: 'smooth' });
     activeShortcut.value = elementId;
 }
@@ -270,7 +252,7 @@ function accessShortcut(elementId) {
     a.shortcut__point {
         background: yellow;
         transform: scale(2);
-    }    
+    }
 }
 
 .section--observed {

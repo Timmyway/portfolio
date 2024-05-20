@@ -25,9 +25,9 @@ $themeColor: if($theme == 'dark', $lightColor, $darkColor);
 $reverseThemeColor: if($theme == 'dark', $darkColor, $lightColor);
 $leadTextColor: if($theme == 'dark', darken(white, 60%), lighten(black, 60%));
 
-$linkColor: ('normal': $themeColor, 
-	'visited': if($theme == 'dark', #eee, #333), 
-	'hover': if($theme == 'dark', lighten($lightColor, 15%), darken($darkColor, 15%)), 
+$linkColor: ('normal': $themeColor,
+	'visited': if($theme == 'dark', #eee, #333),
+	'hover': if($theme == 'dark', lighten($lightColor, 15%), darken($darkColor, 15%)),
 	'active': lighten(black, 10%)
 );
 
@@ -60,16 +60,16 @@ $colors: ('primary': $primaryColor,
 	// usual colors
 	'white': #FFFFFF,
 	'black': #000000,
-	// Notification colors	
+	// Notification colors
 	'success': $successColor,
-	'info': $infoColor,	
+	'info': $infoColor,
 	'warning': $warningColor,
 	'danger': $dangerColor,
 	// Theme colors
 	'theme': $themeColor,
 	'theme-contrast': $reverseThemeColor,
 	'dark': $darkColor,
-	'light': $lightColor,	
+	'light': $lightColor,
 	'transparent': transparent,
 	'disabled': $disabledColor
 );
@@ -118,7 +118,7 @@ $breakpointsMin: (
 	'xl':   'min-width: 1200px',
 	'xxl':   'min-width: 1400px' ) !default;
 
-$bodyMinWidth: 360px;
+$bodyMinWidth: 288px;
 $flexCommons: normal, flex-start, flex-end, center, start, end, safe, unsafe;
 $flexDirection: row, row-reverse, column, column-reverse;
 $flexJustify: (normal, flex-start, flex-end, center, start, end, safe, unsafe, left, right, space-between, space-around, space-evenly, stretch);
