@@ -1,39 +1,39 @@
 <template>
-<div class="flex flex-col gap-4 bg-slate-50 text-dark p-2">
-    <div class="flex items-center justify-center gap-4">
-        <div>
-            <label class="mr-2">Sonnez après (seconds)</label>
+<div class="flex flex-col gap-4 bg-slate-50 text-dark px-2 py-4 rounded shadow-lg">
+    <div class="flex items-center justify-center gap-4 flex-wrap">
+        <div class="space-y-2">
+            <label class="mr-2">Sonnez après (secondes)</label>
             <input
                 type="number"
                 class="p-2 text-lg rounded-md border-2"
-                v-model="notifTime.spacing"            
+                v-model="notifTime.spacing"
                 :rules="[notifTime.spacing > 1 && notifTime.spacing <= 3600]"
                 style="max-width: 120px; min-width: 100px;"
             />
-        </div>                
-        <div class="flex items-center justify-center gap-2">
+        </div>
+        <div class="flex items-center justify-center gap-2  w-full">
             <label>En boucle</label>
             <input type="checkbox"
                 class="w-8 h-8 mx-2"
-                v-model="notifTime.loop"            
-                color="primary"                        
+                v-model="notifTime.loop"
+                color="primary"
             />
             <button class="btn btn-icon"
-                @click="stopSound"             
+                @click="stopSound"
             >
                 <i class="fa-solid fa-volume-mute text-red-600"></i>
             </button>
-        </div>        
+        </div>
     </div>
-    <Timer         
+    <Timer
         :notifTime="notifTime"
         @notif="notifUser"
     >
-    </Timer>    
+    </Timer>
 </div>
 
 <transition name="fade">
-<div v-if="notif.isVisible" class="notif" :class="`bg-${notif.type}`">  
+<div v-if="notif.isVisible" class="notif" :class="`bg-${notif.type}`">
     <div class="notif__container">
         <span class="notif__msg">{{ notif.msg }}</span>
         <button class="notif__btn-close btn btn-danger btn-sm" @click="notif.isVisible = false">
@@ -48,7 +48,7 @@
 import Timer from '../components/Timer.vue';
 import { reactive } from 'vue';
 
-// Datas        
+// Datas
 const notifTime = reactive({
     spacing: 3600,
     duration: 3,
@@ -70,7 +70,7 @@ function notifUser($event) {
 <style scoped>
 .form-group {
     display: flex; flex-direction: row; align-items: center;
-    justify-content: center;  
+    justify-content: center;
 }
 
 .notif {
@@ -78,7 +78,7 @@ function notifUser($event) {
     width: 60%;
     position: absolute;
     bottom: 0; right: 1%;
-    border-radius: 6px;    
+    border-radius: 6px;
 }
 .notif__container {
     position: relative;
