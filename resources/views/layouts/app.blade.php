@@ -19,12 +19,19 @@
         @endif
         <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     </head>
-    <body>
+    <body id="body">
         @include('layouts.navigation')
 
         <!-- Page Content -->
         <main id="app">
             @yield('content')
+            <button
+                v-if="!isTopest"
+                class="fixed bottom-2 right-2 z-50 bg-yellow-400 w-8 h-8 rounded-full hover:bg-yellow-500"
+                @click.prevent="scrollToElem('body')"
+            >
+                <i class="fas fa-arrow-up fa-2x"></i>
+            </button>
         </main>
         <footer class="footer">
             <div class="footer__container">
@@ -44,18 +51,22 @@
         <script>
             var baseUrl = '{{ $frontUrl }}';
             /* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */
-            var prevScrollpos = window.pageYOffset;
-            window.onscroll = () => {
-                var currentScrollPos = window.pageYOffset;
-                if (prevScrollpos > currentScrollPos) {
-                    document.getElementById("blade-navbar").style.top = "0";
-                    document.getElementById("vue-navbar").style.top = "0";
-                } else {
-                    document.getElementById("blade-navbar").style.top = "-50px";
-                    document.getElementById("vue-navbar").style.top = "-150px";
-                }
-                prevScrollpos = currentScrollPos;
-            }
+            // var prevScrollpos = window.pageYOffset;
+            // window.onscroll = () => {
+            //     var currentScrollPos = window.pageYOffset;
+            //     if (prevScrollpos > currentScrollPos) {
+            //         // Scroll top
+            //         document.getElementById("blade-navbar").style.top = "0";
+            //         document.getElementById("vue-navbar").style.top = "0";
+            //         document.getElementById("vue-navbar").style.visibility = "visible";
+            //     } else {
+            //         // Scroll down
+            //         document.getElementById("blade-navbar").style.top = "-50px";
+            //         document.getElementById("vue-navbar").style.top = "-150px";
+            //         document.getElementById("vue-navbar").style.visibility = "hidden";
+            //     }
+            //     prevScrollpos = currentScrollPos;
+            // }
         </script>
     </body>
     @if(isset($scripts))
