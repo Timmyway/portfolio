@@ -43,7 +43,9 @@
                     </div>
                 </template>
                 <template #project>
-                    <timer-page></timer-page>
+                    <div class="py-4 lg:py-12">
+                        <timer-page></timer-page>
+                    </div>
                 </template>
             </portfolio-project>
         </article>
@@ -55,8 +57,9 @@
             Voici un apperçu des mes réalisations personnelles. Je ne peux mettre que des images car certaines ne sont pas des projets WEB mais desktop.
             Et d'autres sont des projets dont je n'ai pas le droit de partager le code source.
         </p>
-        <p class="text-sm mt-2">
-            Astuce : Double cliquez une image pour l'agrandir.
+        <p class="text-sm py-2 bg-indigo-800 w-fit px-4 text-white my-2 rounded-sm">
+            <i class="fas fa-lightbulb text-yellow-400"></i>
+            Astuce : Cliquez une image pour l'agrandir.
         </p>
         <div class="bg-indigo-600 space-y-6 lg:space-y-12 xl:space-y-20">
             <article class="px-4 py-2 mx-2 flex flex-col xl:py-4">

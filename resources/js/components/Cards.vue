@@ -1,6 +1,6 @@
 <template>
 <div
-    :class="['flex flex-col items-center max-w-4xl max-auto p-2', bgClass]"
+    :class="['flex flex-col items-center max-w-4xl max-auto px-2 py-4', bgClass]"
 >
     <h4 class="text-white text-3xl font-bold py-4">{{ title }}</h4>
     <div class="flex flex-wrap p-2 gap-4 2xl:gap-8" :style="{justifyContent: hAlign}">

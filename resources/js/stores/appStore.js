@@ -13,7 +13,9 @@ export const useAppStore = defineStore('application', () => {
             {"id": 1, "label": "Laravel", "src": "images/icons/laravel-icon.png"},
             {"id": 3, "label": "Flask", "src": "images/icons/flask-icon.png"},
             {"id": 4, "label": "VueJS", "src": "images/icons/vue-icon.png"},
-            {"id": 5, "label": "Tailwind", "src": "images/icons/tailwind-icon.png"}
+            {"id": 5, "label": "Tailwind", "src": "images/icons/tailwind-icon.png"},
+            {"id": 6, "label": "Alpinejs", "src": "images/icons/alpine.js.png"},
+            {"id": 7, "label": "Livewire", "src": "images/icons/livewire-icon.png"}
         ],
         tools: [
             {"id": 1, "label": "Sass", "src": "images/icons/sass-icon.png"},
@@ -21,6 +23,7 @@ export const useAppStore = defineStore('application', () => {
             {"id": 3, "label": "Vite", "src": "images/icons/vitejs-icon.png"},
             {"id": 4, "label": "Adobe XD", "src": "images/icons/adobexd-icon.png"},
             {"id": 5, "label": "Wordpress", "src": "images/icons/wordpress-icon.png"},
+            {"id": 6, "label": "Nginx", "src": "images/icons/nginx-icon.png"},
         ],
         databases: [
             {"id": 1, "label": "SQL", "src": "images/icons/sql-icon.png"},

@@ -1,5 +1,5 @@
 <script setup>
-import { computed, inject, ref } from "@vue/runtime-core"
+import { computed, inject, ref } from "vue"
 
 const siteURL = inject('$siteURL');
 
@@ -66,7 +66,7 @@ function selectImage(image) {
     }
 }
 
-function tooglePreviewImage(image) {
+function togglePreviewImage(image) {
     if (currentImageToPreview.value.id !== null) {
         closePreview();
     } else {
@@ -81,7 +81,6 @@ function onSwipeRight(event) {
     nextImage();
 }
 function onTap() {
-    console.log('=============> Tapping');
     alert('Tapping')
 }
 function onSwipe(direction) {
@@ -95,12 +94,25 @@ function onSwipe(direction) {
             break;
     }
 }
+
+const preloadImages = () => {
+    props.images.forEach(image => {
+        const img = new Image();
+        img.src = image.src;
+        console.log(`Image ${img.src} has been preloaded !`)
+    });
+}
+
+preloadImages();
 </script>
 
 <template>
-    <section class="carousel">
+    <section class="carousel" :class="['overflow-hidden' ? isOverlayActive : '']">
         <!-- Overlay -->
-        <div class="carousel-overlay" :class="{ active: isOverlayActive }" @click="closePreview"></div>
+        <div class="carousel-overlay"
+            :class="{ active: isOverlayActive }"
+            @click="closePreview"
+        ></div>
         <div class="carousel__board">
             <div class="carousel__board__viewer">
                 <button class="carousel-control" @click="previousImage">
@@ -114,7 +126,7 @@ function onSwipe(direction) {
                                 v-touch:swipe="onSwipe"
                             >
                                 <h6 class="carousel__board__title">
-                                    <i class="fas fa-expand" @click="tooglePreviewImage(image)"></i>
+                                    <i class="fas fa-expand" @click="preview(image)"></i>
                                     {{ index + 1 }} - {{ image?.title }}
                                 </h6>
                                 <div class="carousel__board__viewer__image-wrapper">
@@ -122,7 +134,7 @@ function onSwipe(direction) {
                                         class="carousel__board__viewer__image"
                                         :class="[image?.id === currentImageToPreview?.id ? 'preview' : 'no-preview' ]"
                                         :src="`${siteURL ?? ''}${image?.src}`" alt=""
-                                        @click="tooglePreviewImage(image)"
+                                        @click="preview(image)"
                                     >
                                 </div>
                             </div>
@@ -256,6 +268,7 @@ function onSwipe(direction) {
     }
 }
 .preview {
+    background-color: red;
     position: fixed;
     top: 25%; left: 50%;
     transform: translate(-50%, -25%);
@@ -263,7 +276,6 @@ function onSwipe(direction) {
     z-index: 1000;
     transition: all .2s ease-in-out;
     // transform: scale(1.4);
-    cursor: zoom-out;
     box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
 .carousel-overlay {
@@ -275,6 +287,7 @@ function onSwipe(direction) {
     background-color: rgba(0, 0, 0, 0.9); /* Use rgba to set the background color with transparency */
     z-index: 999; /* Adjust the z-index value to ensure the overlay appears above other elements */
     display: none; /* Start with the overlay hidden */
+    cursor: zoom-out;
 }
 .carousel-overlay.active {
     display: block;
@@ -282,9 +295,6 @@ function onSwipe(direction) {
 .no-preview { cursor: zoom-in; }
 
 @media screen and (min-width: 768px) {
-    .carousel-control {
-
-    }
     .carousel__board__title {
         font-size: 1.5rem;
         padding: 10px 0;
@@ -299,12 +309,12 @@ function onSwipe(direction) {
 
 }
 
-    /* Carousel animation */
+/* Carousel animation */
 .carousel-enter-active, .carousel-leave-active {
-  transition: opacity 0.2s;
+    transition: opacity 0.2s;
 }
 .carousel-enter, .carousel-leave-to {
-  opacity: 0;
+    opacity: 0;
 }
 
 /* ensure leaving items are taken out of layout flow so that moving

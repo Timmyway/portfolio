@@ -78,15 +78,12 @@ Utilité: Echapper les accents, espaces et autres caractères spéciaux.
 26 lettres minuscules, 26 lettres majuscules, 10 chiffres (0 à 9), +, /`
             break;
         case 'b64-to-utf8':
-            return `Conversion d'un texte en Base64 vers UTF-8.
-"UTF-8 (abréviation de l’anglais Universal Character Set Transformation Format1 - 8 bits) est un codage de caractères informatiques conçu pour coder l’ensemble des caractères du « répertoire universel de caractères codés »" Wikipedia.
-
-Bref, c'est l'ensemble de tous les caractères possibles existant, des caractères japonais ばんかい aux emoji ⚽.`
+            return `Conversion d'un texte en Base64 vers UTF-8.`
         case 'url-encode':
-            return "Si en entrée on a: https://mozilla.org/?x=шеллы, on peut s'attendre en sortie à quelque chose comme cela: https://mozilla.org/?x=%D1%88%D0%B5%D0%BB%D0%BB%D1%8B";
+            return "Si en entrée on a: https://exemple.dev/?ref=éléphant, on peut s'attendre en sortie à : https://exemple.dev/?ref=%C3%A9l%C3%A9phant";
             break;
         case 'url-encode-full':
-            return `Si en entrée on a: https://mozilla.org/?x=шеллы, on peut s'attendre en sortie à quelque chose comme cela: https%3A%2F%2Fmozilla.org%2F%3Fx%3D%D1%88%D0%B5%D0%BB%D0%BB%D1%8B.
+            return `Si en entrée on a: https://exemple.dev/?ref=éléphant, on peut s'attendre en sortie à : https%3A%2F%2Fexemple.dev%2F%3Fref%3D%C3%A9l%C3%A9phant.
 
 Remarque: Même les ":", "/" et même le "?" ont été convertis.`
         case 'html-entities':
@@ -147,22 +144,21 @@ function setHTMLEntities(encodageMode) {
     });
 }
 
-function setIsolatin() {
+const setIsolatin = async () => {
     if (!msg.value || mode.value !== 'iso-latin-1') {
         console.log('Nothing to encode/decode');
         return;
     }
     result.value = '';
-    axios.post('api/isolatin', {
+    const response = await axios.post('api/isolatin', {
         str: msg.value
-    })
-    .then((response) => {
-        updatedResult.value = response.data.response;
-        this.result = response.data.response;
-    })
-    .catch((error) => {
-        console.log(error);
     });
+    try {
+        updatedResult.value = response.data.response;
+        result.value = response.data.response;
+    } catch(error) {
+        console.log(error);
+    }
 }
 
 function utf8ToB64(str) {
