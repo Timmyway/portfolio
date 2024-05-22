@@ -7,9 +7,10 @@ import Contact from './pages/Contact.vue';
 import About from './pages/About.vue';
 import TimerPage from './pages/TimerPage.vue';
 import { createRouter, createWebHistory } from 'vue-router';
-import useResponsive from './composables/useResponsive';
 import Vue3TouchEvents from "vue3-touch-events";
 import 'animate.css';
+import { ref } from 'vue';
+import WtNavbar from './components/ui/navbar/WtNavbar.vue';
 
 const routes = [
     { path: '/', component: Home },
@@ -23,29 +24,36 @@ const pinia = createPinia()
 const router = createRouter({
     history: createWebHistory(),
     routes, // short for `routes: routes`
-})
+});
 
 // Work with Vue3
 const app = createApp({
+    components: {
+        WtNavbar
+    },
     setup() {
-        let { screenWidth, isMobile } = useResponsive();
+        const navItems = ref([
+            { id: 1, text: 'Acceuil', icon: 'fas fa-home', link: { route: '/' } },
+            { id: 2, text: 'A propos', icon: 'fas fa-home', link: { route: '/a-propos' } },
+            { id: 3, text: 'Réalisations', icon: 'fas fa-home', link: { route: '/projets' } },
+            { id: 4, text: 'Contact', icon: 'fas fa-home', link: { route: '/contact' } },
+            { id: 5, text: 'Mon CV', icon: 'fas fa-home', link: { route: '/docs/cv-tim.pdf', download: true } },
+        ])
 
-        let view = reactive({mobileMenu: false});
-
-        return { screenWidth, isMobile, view }
+        return { navItems }
     },
     methods: {
         isActiveRoute(routes) {
             if (typeof routes === 'string') {
                 if (this.$route.path === routes) {
-                    return 'nav-item--active';
+                    return true;
                 }
             } else if (Array.isArray(routes)) {
                 if (routes.includes(this.$route.path)) {
-                    return 'nav-item--active';
+                    return true;
                 }
             }
-            return '';
+            return false;
         }
     }
 });
@@ -60,6 +68,7 @@ app.use(Vue3TouchEvents);
 
 app.provide('templateDatas', window.templateDatas);
 app.provide('$axios', axios);
+app.provide('$baseUrl', window.baseUrl);
 app.provide('$capitalize', capitalize);
 if (import.meta.env.VITE_APP_ENV === 'prod') {
     app.provide('$siteURL', import.meta.env.VITE_APP_PROD_URL);

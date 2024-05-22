@@ -16,7 +16,7 @@ const animateStat = () => {
             console.log('Clear interval now...');
             clearInterval(intervalId.value);
         }
-        console.log('Increment stat...', toDisplay.value);
+        // console.log('Increment stat...', toDisplay.value);
         toDisplay.value ++;
     }, props.speed);
 }

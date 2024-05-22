@@ -11,25 +11,17 @@ const props = defineProps({
 const pointer = ref(0);
 const currentImageToPreview = ref({id: null});
 
-// Overlay setting
-const isOverlayActive = ref(false);
+// Preview mode
+const isPreviewing = ref(false);
 
-// Function to activate the overlay
-function showOverlay() {
-    isOverlayActive.value = true;
-};
-// Function to deactivate the overlay
-function hideOverlay() {
-    isOverlayActive.value = false;
-};
-
-function preview(image) {
-    currentImageToPreview.value.id = image.id;
-    showOverlay();
+function preview() {
+    isPreviewing.value = true;
+    document.body.classList.add('overlay-active');
 }
 function closePreview() {
     currentImageToPreview.value.id = null;
-    hideOverlay();
+    isPreviewing.value = false;
+    document.body.classList.remove('overlay-active');
 }
 
 const currentImage = computed(() => {
@@ -107,11 +99,11 @@ preloadImages();
 </script>
 
 <template>
-    <section class="carousel" :class="['overflow-hidden' ? isOverlayActive : '']">
+    <section class="carousel" :class="['overflow-hidden' ? isPreviewing : '']">
         <!-- Overlay -->
         <div class="carousel-overlay"
-            :class="{ active: isOverlayActive }"
-            @click="closePreview"
+            :class="{ active: isPreviewing }"
+            @click.prevent="closePreview"
         ></div>
         <div class="carousel__board">
             <div class="carousel__board__viewer">
@@ -119,39 +111,47 @@ preloadImages();
                     <i class="fa fa-chevron-left"></i>
                 </button>
                 <div>
-                    <TransitionGroup name="carousel" tag="div">
-                        <template v-for="(image,index) in images" :key="`wt-carousel-image${image.id}`">
-                            <div
-                                v-show="image.id === currentImage.id"
-                                v-touch:swipe="onSwipe"
-                            >
-                                <h6 class="carousel__board__title">
-                                    <i class="fas fa-expand" @click="preview(image)"></i>
-                                    {{ index + 1 }} - {{ image?.title }}
-                                </h6>
-                                <div class="carousel__board__viewer__image-wrapper">
+                    <div>
+                        <div v-touch:swipe="onSwipe">
+                            <h6 class="carousel__board__title">
+                                <i class="fas fa-expand" @click.prevent="preview()"></i>
+                                {{ currentImage?.title }}
+                            </h6>
+                            <div class="carousel__board__viewer__image-wrapper">
+                                <div
+                                    :class="[isPreviewing ? 'preview' : 'no-preview' ]"
+                                    class="flex items-center gap-2"
+                                >
+                                    <button v-if="isPreviewing" class="carousel-control mx-2" @click.prevent="previousImage">
+                                        <i class="fa fa-chevron-left"></i>
+                                    </button>
                                     <img
                                         class="carousel__board__viewer__image"
-                                        :class="[image?.id === currentImageToPreview?.id ? 'preview' : 'no-preview' ]"
-                                        :src="`${siteURL ?? ''}${image?.src}`" alt=""
-                                        @click="preview(image)"
+                                        :src="`${siteURL ?? ''}${currentImage?.src}`" alt=""
+                                        @click.prevent="preview()"
                                     >
+                                    <button v-if="isPreviewing" class="carousel-control mx-2" @click.prevent="nextImage">
+                                        <i class="fa fa-chevron-right"></i>
+                                    </button>
                                 </div>
                             </div>
-                        </template>
-                    </TransitionGroup>
+                        </div>
+                    </div>
                 </div>
-                <button class="carousel-control" @click="nextImage">
+                <button class="carousel-control" @click.prevent="nextImage">
                     <i class="fa fa-chevron-right"></i>
                 </button>
             </div>
             <div class="carousel__board__thumbnails">
-                <template v-for="thumbnail in images" :key="`wt-carousel-thumbnail${thumbnail.id}`">
+                <template
+                    v-for="thumbnail in images"
+                    :key="`wt-carousel-thumbnail${thumbnail.id}`"
+                >
                     <img
                         class="carousel__board__thumbnails__thumbnail"
                         :class="{ 'thumbnail--active': thumbnail.id === currentImage.id}"
                         :src="`${siteURL ?? ''}${thumbnail?.src}`" alt=""
-                        @click="selectImage(thumbnail)"
+                        @click.prevent="selectImage(thumbnail)"
                     >
                 </template>
             </div>
@@ -164,6 +164,7 @@ preloadImages();
     box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
     padding: 5px;
 }
+
 .carousel__board {
     display: flex;
     flex-direction: column;
@@ -171,11 +172,13 @@ preloadImages();
     max-width: 1100px;
     margin: 0 auto;
     &__viewer {
+        position: relative;
         display: flex;
         align-items: center;
         gap: 10px;
         overflow: hidden;
         &__image-wrapper {
+            background-color: white;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -226,10 +229,11 @@ preloadImages();
         scrollbar-width: thin;
         /* End styling custom scrollbar */
         &__thumbnail {
-            width: 48px;
+            width: 64px;
             cursor: pointer;
             transition: all .2s;
             box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+            box-sizing: border-box;
         }
     }
     &__image-wrapper {
@@ -247,36 +251,38 @@ preloadImages();
 }
 
 .thumbnail--active {
-    border: 2px solid #20FCB5;
-    border-radius: 6px;
+    border: 6px solid #68c5a2;
+    border-radius: 4px;
+    box-sizing: border-box;
+    animation: shining 0.5s ease-in-out;
 }
 
 .carousel-control {
-    font-size: 1.5rem;
+    font-size: 2rem;
     width: 20px; height: 24px;
-    border: 2px solid #777;
     padding: 12px;
     display: flex; justify-content: center; align-items: center;
     border-radius: 50%;
     transition: all .2s;
-    &:hover {
-        border-color: #F6AA1C;
-        background: #F6AA1C;
-    }
     &:hover i {
-        transform: scale(1.1);
+        transition: transform .2s ease-in;
+        transform: scale(1.2);
+        &:active {
+            color: #555;
+            transform: scale(1.4);
+        }
     }
 }
 .preview {
-    background-color: red;
+    background-color: white;
     position: fixed;
     top: 25%; left: 50%;
     transform: translate(-50%, -25%);
-    max-width: 90%;
+    width: 100%;
+    max-width: 100%;
     z-index: 1000;
-    transition: all .2s ease-in-out;
-    // transform: scale(1.4);
-    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    animation: fade .4s cubic-bezier(.15,1.16,.38,-0.41);
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 }
 .carousel-overlay {
     position: fixed; /* Ensures the overlay covers the entire viewport */
@@ -284,6 +290,7 @@ preloadImages();
     left: 0;
     width: 100%;
     height: 100%;
+    overflow: hidden;
     background-color: rgba(0, 0, 0, 0.9); /* Use rgba to set the background color with transparency */
     z-index: 999; /* Adjust the z-index value to ensure the overlay appears above other elements */
     display: none; /* Start with the overlay hidden */
@@ -295,6 +302,9 @@ preloadImages();
 .no-preview { cursor: zoom-in; }
 
 @media screen and (min-width: 768px) {
+    .preview {
+        max-width: 75%;
+    }
     .carousel__board__title {
         font-size: 1.5rem;
         padding: 10px 0;
@@ -304,6 +314,10 @@ preloadImages();
             &__image-wrapper {
                 height: 480px;
             }
+            &__image {
+                width: 100%;
+                object-fit: contain;
+            }
         }
     }
 
@@ -311,9 +325,9 @@ preloadImages();
 
 /* Carousel animation */
 .carousel-enter-active, .carousel-leave-active {
-    transition: opacity 0.2s;
+    transition: opacity 0.5s;
 }
-.carousel-enter, .carousel-leave-to {
+.carousel-enter-from, .carousel-leave-to {
     opacity: 0;
 }
 
@@ -321,5 +335,28 @@ preloadImages();
     animations can be calculated correctly. */
 .carousel-leave-active {
     position: absolute;
+    width: 100%;
+    transition: opacity 0.5s ease;
+}
+
+@keyframes shining {
+    0% {
+        box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0);
+    }
+    50% {
+        box-shadow: 0 0 20px 20px rgba(255, 255, 255, 0.7);
+    }
+    100% {
+        box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0);
+    }
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 </style>

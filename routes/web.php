@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SiteController;
 use App\Http\Middleware\ForceHttps;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
@@ -20,17 +21,14 @@ Route::middleware(['web', ForceHttps::class])->group(function () {
     Route::get('/', function () {
         return view('dashboard');
     })->name('dashboard');
-    
-    Route::get('/contact', function() {
-        return Redirect::to('/');
-    });
-    Route::get('/a-propos', function() {
-        return Redirect::to('/');
-    });    
-    Route::get('/localisation', function() {    
+
+    Route::get('/contact', [SiteController::class, 'backHome']);
+    Route::get('/a-propos', [SiteController::class, 'backHome']);
+    Route::get('/projets', [SiteController::class, 'backHome']);
+    Route::get('/localisation', function() {
         return view('pages.map');
     })->name('localisation');
-    
+
     Route::get('/vitrine-clients', function() {
         return view('pages.showcase');
     })->middleware('auth')->name('showcase');

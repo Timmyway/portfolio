@@ -68,7 +68,7 @@
 
     <section ref="portfolioService" id="portfolio-service" class="bg-slate-900 py-6 flex flex-col lg:py-12 2xl:py-24">
         <h3 class="text-3xl font-bold text-white pb-4 text-center font-secondary 2xl:text-5xl lg:pb-12">
-            Ce que j'aime créer
+            Ce que j'aime ?
         </h3>
         <div class="flex flex-wrap justify-center gap-8">
             <article class="grid grid-cols-1 justify-center text-center mx-2 lg:text-left lg:grid-cols-4 max-w-lg border-4 rounded-lg border-gray-200 py-2 px-2">
@@ -76,7 +76,7 @@
                     <i class="fa-solid fa-desktop text-4xl text-secondary"></i>
                 </div>
                 <div class="flex flex-col gap-4 lg:col-span-3">
-                    <h6 class="text-2xl px-2 py-4 font-bold text-white">Des Landing Pages optimisées pour boster vos conversions</h6>
+                    <h6 class="text-2xl px-2 py-4 font-bold text-white">Créer des Landing Pages optimisées pour boster vos conversions</h6>
                     <p class="text-xl leading-relaxed text-slate-300">
                         Boostez vos conversions avec des landing pages modernes et responsive.
                         Je conçois des pages d'atterrissage captivantes pour engager votre audience
@@ -90,7 +90,7 @@
                     <i class="fa-solid fa-cogs text-4xl text-secondary"></i>
                 </div>
                 <div class="flex flex-col gap-4 lg:col-span-3">
-                    <h6 class="text-2xl px-2 py-4 font-bold text-white">Votre prochain Site Web, Unique et à votre Identité</h6>
+                    <h6 class="text-2xl px-2 py-4 font-bold text-white">Mettre en place votre prochain Site Web, Unique et à votre Identité</h6>
                     <p class="text-xl leading-relaxed text-slate-300">
                         Donnez vie à votre vision avec un site web sur mesure qui reflète parfaitement votre marque.
                         Je conçois des sites web fonctionnels et esthétiques pour valoriser votre entreprise.
@@ -103,7 +103,7 @@
                     <i class="fa-solid fa-code text-4xl text-secondary"></i>
                 </div>
                 <div class="flex flex-col gap-4 lg:col-span-3">
-                    <h6 class="text-2xl px-2 py-4 font-bold text-white">Des applications sur mesure et adaptés à vos besoins</h6>
+                    <h6 class="text-2xl px-2 py-4 font-bold text-white">Coder des applications sur mesure et adaptés à vos besoins et ambitions</h6>
                     <p class="text-xl leading-relaxed text-slate-300">
                         Je crée des solutions personnalisées pour répondre précisément à vos exigences,
                         vous permettant ainsi de tirer pleinement parti de votre potentiel.
@@ -116,11 +116,11 @@
                     <i class="fa-solid fa-exchange-alt text-4xl text-secondary"></i>
                 </div>
                 <div class="flex flex-col gap-4 lg:col-span-3">
-                    <h6 class="text-2xl px-2 py-4 font-bold text-white">Développement d'API Web Personnalisées</h6>
+                    <h6 class="text-2xl px-2 py-4 font-bold text-white">Développer des API Web Personnalisées à votre Business</h6>
                     <p class="text-xl leading-relaxed text-slate-300">
-                        En tant que développeur expérimenté, je crée des interfaces de programmation adaptées
+                        En tant que développeur expérimenté, je crée des interfaces de programmation (aka API) adaptées
                         à vos besoins spécifiques. Bénéficiez d'une connectivité optimale et d'une efficacité
-                        renforcée pour votre activité en ligne.
+                        maximale pour votre activité en ligne.
                     </p>
                 </div>
             </article>
@@ -128,7 +128,7 @@
     </section>
 
     <section ref="portfolioTech" id="portfolio-tech" class="py-6 lg:py-12 2xl:py-24">
-        <h3 class="text-3xl font-bold p-4 mb-6 text-center font-secondary">Ma Palette Technologique au Quotidien</h3>
+        <h3 class="text-3xl font-bold p-4 mb-6 text-center font-secondary">Mes outils au Quotidien</h3>
         <article class="flex justify-center flex-wrap gap-4 xl:gap-8">
             <Cards
                 :cards="appStore.getTech().languages"
@@ -148,8 +148,8 @@
             ></Cards>
             <Cards
                 :cards="appStore.getTech().tools"
-                identifier="tools"
-                title="Tools"
+                identifier="misc"
+                title="Autres"
                 card-width="200px"
                 h-align="center"
                 bg-class="bg-indigo-900"

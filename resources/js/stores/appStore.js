@@ -37,6 +37,3 @@ export const useAppStore = defineStore('application', () => {
 
     return { getTech }
   })
-
-
-

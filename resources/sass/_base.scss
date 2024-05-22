@@ -25,6 +25,11 @@ body {
     min-width: $screenMinWidth * 1px;
 }
 
+/* Prevent scrolling when overlay is active */
+body.overlay-active {
+    overflow: hidden;
+}
+
 main {
 	min-width: $screenMinWidth * 1px;
 	flex-grow: 1;

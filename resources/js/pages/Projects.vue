@@ -1,11 +1,17 @@
 <template>
 <section class="mt-4 mx-auto">
-    <h1 class="text-4xl px-4 py-4 text-center font-bold">Projets secondaires</h1>
-    <p class="text-lg px-2 pb-4 text-center max-w-2xl mx-auto">
-        Il s'agit de projets que j'ai développés pendant mes moments de libre
-        et dans un but de perfectionnement.
-    </p>
-    <div class="bg-indigo-600 space-y-6 lg:space-y-12 xl:space-y-20">
+    <wt-hero
+        heading="Projets secondaires"
+        bg-image="/images/bg-hero-3.WebP"
+        blur="sm"
+        class="min-h-96"
+    >
+        <span>
+            Il s'agit de projets que j'ai développés pendant mes moments de libre
+            et dans un but de perfectionnement.
+        </span>
+    </wt-hero>
+    <div class="bg-gradient-to-r from-gray-300 via-gray-100 to-gray-300 space-y-6 lg:space-y-12 xl:space-y-20">
         <article class="px-4 py-2 mx-2 flex flex-col xl:py-4">
             <!-- Convertisseur -->
             <portfolio-project
@@ -51,17 +57,27 @@
         </article>
     </div>
 
-    <div class="px-4 py-2 mx-2 flex flex-col xl:py-4">
-        <h2 class="text-4xl p-6 text-center font-bold">Certains projets dont je suis l'auteur</h2>
-        <p class="text-xl">
-            Voici un apperçu des mes réalisations personnelles. Je ne peux mettre que des images car certaines ne sont pas des projets WEB mais desktop.
-            Et d'autres sont des projets dont je n'ai pas le droit de partager le code source.
-        </p>
-        <p class="text-sm py-2 bg-indigo-800 w-fit px-4 text-white my-2 rounded-sm">
-            <i class="fas fa-lightbulb text-yellow-400"></i>
-            Astuce : Cliquez une image pour l'agrandir.
-        </p>
-        <div class="bg-indigo-600 space-y-6 lg:space-y-12 xl:space-y-20">
+    <div class="px-4 py-2 mx-2 my-6 flex flex-col xl:py-4 2xl:my-12">
+        <wt-hero
+            heading="Certains projets dont je suis l'auteur"
+            bg-image="/images/bg-hero-2.WebP"
+            blur="xs"
+            class="min-h-96"
+            text-class="text-center"
+        >
+            <div class="flex justify-center flex-col items-center gap-4">
+                <span>
+                    Voici un apperçu des mes réalisations personnelles. Je ne peux mettre que des images car certaines ne sont pas des projets WEB mais desktop.
+                    Et d'autres sont des projets dont je n'ai pas le droit de partager le code source.
+                </span>
+                <p class="text-sm py-2 bg-indigo-800 w-fit px-4 text-white my-2 rounded-sm">
+                    <i class="fas fa-lightbulb text-yellow-400"></i>
+                    Astuce : Cliquez une image pour l'agrandir.
+                </p>
+            </div>
+        </wt-hero>
+
+        <div class="bg-gradient-to-r from-gray-300 via-gray-100 to-gray-300 space-y-6 lg:space-y-12 xl:space-y-20">
             <article class="px-4 py-2 mx-2 flex flex-col xl:py-4">
                 <div class="portfolio-project">
                     <h4 class="text-2xl py-4 font-bold">Projet 1 : Teamtool</h4>
@@ -73,7 +89,7 @@
                     <div class="py-4 2xl:py-6">
                         <wt-carousel-enhanced
                             :images="projects.teamtool"
-                            class="bg-gradient-to-r from-yellow-500 to-orange-300"
+                            class="bg-gradient-to-r from-yellow-300 via-orange-100 to-orange-400"
                         ></wt-carousel-enhanced>
                     </div>
                 </div>
@@ -91,7 +107,7 @@
                     <div class="py-4 2xl:py-6">
                         <wt-carousel-enhanced
                             :images="projects.kitbuilder"
-                            class="bg-gradient-to-r from-pink-50 to-pink-300"
+                            class="bg-gradient-to-r from-pink-300 via-pink-100 to-pink-400"
                         ></wt-carousel-enhanced>
                     </div>
                 </div>
@@ -108,7 +124,7 @@
                     <div class="py-4 2xl:py-6">
                         <wt-carousel-enhanced
                             :images="projects.imageOptimizer"
-                            class="bg-gradient-to-r from-teal-50 to-teal-300"
+                            class="bg-gradient-to-r from-teal-300 via-teal-100 to-teal-400"
                         ></wt-carousel-enhanced>
                     </div>
                 </div>
@@ -142,6 +158,7 @@ import WtCarouselEnhanced from '../components/portfolio/WtCarouselEnhanced.vue';
 import PortfolioProject from '../components/PortfolioProject.vue';
 import ConversionTool from '../components/ConversionTool.vue';
 import TimerPage from './TimerPage.vue';
+import WtHero from '../components/portfolio/WtHero.vue';
 
 const projects = {
     "teamtool": [
