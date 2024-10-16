@@ -15,6 +15,22 @@
         <article class="px-4 py-2 mx-2 flex flex-col xl:py-4">
             <!-- Convertisseur -->
             <portfolio-project
+                title="1. Mindwall"
+                description="L'application est un outil de conversion et d'encodage qui offre les
+                    fonctionnalités suivantes : conversion entre Base64 et UTF-8, encodage et décodage d'URL,
+                    encodage et décodage d'entités HTML. Ces fonctionnalités permettent de manipuler
+                    facilement et en toute sécurité les données et les caractères spéciaux,
+                    rendant ainsi les interactions en ligne plus efficaces et pratiques."
+            >
+                <template #project>
+                    <conversion-tool></conversion-tool>
+                </template>
+            </portfolio-project>
+        </article>
+
+        <article class="px-4 py-2 mx-2 flex flex-col xl:py-4">
+            <!-- Convertisseur -->
+            <portfolio-project
                 title="1. Outil de conversion"
                 description="L'application est un outil de conversion et d'encodage qui offre les
                     fonctionnalités suivantes : conversion entre Base64 et UTF-8, encodage et décodage d'URL,

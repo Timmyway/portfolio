@@ -66,6 +66,7 @@ const handleScrollDown = () => {
                         :link="navItem?.link?.route"
                         :download="navItem?.link?.download ?? false"
                         :icon-class="navItem?.icon"
+                        :target="navItem?.target ?? '_self'"
                     ></wt-navitem>
                 </template>
             </ul>
