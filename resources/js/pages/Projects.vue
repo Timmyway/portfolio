@@ -16,14 +16,23 @@
             <!-- Convertisseur -->
             <portfolio-project
                 title="1. Mindwall"
-                description="L'application est un outil de conversion et d'encodage qui offre les
-                    fonctionnalités suivantes : conversion entre Base64 et UTF-8, encodage et décodage d'URL,
-                    encodage et décodage d'entités HTML. Ces fonctionnalités permettent de manipuler
-                    facilement et en toute sécurité les données et les caractères spéciaux,
-                    rendant ainsi les interactions en ligne plus efficaces et pratiques."
+                description="Découvrez Mindwall, l'outil créatif que j'ai conçu pour participer à la Google Gemini compétition.
+                Capturez vos idées, ajoutez textes et images, et laissez l'IA les enrichir. Avec une interface intuitive,
+                visualisez et développez vos concepts de manière unique et interactive."
             >
                 <template #project>
-                    <conversion-tool></conversion-tool>
+                    <div class="py-2">
+                        <tw-embed-video src="https://www.youtube.com/embed/msmAyW5Yl5U?si=V5GmUxgQmul-_hLo"></tw-embed-video>
+                        <div>
+                            <h6 class="font-bold text-2xl py-2">Les points clés</h6>
+                            <ul class="text-lg flex flex-col gap-2">
+                                <li class="ml-4">🔥 Gestion d'un Canvas intéractif avec Vue.js</li>
+                                <li class="ml-4">🤖 Intégration avec l'API de Google Gemini</li>
+                                <li class="ml-4">🖼️ Intégration de l'API Freepik</li>
+                                <li class="ml-4">🔒 Signin with Google</li>
+                            </ul>
+                        </div>
+                    </div>
                 </template>
             </portfolio-project>
         </article>
@@ -31,7 +40,41 @@
         <article class="px-4 py-2 mx-2 flex flex-col xl:py-4">
             <!-- Convertisseur -->
             <portfolio-project
-                title="1. Outil de conversion"
+                title="2. Wordcraft"
+                description="Découvrez Wordcraft, votre outil ultime pour explorer
+                plus de 100 000 mots anglais en un clin d'œil.
+                Avec sa recherche ultra-rapide et ses filtres puissants,
+                trouvez instantanément les mots qui vous intéressent.
+                Créez vos propres playlists de mots pour un apprentissage personnalisé.
+                Chaque mot peut être débloqué et enrichi par l'IA, qui vous fournit définitions,
+                synonymes, antonymes, mots associés et exemples d'utilisation.
+                Transformez votre maîtrise de l'anglais avec Wordcraft et accédez à un univers
+                de vocabulaire enrichi."
+            >
+                <template #project>
+                    <div class="py-2">
+                        <p class="mt-2">
+                            Il est disponible en live <a href="https://wordcraft.devambition.com" target="_blank" class="underline text-blue-600">ici</a>.
+                        </p>
+                        <div>
+                            <h6 class="font-bold text-2xl py-2">Les points clés</h6>
+                            <ul class="text-lg flex flex-col gap-2">
+                                <li class="ml-4">🔒 Création d'un compte utilisateur</li>
+                                <li class="ml-4">🔎 Recherche instantanée sur une base de plus de 100 000 mots</li>
+                                <li class="ml-4">🔎 Filtrage avancé et création de playlists de mots personnalisées</li>
+                                <li class="ml-4">🤖 Enrichissement de mots par IA (définitions, synonymes, antonymes, exemples, etc.)</li>
+                                <li class="ml-4">★ Espace dédié aux verbes irréguliers</li>
+                            </ul>
+                        </div>
+                    </div>
+                </template>
+            </portfolio-project>
+        </article>
+
+        <article class="px-4 py-2 mx-2 flex flex-col xl:py-4">
+            <!-- Convertisseur -->
+            <portfolio-project
+                title="3. Outil de conversion"
                 description="L'application est un outil de conversion et d'encodage qui offre les
                     fonctionnalités suivantes : conversion entre Base64 et UTF-8, encodage et décodage d'URL,
                     encodage et décodage d'entités HTML. Ces fonctionnalités permettent de manipuler
@@ -47,7 +90,7 @@
         <article class="px-4 py-2 mx-2 flex flex-col xl:py-4">
             <!-- Timer application -->
             <portfolio-project
-                title="2. Timer"
+                title="4. Timer"
                 class="bg-slate-900"
             >
                 <template #description>
@@ -169,10 +212,10 @@
 </template>
 
 <script setup>
-import WtCarousel from '../components/WtCarousel.vue';
 import WtCarouselEnhanced from '../components/portfolio/WtCarouselEnhanced.vue';
 import PortfolioProject from '../components/PortfolioProject.vue';
 import ConversionTool from '../components/ConversionTool.vue';
+import TwEmbedVideo from '../components/media/TwEmbedVideo.vue';
 import TimerPage from './TimerPage.vue';
 import WtHero from '../components/portfolio/WtHero.vue';
 

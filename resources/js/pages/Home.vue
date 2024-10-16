@@ -76,24 +76,28 @@
                     <i class="fa-solid fa-desktop text-4xl text-secondary"></i>
                 </div>
                 <div class="flex flex-col gap-4 lg:col-span-3">
-                    <h6 class="text-2xl px-2 py-4 font-bold text-white">Créer des Landing Pages optimisées pour boster vos conversions</h6>
+                    <h6 class="text-2xl px-2 py-4 font-bold text-white">Créer des Landing Pages optimisées pour booster les conversions</h6>
                     <p class="text-xl leading-relaxed text-slate-300">
-                        Boostez vos conversions avec des landing pages modernes et responsive.
-                        Je conçois des pages d'atterrissage captivantes pour engager votre audience
-                        et maximiser vos résultats.
+                        Transformez vos visiteurs en clients grâce à mes Landing Pages conçues pour captiver
+                        et convaincre. J'optimise chaque élément — de l'accroche aux appels à l'action — pour
+                        créer des pages percutantes qui maximisent vos conversions. Avec des designs sur
+                        mesure et une stratégie réfléchie, je vous aide à atteindre vos objectifs rapidement.
                     </p>
                 </div>
             </article>
 
-            <article class="grid grid-cols-1 justify-center text-center mx-2 lg:text-left lg:grid-cols-4 max-w-lg border-4 rounded-lg border-gray-200 py-2 px-2">
+            <article class="grid grid-cols-1 justify-center text-center mx-2 lg:text-left lg:grid-cols-4 max-w-xl border-4 rounded-lg border-gray-200 py-2 px-2">
                 <div class="lg:col-span-1 p-4">
                     <i class="fa-solid fa-cogs text-4xl text-secondary"></i>
                 </div>
                 <div class="flex flex-col gap-4 lg:col-span-3">
                     <h6 class="text-2xl px-2 py-4 font-bold text-white">Mettre en place votre prochain Site Web, Unique et à votre Identité</h6>
                     <p class="text-xl leading-relaxed text-slate-300">
-                        Donnez vie à votre vision avec un site web sur mesure qui reflète parfaitement votre marque.
-                        Je conçois des sites web fonctionnels et esthétiques pour valoriser votre entreprise.
+                        Donnez vie à votre vision avec un site web qui reflète véritablement votre identité.
+                        Je conçois des sites uniques, pensés sur mesure pour répondre à vos besoins spécifiques.
+                        En alliant esthétique et fonctionnalité, je m'assure que chaque élément de votre site
+                        raconte votre histoire et engage vos visiteurs. Faites le premier pas vers une
+                        présence en ligne qui vous ressemble et démarquez-vous de la concurrence !
                     </p>
                 </div>
             </article>
@@ -105,22 +109,44 @@
                 <div class="flex flex-col gap-4 lg:col-span-3">
                     <h6 class="text-2xl px-2 py-4 font-bold text-white">Coder des applications sur mesure et adaptés à vos besoins et ambitions</h6>
                     <p class="text-xl leading-relaxed text-slate-300">
-                        Je crée des solutions personnalisées pour répondre précisément à vos exigences,
-                        vous permettant ainsi de tirer pleinement parti de votre potentiel.
+                        Je crée des applications sur mesure, parfaitement adaptées à vos besoins et ambitions.
+                        Chaque projet est conçu pour offrir des solutions innovantes qui répondent à vos défis spécifiques.
+                        Grâce à une approche collaborative, je m'assure que chaque fonctionnalité soit optimisée pour vous
+                        apporter le maximum de valeur. Transformez vos idées en réalité et propulsez votre succès avec des
+                        applications qui vous ressemblent !
                     </p>
                 </div>
             </article>
 
-            <article class="grid grid-cols-1 justify-center text-center mx-2 lg:text-left lg:grid-cols-4 max-w-lg border-4 rounded-lg border-gray-200 py-2 px-2">
+            <article class="grid grid-cols-1 justify-center text-center mx-2 lg:text-left lg:grid-cols-4 max-w-xl border-4 rounded-lg border-gray-200 py-2 px-2">
                 <div class="lg:col-span-1 p-4">
                     <i class="fa-solid fa-exchange-alt text-4xl text-secondary"></i>
                 </div>
                 <div class="flex flex-col gap-4 lg:col-span-3">
                     <h6 class="text-2xl px-2 py-4 font-bold text-white">Développer des API Web Personnalisées à votre Business</h6>
                     <p class="text-xl leading-relaxed text-slate-300">
-                        En tant que développeur expérimenté, je crée des interfaces de programmation (aka API) adaptées
-                        à vos besoins spécifiques. Bénéficiez d'une connectivité optimale et d'une efficacité
-                        maximale pour votre activité en ligne.
+                        Je développe des API Web personnalisées spécifiquement pour votre entreprise, garantissant une intégration
+                        fluide et efficace avec vos systèmes existants. Chaque API est conçue pour répondre à vos besoins uniques,
+                        vous permettant de maximiser vos opérations et d'améliorer l'expérience utilisateur. Avec des solutions robustes et scalables,
+                        je vous aide à optimiser vos processus et à tirer le meilleur parti de vos données.
+                        Transformez votre façon de travailler grâce à des APIs qui soutiennent vos ambitions et propulsent votre croissance !
+                    </p>
+                </div>
+            </article>
+
+            <article class="grid grid-cols-1 justify-center text-center mx-2 lg:text-left lg:grid-cols-4 max-w-xl border-4 rounded-lg border-gray-200 py-2 px-2">
+                <div class="lg:col-span-1 p-4">
+                    <i class="fa-solid fa-exchange-alt text-4xl text-secondary"></i>
+                </div>
+                <div class="flex flex-col gap-4 lg:col-span-3">
+                    <h6 class="text-2xl px-2 py-4 font-bold text-white">Intégration de Solutions d'Intelligence Artificielle</h6>
+                    <p class="text-xl leading-relaxed text-slate-300">
+                        Je m'occupe de l'intégration de solutions d'intelligence artificielle existantes,
+                        vous permettant d'automatiser vos processus et d'analyser vos données de manière approfondie.
+                        En intégrant des APIs d'IA, je vous aide à transformer des insights en actions concrètes, à personnaliser
+                        l'expérience utilisateur et à anticiper les besoins de vos clients. Grâce à ces technologies avancées,
+                        vous gagnez en efficacité et en innovation, propulsant ainsi votre entreprise vers l'avenir.
+                        Adoptez l'intelligence artificielle pour rester compétitif et transformer votre vision en réalité !
                     </p>
                 </div>
             </article>
@@ -133,7 +159,7 @@
             <Cards
                 :cards="appStore.getTech().languages"
                 identifier="languages"
-                title="Languages"
+                title="Langages"
                 card-width="200px"
                 h-align="center"
                 bg-class="bg-blue-900"

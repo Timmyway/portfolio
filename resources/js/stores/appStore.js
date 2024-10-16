@@ -7,6 +7,7 @@ export const useAppStore = defineStore('application', () => {
             {"id": 1, "label": "PHP", "src": "images/icons/php-icon.png"},
             {"id": 2, "label": "Python", "src": "images/icons/py-icon.png"},
             {"id": 3, "label": "Javascript", "src": "images/icons/js-icon.png"},
+            {"id": 4, "label": "TypeScript", "src": "images/icons/ts-icon.png"},
 
         ],
         frameworks: [

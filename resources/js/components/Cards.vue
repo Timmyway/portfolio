@@ -3,7 +3,7 @@
     :class="['flex flex-col items-center max-w-4xl max-auto px-2 py-4', bgClass]"
 >
     <h4 class="text-white text-3xl font-bold py-4">{{ title }}</h4>
-    <div class="flex flex-wrap p-2 gap-4 2xl:gap-8" :style="{justifyContent: hAlign}">
+    <div class="flex flex-wrap p-2 gap-4 2xl:gap-4" :style="{justifyContent: hAlign, maxWidth: constainerWidth }">
         <template v-for="card in cards" :key="`${identifier}-${card.id}`">
         <Card
             :width="cardWidth"
@@ -34,7 +34,8 @@ export default {
         hAlign: { type: String, default: 'center' },
         title: { type: String, default: '' },
         bgcolor: { type: String, default: '#25354A' },
-        bgClass: { type: String, default: 'bg-primary' }
+        bgClass: { type: String, default: 'bg-primary' },
+        constainerWidth: { type: String, default: '40rem' }
     },
     components: {
         Card
