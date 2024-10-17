@@ -22,7 +22,7 @@
             >
                 <template #project>
                     <div class="py-2">
-                        <tw-embed-video src="https://www.youtube.com/embed/msmAyW5Yl5U?si=V5GmUxgQmul-_hLo"></tw-embed-video>
+                        <tw-embedded-video src="https://www.youtube.com/embed/msmAyW5Yl5U?si=V5GmUxgQmul-_hLo"></tw-embedded-video>
                         <div>
                             <h6 class="font-bold text-2xl py-2">Les points clés</h6>
                             <ul class="text-lg flex flex-col gap-2">
@@ -215,7 +215,7 @@
 import WtCarouselEnhanced from '../components/portfolio/WtCarouselEnhanced.vue';
 import PortfolioProject from '../components/PortfolioProject.vue';
 import ConversionTool from '../components/ConversionTool.vue';
-import TwEmbedVideo from '../components/media/TwEmbedVideo.vue';
+import TwEmbeddedVideo from '../components/media/TwEmbeddedVideo.vue';
 import TimerPage from './TimerPage.vue';
 import WtHero from '../components/portfolio/WtHero.vue';
 

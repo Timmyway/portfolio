@@ -45,7 +45,25 @@ const props = defineProps({
     fullscreen: {
         type: Boolean,
         default: true,
+    },
+    containerMaxWidth: {
+        type: Number,
+        default: 800,
+    },
+    aspectRatio: {
+        type: String,
+        default: '16:9',
     }
+});
+
+// Function to calculate padding-bottom based on aspect ratio string
+const computedAspectRatio = computed(() => {
+    const [width, height] = props.aspectRatio.split(':').map(Number);
+    return (height / width) * 100;
+});
+
+const containerPaddingBottom = computed(() => {
+    return (computedAspectRatio.value * props.containerMaxWidth) / 100;
 });
 
 const computedAllow = computed(() => {
@@ -64,7 +82,7 @@ const computedAllow = computed(() => {
 </script>
 
 <template>
-<div class="video-container">
+<div class="video-container" :style="{ maxWidth: containerMaxWidth + 'px', paddingBottom: containerPaddingBottom + 'px' }">
     <iframe
         :width="width"
         :height="height"
@@ -80,8 +98,19 @@ const computedAllow = computed(() => {
 
 <style scoped>
 .video-container {
+    position: relative;
     width: 100%;
-    max-width: 800px;
+    height: 0;
+    overflow: hidden;
     margin: 0 auto;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
 }
 </style>
