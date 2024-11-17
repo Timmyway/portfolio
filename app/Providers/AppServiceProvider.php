@@ -25,6 +25,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         $frontUrl = env('APP_URL');
+        $subdomain = env('SUBDOMAIN');
         View::share('frontUrl', $frontUrl);
+        View::share('subdomain', $subdomain);
     }
 }
