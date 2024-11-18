@@ -39,7 +39,7 @@ const app = createApp({
             { id: 2, text: 'A propos', icon: 'fas fa-info-circle', link: { route: '/a-propos' } },
             { id: 3, text: 'Réalisations', icon: 'fas fa-tasks', link: { route: '/projets' } },
             { id: 4, text: 'Contact', icon: 'fas fa-envelope', link: { route: '/contact' } },
-            { id: 5, text: 'Mon CV', icon: 'fas fa-file-download', target: '_blank', link: { route: `${window.baseUrl}docs/cv-tim.pdf`, download: true } },
+            { id: 5, text: 'Mon CV', icon: 'fas fa-file-download', target: '_blank', link: { route: '/docs/cv-tim.pdf', download: true } },
         ]);
 
         const { scrollToElem, isTopest } = useScrollToTop(600);
