@@ -27,6 +27,5 @@ class AppServiceProvider extends ServiceProvider
         $frontUrl = env('APP_URL');
         $subdomain = env('SUBDOMAIN');
         View::share('frontUrl', $frontUrl);
-        View::share('subdomain', $subdomain);
     }
 }
